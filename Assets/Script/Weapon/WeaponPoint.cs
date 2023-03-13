@@ -8,9 +8,13 @@ public class WeaponPoint : MonoBehaviour
     private Camera cam;
     private Vector3 mousePos;
 
-    void Start()
+    void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
+    void Start()
+    {
+        
     }
 
     void Update()
