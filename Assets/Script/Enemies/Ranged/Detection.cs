@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
-    [SerializeField] private float viewRadius;
+    private float viewRadius;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private float searchInterval = 0.2f;
@@ -75,5 +75,10 @@ public class Detection : MonoBehaviour
     public bool isPlayerFound()
     {
         return playerFound;
+    }
+
+    public void SetRadius(float r)
+    {
+        viewRadius = r;
     }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     //Status
-    [SerializeField] float hp;
-    [SerializeField] float visualRange;
+    [SerializeField] private float hp;
+    [SerializeField] private float visualRange;
     private Transform player;
     
     //Detection
@@ -18,29 +18,35 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] private State state;
 
     //Timings
-    [SerializeField]private float timer;
+    [SerializeField] private float timer;
     [SerializeField] float aimTime;     //Time to shoot as line of sight is maintained
     [SerializeField] float searchTime;  //Time to chase after losing sight of player
 
     //Weapon
-    private EnemyWeapon weapon;
-    
+    [SerializeField] private EnemyWeapon weapon;
+
+    //UI
+    private CircleRenderer circleRenderer;
 
     void Awake()
     {
         weapon = GetComponentInChildren<EnemyWeapon>();
         detection = GetComponentInChildren<Detection>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        circleRenderer = GetComponentInChildren<CircleRenderer>();
     }
     void Start()
     {
         state =  State.patrol;
+        circleRenderer.CreatePoints();
+        detection.SetRadius(visualRange);
     }
 
     void Update()
     {
         //Get visible targets
         List<Transform> visibleTargets = detection.GetVisibleTargets();
+        detection.SetRadius(visualRange);
 
         switch(state)
         {
@@ -48,6 +54,7 @@ public class EnemyRanged : MonoBehaviour
                 if(detection.isPlayerFound())
                 {
                     //If target found, aim (temporary)
+                    circleRenderer.SetColor(Color.red);
                     timer = aimTime;
                     state = State.aim;
                 }
@@ -61,8 +68,15 @@ public class EnemyRanged : MonoBehaviour
                 //Countdown aim time
                 timer -= Time.deltaTime;
 
+                if(visibleTargets.Count == 0)
+                {
+                    circleRenderer.SetColor(Color.white);
+                    state = State.patrol;
+                }
+
                 if(timer <= 0)
                 {
+                    circleRenderer.SetColor(Color.white);
                     weapon.ShootBullet();
                     state = State.patrol;
                 }
@@ -86,5 +100,10 @@ public class EnemyRanged : MonoBehaviour
     public Vector2 getTargetPos()
     {
         return player.position;
+    }
+
+    public float getVisualRange()
+    {
+        return visualRange;
     }
 }
