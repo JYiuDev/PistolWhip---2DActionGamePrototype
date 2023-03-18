@@ -31,11 +31,7 @@ public class Detection : MonoBehaviour
         //Find all objects in range on specified target layer
         targetsInRange = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetLayer);
 
-        //If nothing is in range, player is not found
-        if (targetsInRange.Length == 0)
-        {
-            playerFound = false;
-        }
+        
 
         //Raycast to check if any obstacles are in the way, if not, add target to visible list
         for(int i = 0; i < targetsInRange.Length; i++)
@@ -48,12 +44,14 @@ public class Detection : MonoBehaviour
             if(!Physics2D.Raycast(transform.position, targetDir, targetDist, obstacleLayer))
             {
                 visibleTargets.Add(target);
+                if(target.CompareTag("Player")){playerFound = true;}
             }
+        }
 
-            if(target.CompareTag("Player"))
-            {
-                playerFound = true;
-            }
+        //If nothing is in range, player is not found
+        if (visibleTargets.Count == 0)
+        {
+            playerFound = false;
         }
     }
 

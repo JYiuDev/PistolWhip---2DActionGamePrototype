@@ -68,7 +68,7 @@ public class EnemyRanged : MonoBehaviour
                 //Countdown aim time
                 timer -= Time.deltaTime;
 
-                if(visibleTargets.Count == 0)
+                if(!detection.isPlayerFound())
                 {
                     circleRenderer.SetColor(Color.white);
                     state = State.patrol;
