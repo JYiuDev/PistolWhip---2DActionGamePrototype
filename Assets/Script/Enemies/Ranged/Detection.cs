@@ -4,30 +4,19 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
-    private CircleCollider2D detectionCircle;
-    private bool playerFound = false;
+    private float viewRadius;
+    [SerializeField] private LayerMask targetLayer;
+    [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private float searchInterval = 0.2f;
+    //private CircleCollider2D detectionCircle;
+    [SerializeField] private bool playerFound = false;
+    [SerializeField] private List<Transform> visibleTargets = new List<Transform>();
+    Collider2D[] targetsInRange;
 
     void Start()
     {
-        detectionCircle = gameObject.GetComponent<CircleCollider2D>();
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-
-        }
-    }
-
-    public void SetRange(float rad)
-    {
-        detectionCircle.radius = rad;
+        //detectionCircle = gameObject.GetComponent<CircleCollider2D>();
+        StartCoroutine("FindTargetsWithDelay", searchInterval);
     }
 
     public bool PlayerDetected()
@@ -35,34 +24,59 @@ public class Detection : MonoBehaviour
         return playerFound;
     }
 
-    private void FindVisibleTargets()
+    private void FindVisibleTargets() //referenced from old code 
     {
+        visibleTargets.Clear();
+
+        //Find all objects in range on specified target layer
+        targetsInRange = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetLayer);
+
         
+
+        //Raycast to check if any obstacles are in the way, if not, add target to visible list
+        for(int i = 0; i < targetsInRange.Length; i++)
+        {
+            Transform target = targetsInRange[i].transform;
+            Vector2 targetDir = (target.position - transform.position).normalized;
+
+            float targetDist = Vector2.Distance(transform.position, target.position);
+
+            if(!Physics2D.Raycast(transform.position, targetDir, targetDist, obstacleLayer))
+            {
+                visibleTargets.Add(target);
+                if(target.CompareTag("Player")){playerFound = true;}
+            }
+        }
+
+        //If nothing is in range, player is not found
+        if (visibleTargets.Count == 0)
+        {
+            playerFound = false;
+        }
     }
 
-    //OLD CODE FOR REFERENCE BELOW
-    //  private void FindVisibleTarget()
-    // {
-    //     visibleTargets.Clear();
-    //     //Find all targetMask objects in specified range
-    //     targetsInRange = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask); 
+    public List<Transform> GetVisibleTargets()
+    {
+        return visibleTargets;
+    }
 
-    //     //RayCast to check if any Obstacles are hit, if not, add target to visible list!
-    //     for(int i = 0; i < targetsInRange.Length; i++)
-    //     {
-    //         Transform target = targetsInRange[i].transform;
-    //         Vector2 targetDir = (target.position - transform.position).normalized;
+    //Search at specific intervals
+    IEnumerator FindTargetsWithDelay(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            FindVisibleTargets();
+        }
+    }
+    
+    public bool isPlayerFound()
+    {
+        return playerFound;
+    }
 
-    //         if(Vector2.Angle(targetDir, transform.up) < viewAngle /2)
-    //         {
-    //             float targetDist = Vector2.Distance(transform.position, target.position);
-
-    //             if(!Physics2D.Raycast(transform.position, targetDir, targetDist, obstacleMask))
-    //             {
-    //                 visibleTargets.Add(target);
-    //             }
-    //         }
-    //     }
-    // }
-
+    public void SetRadius(float r)
+    {
+        viewRadius = r;
+    }
 }
