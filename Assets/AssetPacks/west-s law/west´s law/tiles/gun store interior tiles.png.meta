@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,6 +101,54 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -110,10 +158,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 162
-        width: 378
+        width: 42
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +177,12 @@ TextureImporter:
       name: gun store interior tiles_1
       rect:
         serializedVersion: 2
-        x: 384
+        x: 42
         y: 162
-        width: 378
+        width: 42
         height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +198,12 @@ TextureImporter:
       name: gun store interior tiles_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 75
-        width: 325
-        height: 83
+        x: 84
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +219,12 @@ TextureImporter:
       name: gun store interior tiles_3
       rect:
         serializedVersion: 2
-        x: 336
-        y: 100
-        width: 151
-        height: 42
+        x: 126
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +240,12 @@ TextureImporter:
       name: gun store interior tiles_4
       rect:
         serializedVersion: 2
-        x: 496
-        y: 139
-        width: 16
-        height: 19
+        x: 168
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +261,12 @@ TextureImporter:
       name: gun store interior tiles_5
       rect:
         serializedVersion: 2
-        x: 528
-        y: 137
-        width: 16
-        height: 21
+        x: 210
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +282,12 @@ TextureImporter:
       name: gun store interior tiles_6
       rect:
         serializedVersion: 2
-        x: 560
-        y: 46
-        width: 35
-        height: 112
+        x: 252
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,12 +303,12 @@ TextureImporter:
       name: gun store interior tiles_7
       rect:
         serializedVersion: 2
-        x: 608
-        y: 46
-        width: 35
-        height: 112
+        x: 294
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,12 +324,12 @@ TextureImporter:
       name: gun store interior tiles_8
       rect:
         serializedVersion: 2
-        x: 656
-        y: 75
-        width: 35
-        height: 83
+        x: 336
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -297,12 +345,12 @@ TextureImporter:
       name: gun store interior tiles_9
       rect:
         serializedVersion: 2
-        x: 704
-        y: 75
-        width: 35
-        height: 83
+        x: 378
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -318,12 +366,12 @@ TextureImporter:
       name: gun store interior tiles_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 25
-        width: 73
-        height: 37
+        x: 420
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,12 +387,12 @@ TextureImporter:
       name: gun store interior tiles_11
       rect:
         serializedVersion: 2
-        x: 80
-        y: 25
-        width: 73
-        height: 37
+        x: 462
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,12 +408,12 @@ TextureImporter:
       name: gun store interior tiles_12
       rect:
         serializedVersion: 2
-        x: 160
-        y: 14
-        width: 94
-        height: 48
+        x: 504
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -381,12 +429,12 @@ TextureImporter:
       name: gun store interior tiles_13
       rect:
         serializedVersion: 2
-        x: 272
-        y: 0
-        width: 118
-        height: 62
+        x: 546
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -402,12 +450,12 @@ TextureImporter:
       name: gun store interior tiles_14
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 118
-        height: 62
+        x: 588
+        y: 162
+        width: 42
+        height: 396
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,6 +463,69 @@ TextureImporter:
       bones: []
       spriteID: 2b61a4205df6e8f4185dd03ea48ea707
       internalID: -2123533728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun store interior tiles_15
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 162
+        width: 42
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d06480f8460364da482220939f35c2
+      internalID: -1434191938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun store interior tiles_16
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 162
+        width: 42
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d30543a20293c049b5e1307c79f0456
+      internalID: -1214543433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun store interior tiles_17
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 162
+        width: 42
+        height: 396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ae485d47873794e82b21daaf464db5
+      internalID: -683262285
       vertices: []
       indices: 
       edges: []
@@ -436,7 +547,10 @@ TextureImporter:
       gun store interior tiles_11: -1382871488
       gun store interior tiles_12: -588157678
       gun store interior tiles_5: 671883303
+      gun store interior tiles_16: -1214543433
       gun store interior tiles_13: 946292236
+      gun store interior tiles_15: -1434191938
+      gun store interior tiles_17: -683262285
       gun store interior tiles_3: 1217167389
       gun store interior tiles_1: -1738956303
       gun store interior tiles_10: 801916750
