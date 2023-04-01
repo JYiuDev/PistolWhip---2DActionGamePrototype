@@ -87,14 +87,7 @@ public class EnemyRanged : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bullet"))
-        {
-            Debug.Log("hit");
-            //TO IMPLEMENT
-            //reduce hp
-            //play hurt animation
-            //if hp <=0, die
-        }
+        
     }
 
     public Vector2 getTargetPos()
@@ -106,4 +99,10 @@ public class EnemyRanged : MonoBehaviour
     {
         return visualRange;
     }
+
+    public void takeDamage(float dmg)
+    {
+        Debug.Log("enemy took " + dmg + " damage");
+    }
+
 }

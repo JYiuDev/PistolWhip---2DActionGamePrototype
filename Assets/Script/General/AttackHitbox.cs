@@ -7,11 +7,6 @@ public class AttackHitbox : MonoBehaviour
     private Collider2D hitbox;
     [SerializeField] private LayerMask targetLayer;
 
-    //Attack Values
-    [SerializeField] float startUp;
-    [SerializeField] float active;
-
-
 
     void Start()
     {
@@ -23,12 +18,15 @@ public class AttackHitbox : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         switch(other.tag)
         {
             case "Enemy":
-
+                //Gona need further fixing to acoomodate other types of enemies
+                //Need to make a parent class for all enemies
+                EnemyRanged enemy = other.GetComponent<EnemyRanged>();
+                enemy.takeDamage(2);
             break;
         }
     }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField]private Vector2 moveDir;
+    private enum State{};
     
 
     void Start()
@@ -25,6 +26,11 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw(InputAxes.Vertical);
         moveDir = moveDir.normalized;
         animator.SetFloat("Speed", moveDir.SqrMagnitude());
+
+        if(Input.GetKeyDown("Fire2"))
+        {
+
+        }
     }
 
     void FixedUpdate()
