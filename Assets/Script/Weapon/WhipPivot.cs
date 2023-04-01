@@ -9,11 +9,13 @@ public class WhipPivot : MonoBehaviour
     private Vector3 mousePos;
     private Animator animator;
     private bool rotate = true;
+    private WhipAttack whipAttack;
 
     void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
+        whipAttack = GetComponentInChildren<WhipAttack>();
     }
     void Start()
     {
@@ -23,12 +25,18 @@ public class WhipPivot : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown("Fire2"))
+        if(Input.GetButtonDown(InputAxes.WhipAttack))
         {
-
+            if(!whipAttack.attack)
+            {
+                animator.Play("Base Layer.whipAttack", 0, 0);
+            } else 
+            {
+                Debug.Log("Still in Animation!");
+            }   
         }
 
-        if(!rotate)
+        if(rotate)
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition); //translate screen mouse position to world
             Vector3 direction = (mousePos - transform.position).normalized;       //Vector from weapon to mouse

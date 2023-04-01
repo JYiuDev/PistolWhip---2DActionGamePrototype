@@ -26,11 +26,6 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw(InputAxes.Vertical);
         moveDir = moveDir.normalized;
         animator.SetFloat("Speed", moveDir.SqrMagnitude());
-
-        if(Input.GetKeyDown("Fire2"))
-        {
-
-        }
     }
 
     void FixedUpdate()

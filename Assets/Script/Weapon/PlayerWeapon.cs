@@ -34,11 +34,6 @@ public class PlayerWeapon : MonoBehaviour
         {
             ShootBullet();
         }
-
-        if(Input.GetKeyDown("Fire2"))
-        {
-            
-        }
     }
 
 

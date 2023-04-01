@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackHitbox : MonoBehaviour
+public class WhipAttack : MonoBehaviour
 {
     private Collider2D hitbox;
     [SerializeField] private LayerMask targetLayer;
+    private WhipPivot pivot; 
+    public bool attack = false;
 
 
     void Start()
     {
         hitbox = GetComponent<BoxCollider2D>();
+        pivot = GetComponentInParent<WhipPivot>();
     }
 
     void Update()
     {
-
+        if(attack)
+        {
+            pivot.stopRotate();
+        } else if (!attack)
+        {
+            pivot.startRotate();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -29,5 +38,14 @@ public class AttackHitbox : MonoBehaviour
                 enemy.takeDamage(2);
             break;
         }
+    }
+
+    public void lockePivot()
+    {
+        pivot.stopRotate();
+    }
+    public void unlockPivot()
+    {
+        pivot.startRotate();
     }
 }
