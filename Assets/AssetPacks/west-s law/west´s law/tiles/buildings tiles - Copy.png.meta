@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17ac79a67a9a3bc48a825767c86c0329
+guid: a05426fdad71f1247bd2bc8c0fdb554b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,70 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: tittle buttons_strip3_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 169
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5047713469c1a4549a43898913beb5c7
-      internalID: 478456939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tittle buttons_strip3_1
-      rect:
-        serializedVersion: 2
-        x: 217
-        y: 7
-        width: 105
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af3fd3bdba11cb43ad84a31e4785066
-      internalID: 1911052257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tittle buttons_strip3_2
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 7
-        width: 180
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04c24756c718b6f4fb4d8bfa9f564df8
-      internalID: 306906478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -177,10 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      tittle buttons_strip3_0: 478456939
-      tittle buttons_strip3_2: 306906478
-      tittle buttons_strip3_1: 1911052257
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
