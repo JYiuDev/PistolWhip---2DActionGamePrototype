@@ -38,7 +38,7 @@ public class BulletMove : MonoBehaviour
 
             break;
 
-            case "Plyaer":
+            case "Player":
                 Debug.Log("Player hit");
             break;
         }

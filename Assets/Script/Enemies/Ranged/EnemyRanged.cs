@@ -28,12 +28,16 @@ public class EnemyRanged : MonoBehaviour
     //UI
     private CircleRenderer circleRenderer;
 
+    //Animator
+    private Animator animator;
+
     void Awake()
     {
         weapon = GetComponentInChildren<EnemyWeapon>();
         detection = GetComponentInChildren<Detection>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         circleRenderer = GetComponentInChildren<CircleRenderer>();
+        animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -103,6 +107,7 @@ public class EnemyRanged : MonoBehaviour
     public void takeDamage(float dmg)
     {
         Debug.Log("enemy took " + dmg + " damage");
+        animator.Play("Base Layer.EnemyHurt", 0, 0);
     }
 
 }

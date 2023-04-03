@@ -57,4 +57,22 @@ public class WhipPivot : MonoBehaviour
     {
         rotate = true;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        switch(other.tag)
+        {
+            case "Enemy":
+                //Gona need further fixing to acoomodate other types of enemies
+                //Need to make a parent class for all enemies
+                EnemyRanged enemy = other.GetComponent<EnemyRanged>();
+                enemy.takeDamage(1);
+
+            break;
+
+            case "Player":
+                Debug.Log("Player hit");
+            break;
+        }
+    }
 }
