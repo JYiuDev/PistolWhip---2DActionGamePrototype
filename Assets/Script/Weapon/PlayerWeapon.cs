@@ -11,6 +11,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
@@ -30,12 +31,24 @@ public class PlayerWeapon : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rotation);
 
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        // Flip the sprite if pointing left
+        if (Mathf.Abs(rotation) > 90)
+        {
+            spriteRenderer.flipY = true;
+            spriteRenderer.flipX = false;
+        }
+        // Flip the sprite back if pointing right
+        else
+        {
+            spriteRenderer.flipY = false;
+            spriteRenderer.flipX = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ShootBullet();
         }
     }
-
 
     public void ShootBullet()
     {
@@ -43,6 +56,4 @@ public class PlayerWeapon : MonoBehaviour
         bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
     }
 
-
-     
 }

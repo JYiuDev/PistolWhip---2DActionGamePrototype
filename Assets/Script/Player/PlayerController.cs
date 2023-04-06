@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Rigidbody2D rb; 
     private Animator animator;
@@ -26,6 +27,17 @@ public class PlayerController : MonoBehaviour
         moveDir.y = Input.GetAxisRaw(InputAxes.Vertical);
         moveDir = moveDir.normalized;
         animator.SetFloat("Speed", moveDir.SqrMagnitude());
+
+        // Flip the sprite if moving left
+        if (moveDir.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        // Flip the sprite back if moving right
+        else if (moveDir.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     void FixedUpdate()
