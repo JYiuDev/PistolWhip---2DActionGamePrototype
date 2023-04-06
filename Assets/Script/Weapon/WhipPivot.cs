@@ -14,8 +14,8 @@ public class WhipPivot : MonoBehaviour
     void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        animator = GetComponentInChildren<Animator>();
-        whipAttack = GetComponentInChildren<WhipAttack>();
+        //animator = GetComponentInChildren<Animator>();
+        //whipAttack = GetComponentInChildren<WhipAttack>();
     }
     void Start()
     {
@@ -25,16 +25,16 @@ public class WhipPivot : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetButtonDown(InputAxes.WhipAttack))
-        {
-            if(!whipAttack.attack)
-            {
-                animator.Play("Base Layer.whipAttack", 0, 0);
-            } else 
-            {
-                Debug.Log("Still in Animation!");
-            }   
-        }
+        // if(Input.GetButtonDown(InputAxes.WhipAttack))
+        // {
+        //     if(!whipAttack.attack)
+        //     {
+        //         animator.Play("Base Layer.whipAttack", 0, 0);
+        //     } else 
+        //     {
+        //         Debug.Log("Still in Animation!");
+        //     }   
+        // }
 
         if(rotate)
         {
@@ -58,21 +58,21 @@ public class WhipPivot : MonoBehaviour
         rotate = true;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        switch(other.tag)
-        {
-            case "Enemy":
-                //Gona need further fixing to acoomodate other types of enemies
-                //Need to make a parent class for all enemies
-                EnemyRanged enemy = other.GetComponent<EnemyRanged>();
-                enemy.takeDamage(1);
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     switch(other.tag)
+    //     {
+    //         case "Enemy":
+    //             //Gona need further fixing to acoomodate other types of enemies
+    //             //Need to make a parent class for all enemies
+    //             EnemyRanged enemy = other.GetComponent<EnemyRanged>();
+    //             enemy.takeDamage(1);
 
-            break;
+    //         break;
 
-            case "Player":
-                Debug.Log("Player hit");
-            break;
-        }
-    }
+    //         case "Player":
+    //             Debug.Log("Player hit");
+    //         break;
+    //     }
+    // }
 }
