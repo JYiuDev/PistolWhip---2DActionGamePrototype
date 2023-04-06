@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField]private Vector2 moveDir;
+    private enum State{};
     
 
     void Start()

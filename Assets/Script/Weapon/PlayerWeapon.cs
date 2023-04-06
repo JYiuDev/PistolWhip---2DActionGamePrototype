@@ -32,7 +32,6 @@ public class PlayerWeapon : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("click");
             ShootBullet();
         }
     }

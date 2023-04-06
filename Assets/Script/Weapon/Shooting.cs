@@ -20,7 +20,6 @@ public class Shooting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("click");
-            ShootBullet();
         }
     }
 
