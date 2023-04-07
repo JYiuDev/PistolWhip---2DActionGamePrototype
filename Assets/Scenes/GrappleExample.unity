@@ -1715,7 +1715,7 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0}
   grappleDistanceVector: {x: 0, y: 0}
   pulledObj: {fileID: 0}
-  pullSpeed: 10
+  pullSpeed: 24
 --- !u!61 &1837678110
 BoxCollider2D:
   m_ObjectHideFlags: 0
