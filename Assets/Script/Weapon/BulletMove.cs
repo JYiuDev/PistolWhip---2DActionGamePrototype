@@ -43,4 +43,14 @@ public class BulletMove : MonoBehaviour
             break;
         }
     }
+
+    public Vector2 GetDirection()
+    {
+        return transform.right;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }
