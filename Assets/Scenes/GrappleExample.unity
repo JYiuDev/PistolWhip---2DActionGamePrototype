@@ -1704,8 +1704,8 @@ MonoBehaviour:
   m_rigidbody: {fileID: 310852273}
   rotateOverTime: 0
   rotationSpeed: 4
-  hasMaxDistance: 0
-  maxDistnace: 20
+  hasMaxDistance: 1
+  maxDistnace: 9
   launchToPoint: 1
   launchType: 0
   launchSpeed: 1

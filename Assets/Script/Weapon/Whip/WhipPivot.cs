@@ -14,8 +14,6 @@ public class WhipPivot : MonoBehaviour
     void Awake()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        //animator = GetComponentInChildren<Animator>();
-        //whipAttack = GetComponentInChildren<WhipAttack>();
     }
     void Start()
     {
@@ -24,18 +22,6 @@ public class WhipPivot : MonoBehaviour
 
     void Update()
     {
-
-        // if(Input.GetButtonDown(InputAxes.WhipAttack))
-        // {
-        //     if(!whipAttack.attack)
-        //     {
-        //         animator.Play("Base Layer.whipAttack", 0, 0);
-        //     } else 
-        //     {
-        //         Debug.Log("Still in Animation!");
-        //     }   
-        // }
-
         if(rotate)
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition); //translate screen mouse position to world
