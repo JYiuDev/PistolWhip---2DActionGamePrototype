@@ -5,7 +5,7 @@ using UnityEngine;
 public class WhipPullClick : MonoBehaviour
 {
     [Header("Scripts Ref:")]
-    public PullRope grappleRope;
+    public PullRopeClick grappleRope;
 
     [Header("Layers Settings:")]
     [SerializeField] private bool grappleToAll = false;
@@ -19,10 +19,6 @@ public class WhipPullClick : MonoBehaviour
     public Transform gunPivot;
     public Transform firePoint;
 
-    [Header("Physics Ref:")]
-    public SpringJoint2D m_springJoint2D;
-    public Rigidbody2D m_rigidbody;
-
     [Header("Rotation:")]
     [SerializeField] private bool rotateOverTime = true;
     [Range(0, 60)] [SerializeField] private float rotationSpeed = 4;
@@ -30,6 +26,10 @@ public class WhipPullClick : MonoBehaviour
     [Header("Distance:")]
     [SerializeField] private bool hasMaxDistance = false;
     [SerializeField] private float maxDistnace = 20;
+    [SerializeField] private LayerMask obstacleLayer;
+    
+    private enum State{extend, retract, inactive};
+    [SerializeField] private State state = State.inactive;
 
     private enum LaunchType
     {
@@ -52,57 +52,60 @@ public class WhipPullClick : MonoBehaviour
 
     [SerializeField] private Transform pulledObj;
     [SerializeField] float pullSpeed = 3;
+    private bool delivered = false;
 
     private void Start()
     {
         grappleRope.enabled = false;
-        m_springJoint2D.enabled = false;
-
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        switch(state)
         {
-            SetGrapplePoint();
-        }
-        else if (Input.GetKey(KeyCode.Mouse0) & pulledObj != null)
-        {
-            if (grappleRope.enabled)
-            {
-                RotateGun(grapplePoint, false);
-            }
-            else
-            {
-                Vector2 mousePos = m_camera.ScreenToWorldPoint(Input.mousePosition);
-                RotateGun(mousePos, true);
-            }
+            case State.inactive:
 
-            if (launchToPoint && grappleRope.isGrappling)
-            {
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    SetGrapplePoint();
+                }
+
+            break;
+
+            case State.extend:
+
+                if (launchToPoint && grappleRope.isGrappling)
+                {
+                    state = State.retract;
+                }
+
+            break;
+
+            case State.retract:
+
+                //Updating the grapple point position, pulled obj position, and rope origin position
                 Vector3 pullDirection = (pulledObj.position - transform.position).normalized;
                 pulledObj.transform.position -= pullDirection * pullSpeed * Time.deltaTime;
-                
+                    
                 Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                 Vector2 targetPos = (Vector2)pulledObj.position - firePointDistnace;
 
                 grapplePoint -= (Vector2)pullDirection * pullSpeed * Time.deltaTime;
 
-
-                // if (launchType == LaunchType.Transform_Launch)
+                // if(pulledObj = null)
                 // {
-                //     Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
-                //     Vector2 targetPos = grapplePoint - firePointDistnace;
-                //     gunHolder.position = Vector2.Lerp(gunHolder.position, targetPos, Time.deltaTime * launchSpeed);
+                //     grappleRope.enabled = false;
+                //     pulledObj = null;
+                //     state = State.inactive;
                 // }
-            }
+
+            break;
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+
+        //Point direction to whipped object if it is grabbed, and allow whip pivot to rotate if not
+        if (grappleRope.enabled)
         {
-            grappleRope.enabled = false;
-            m_springJoint2D.enabled = false;
-            m_rigidbody.gravityScale = 1;
-            pulledObj = null;
+            RotateGun(grapplePoint, false);
         }
         else
         {
@@ -140,53 +143,12 @@ public class WhipPullClick : MonoBehaviour
                     grapplePoint = _hit.point;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
+                    state = State.extend;
                 }
             }
         }
     }
 
-    public void Grapple()
-    {
-        // Vector3 pullDirection = (pulledObj.position - transform.position).normalized;
-        // pulledObj.transform.position -= pullDirection * 1 * Time.deltaTime;
-
-        // m_springJoint2D.autoConfigureDistance = false;
-        // if (!launchToPoint && !autoConfigureDistance)
-        // {
-        //     m_springJoint2D.distance = targetDistance;
-        //     m_springJoint2D.frequency = targetFrequncy;
-        // }
-        // if (!launchToPoint)
-        // {
-        //     if (autoConfigureDistance)
-        //     {
-        //         m_springJoint2D.autoConfigureDistance = true;
-        //         m_springJoint2D.frequency = 0;
-        //     }
-
-        //     m_springJoint2D.connectedAnchor = grapplePoint;
-        //     m_springJoint2D.enabled = true;
-        // }
-        // else
-        // {
-        //     switch (launchType)
-        //     {
-        //         case LaunchType.Physics_Launch:
-        //             m_springJoint2D.connectedAnchor = grapplePoint;
-
-        //             Vector2 distanceVector = firePoint.position - gunHolder.position;
-
-        //             m_springJoint2D.distance = distanceVector.magnitude;
-        //             m_springJoint2D.frequency = launchSpeed;
-        //             m_springJoint2D.enabled = true;
-        //             break;
-        //         case LaunchType.Transform_Launch:
-        //             m_rigidbody.gravityScale = 0;
-        //             m_rigidbody.velocity = Vector2.zero;
-        //             break;
-        //     }
-        // }
-    }
 
     private void OnDrawGizmosSelected()
     {
@@ -195,5 +157,12 @@ public class WhipPullClick : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(firePoint.position, maxDistnace);
         }
+    }
+
+    public void whipInactive()
+    {
+        grappleRope.enabled = false;
+        pulledObj = null;
+        state = State.inactive;
     }
 }

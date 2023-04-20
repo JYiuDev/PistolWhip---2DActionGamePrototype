@@ -76,7 +76,6 @@ public class PullRope : MonoBehaviour
         {
             if (!isGrappling)
             {
-                grapplingGun.Grapple();
                 isGrappling = true;
             }
             if (waveSize > 0)
