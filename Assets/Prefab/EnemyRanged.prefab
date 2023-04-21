@@ -144,6 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2818698909088932878}
   - component: {fileID: 2818698909088932879}
+  - component: {fileID: 3118972144074021873}
   m_Layer: 8
   m_Name: Stunned
   m_TagString: Untagged
@@ -207,7 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: 21300000, guid: 0265ef76f1b491e4c82b5bd1c767c6f2, type: 3}
+  m_Sprite: {fileID: -411115063, guid: 0265ef76f1b491e4c82b5bd1c767c6f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -218,6 +219,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3118972144074021873
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818698909088932912}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6ef8ec4dfe82734b86d272fbe4d6f90, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2818698909681208103
 GameObject:
   m_ObjectHideFlags: 0
