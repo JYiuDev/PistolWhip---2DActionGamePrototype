@@ -6,14 +6,14 @@ public class WhipAttack : MonoBehaviour
 {
     private Collider2D hitbox;
     [SerializeField] private LayerMask targetLayer;
-    private WhipPivot pivot; 
+    private WeaponPivot pivot; 
     public bool attack = false;
 
 
     void Start()
     {
         hitbox = GetComponent<BoxCollider2D>();
-        pivot = GetComponentInParent<WhipPivot>();
+        pivot = GetComponentInParent<WeaponPivot>();
     }
 
     void Update()

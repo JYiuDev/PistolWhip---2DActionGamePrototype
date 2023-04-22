@@ -6,9 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Enemy
-  - Interactable
-  - Gun
-  - Wall
+  - Block
   layers:
   - Default
   - TransparentFX
@@ -17,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - Interactable
-  - Enemy
-  - 
+  - PullObjects
+  - IgnoreCollision
+  - RetractObj
   - 
   - 
   - 
