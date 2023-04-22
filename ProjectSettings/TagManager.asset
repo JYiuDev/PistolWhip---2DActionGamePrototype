@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Block
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Obstacle
   - PullObjects
-  - 
-  - 
+  - IgnoreCollision
+  - RetractObj
   - 
   - 
   - 

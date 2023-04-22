@@ -42,7 +42,4 @@ public class PlayerWeapon : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
         bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
     }
-
-
-     
 }

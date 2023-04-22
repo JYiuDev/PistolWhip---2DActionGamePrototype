@@ -76,6 +76,7 @@ public class WhipPullClick : MonoBehaviour
 
                 if (launchToPoint && grappleRope.isGrappling)
                 {
+                    pulledObj.gameObject.layer = LayerMask.NameToLayer(CollisionLayer.RetractObjects);
                     state = State.retract;
                 }
 
@@ -86,19 +87,15 @@ public class WhipPullClick : MonoBehaviour
                 //Updating the grapple point position, pulled obj position, and rope origin position
                 Vector3 pullDirection = (pulledObj.position - transform.position).normalized;
                 pulledObj.transform.position -= pullDirection * pullSpeed * Time.deltaTime;
-                    
                 Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                 Vector2 targetPos = (Vector2)pulledObj.position - firePointDistnace;
-
                 grapplePoint -= (Vector2)pullDirection * pullSpeed * Time.deltaTime;
 
-                // if(pulledObj = null)
-                // {
-                //     grappleRope.enabled = false;
-                //     pulledObj = null;
-                //     state = State.inactive;
-                // }
-
+                if(Vector2.Distance(pulledObj.position, gunHolder.position) < 0.75f)
+                {
+                    pulledObj.position = gunHolder.position;
+                    whipInactive();
+                }
             break;
         }
 
@@ -141,6 +138,7 @@ public class WhipPullClick : MonoBehaviour
                 {
                     pulledObj =  _hit.transform;
                     grapplePoint = _hit.point;
+                    pulledObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
                     state = State.extend;
