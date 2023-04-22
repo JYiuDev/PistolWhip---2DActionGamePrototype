@@ -32,15 +32,6 @@ public class ThrownObj : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            whip.whipInactive();
-            Destroy(gameObject);
-        }
-    }
-
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F) && (transform.parent != null))
@@ -72,5 +63,6 @@ public class ThrownObj : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.IgnoreCollision);
         transform.SetParent(parent);
         transform.position = parent.position;
+        transform.rotation = parent.rotation;
     }
 }

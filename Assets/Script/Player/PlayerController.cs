@@ -10,13 +10,15 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     [SerializeField]private Vector2 moveDir;
+    private Transform weaponPos;
     private enum State{};
     
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        weaponPos = transform.Find("WeaponPivot").Find("WeaponPos");
     }
 
     void Update()
@@ -32,5 +34,10 @@ public class PlayerController : MonoBehaviour
     {
         //Update Player Position
         rb.MovePosition((moveDir * moveSpeed * Time.fixedDeltaTime) + rb.position);
+    }
+
+    public Transform GetWeaponPos()
+    {
+        return(weaponPos);
     }
 }

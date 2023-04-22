@@ -675,6 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce95bae53f754f8ed9184dac826b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whip: {fileID: 0}
 --- !u!1 &652597066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2968184634464580957, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
+      propertyPath: m_Name
+      value: WeaponPos
+      objectReference: {fileID: 0}
     - target: {fileID: 3975308109126656130, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1361,9 +1366,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4188648282801484955, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175408549430962749, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667148460937811292, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8094982283604274079, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
       propertyPath: m_LocalPosition.x

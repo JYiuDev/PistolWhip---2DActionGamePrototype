@@ -90,10 +90,12 @@ public class WhipPullClick : MonoBehaviour
                 Vector2 firePointDistnace = firePoint.position - gunHolder.localPosition;
                 Vector2 targetPos = (Vector2)pulledObj.position - firePointDistnace;
                 grapplePoint -= (Vector2)pullDirection * pullSpeed * Time.deltaTime;
-
+                
+                //I'm sorry for puting arbitrary numbers
+                //If pulledObj gets close, attach
                 if(Vector2.Distance(pulledObj.position, gunHolder.position) < 0.75f)
                 {
-                    pulledObj.position = gunHolder.position;
+                    pulledObj.GetComponent<ThrownObj>().Attach(gunHolder.GetComponent<PlayerController>().GetWeaponPos());
                     whipInactive();
                 }
             break;
