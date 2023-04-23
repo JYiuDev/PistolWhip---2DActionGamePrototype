@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2031596346670121508}
   - component: {fileID: 2031596346670121510}
   - component: {fileID: 2031596346670121511}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CircleRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2031596346858690647}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 2031596347153689868}
   - component: {fileID: 2031596347153689869}
   - component: {fileID: 1182046501229794035}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stunned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2031596348151146294}
   - component: {fileID: 2031596348151146289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GunSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2031596348447526146}
   - component: {fileID: 2031596348447526147}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 2031596348218337144}
   - component: {fileID: 2031596348218337145}
   - component: {fileID: -6264503646461761341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyRanged
   m_TagString: Enemy
   m_Icon: {fileID: 0}
