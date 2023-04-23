@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 1892024704836746863}
   - component: {fileID: 829165065109538382}
   - component: {fileID: 829165065109538377}
-  - component: {fileID: 1892024704836746856}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Gun
@@ -63,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1892024704836746857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.486423, y: 3.4791183, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 829165065316884026}
@@ -145,7 +144,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1892024704836746857}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -163,10 +162,10 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892024704836746857}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.007591188, y: 0.0021410584}
@@ -214,29 +213,3 @@ MonoBehaviour:
   shieldSlowdown: 0.5
   gunSlowdown: 0.2
   bottleSlowdown: 0.8
---- !u!61 &1892024704836746856
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892024704836746857}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.011241674, y: 0.005109787}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11094618, y: 0.078243375}
-  m_EdgeRadius: 0
