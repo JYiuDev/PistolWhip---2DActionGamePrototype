@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 118266402575250906}
   - component: {fileID: 4419032194079700778}
-  - component: {fileID: 4419032194079700777}
   - component: {fileID: 4212828070094545486}
   - component: {fileID: 4212828070094545483}
   - component: {fileID: 4212828070094545480}
@@ -90,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4419032194079700777
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4212828070094545484}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.053823616}
-  serializedVersion: 2
-  m_Radius: 0.026176382
 --- !u!61 &4212828070094545486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,10 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce95bae53f754f8ed9184dac826b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initSpeed: 8
   whip: {fileID: 0}
   shieldSlowdown: 20
   gunSlowdown: 30
-  bottleSlowdown: 1
+  bottleSlowdown: 0.1
 --- !u!50 &4212828070094545481
 Rigidbody2D:
   serializedVersion: 4
@@ -183,7 +167,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 4212828070094545484}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -192,5 +176,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

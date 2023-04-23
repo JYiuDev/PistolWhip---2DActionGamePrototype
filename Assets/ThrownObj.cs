@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ThrownObj : MonoBehaviour
 {
-    private float speed = 20f;      //arbitrary default value
+    [SerializeField] private float initSpeed = 8f;      //arbitrary default value
+    private float speed;
     private float lifeTime = 5;   //arbitrary default value
     private Rigidbody2D rb;
     private Vector2 lastVelocity;
     [SerializeField] private WhipPullClick whip;
+    [SerializeField] private float shieldSlowdown = 10f;
+    [SerializeField] private float gunSlowdown = 100f;
+    [SerializeField] private float bottleSlowdown = 30f;
 
     void Awake()
     {
@@ -27,7 +31,7 @@ public class ThrownObj : MonoBehaviour
            case "Block":
                Vector2 _otherNormal = other.contacts[0].normal;
                Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
-               rb.velocity = newDir * speed;
+               rb.velocity = newDir * lastVelocity.magnitude;
            break;
        }
     }
@@ -36,7 +40,7 @@ public class ThrownObj : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F) && (transform.parent != null))
         {
-            Launch(5f);
+            Launch(initSpeed);
         }
     }
 
@@ -50,18 +54,19 @@ public class ThrownObj : MonoBehaviour
         rb.velocity = s;
     }
 
-    [SerializeField] private float shieldSlowdown = 20f;
-    [SerializeField] private float gunSlowdown = 30f;
-    [SerializeField] private float bottleSlowdown = 5f;
+
 
     public void Launch(float s)
     {
-        speed = s;
-        //Detach from pivot
         transform.SetParent(null);
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.right * s;
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.PullObjects);
 
+        if(gameObject.CompareTag("Shield"))
+        {
+            Collider2D col = GetComponent<BoxCollider2D>();
+            col.isTrigger = false;
+        }
         // Gradually reduce velocity to zero over time
         StartCoroutine(SlowDown());
 
@@ -71,6 +76,8 @@ public class ThrownObj : MonoBehaviour
     {
         while (rb.velocity.magnitude > 0.1f)
         {
+            
+
             if(gameObject.CompareTag("Shield"))
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, shieldSlowdown * Time.deltaTime);
@@ -105,5 +112,13 @@ public class ThrownObj : MonoBehaviour
         transform.SetParent(parent);
         transform.position = parent.position;
         transform.rotation = parent.rotation;
+
+        //Note to self, take this out eventually plz
+        if(gameObject.CompareTag("Shield"))
+        {
+            Collider2D col = GetComponent<BoxCollider2D>();
+            col.isTrigger = true;
+            gameObject.layer = LayerMask.NameToLayer("Shields");
+        }
     }
 }
