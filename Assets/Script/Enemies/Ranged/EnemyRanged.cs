@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     //Status
-    [SerializeField] private float hp;
+    [SerializeField] private float hp = 2f;
     [SerializeField] private float visualRange;
     private Transform player;
     
@@ -53,6 +53,9 @@ public class EnemyRanged : MonoBehaviour
         detection.SetRadius(visualRange);
         patrolCenter = transform.position;
         stunnedObject.SetActive(false);
+        patrolDirection = Random.insideUnitCircle.normalized; // Initialize patrol direction
+        movingToEdge = false; // Initialize moving to edge
+
     }
 
     void Update()
@@ -129,7 +132,7 @@ public class EnemyRanged : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Bottle"))
         {
             // Set stun timer and change state to stunned
             stunTimer = stunDuration;
@@ -150,6 +153,10 @@ public class EnemyRanged : MonoBehaviour
             //patrolDirection = perpendicular * Mathf.Sign(Vector2.Dot(patrolDirection, perpendicular));
             //movingToEdge = false;
         }
+        if (other.CompareTag("Bullet"))
+        {
+            this.takeDamage(1);
+        }
 
     }
 
@@ -165,6 +172,20 @@ public class EnemyRanged : MonoBehaviour
 
     public void takeDamage(float dmg)
     {
+        if (dmg > 0 && hp > 0)
+        {
+            hp -= dmg;
+            if (hp <= 0)
+            {
+                // Enemy is dead
+                Destroy(gameObject);
+            }
+            else
+            {
+                // Enemy is hit but not dead
+                animator.Play("Base Layer.EnemyHurt", 0, 0);
+            }
+        }
         Debug.Log("enemy took " + dmg + " damage");
         animator.Play("Base Layer.EnemyHurt", 0, 0);
     }
@@ -196,7 +217,7 @@ public class EnemyRanged : MonoBehaviour
                 // Flip sprite to face left or right depending on patrol direction
                 spriteRenderer.flipX = (patrolDirection.x < 0);
             }
-        }
+        } 
         else
         {
             // If moving to edge, wait for break time

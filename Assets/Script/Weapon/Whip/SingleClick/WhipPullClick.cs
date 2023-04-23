@@ -130,6 +130,12 @@ public class WhipPullClick : MonoBehaviour
 
     void SetGrapplePoint()
     {
+        // Check if WeaponPos has no child attached before grappling an object
+        if (gunHolder.GetComponent<PlayerController>().GetWeaponPos().childCount > 0)
+        {
+            return;
+        }
+
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {

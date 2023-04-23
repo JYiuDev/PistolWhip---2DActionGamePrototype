@@ -9,7 +9,7 @@ public class Detection : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private float searchInterval = 0.2f;
     //private CircleCollider2D detectionCircle;
-    [SerializeField] private bool playerFound = false;
+    [SerializeField] public bool playerFound = false;
     [SerializeField] private List<Transform> visibleTargets = new List<Transform>();
     Collider2D[] targetsInRange;
 

@@ -6561,7 +6561,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
   firePoint: {fileID: 1471452193431555432}
   bulletSpeed: 20
-  spriteRenderer: {fileID: 8283695220533227502}
 --- !u!58 &7667148461572206710
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6634,6 +6633,22 @@ PrefabInstance:
     - target: {fileID: 6123429017092865770, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091323689028315955, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091323689028315955, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091323689028315955, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091323689028315955, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -99
       objectReference: {fileID: 0}
     - target: {fileID: 8091323689308274460, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
       propertyPath: m_Pivot.x

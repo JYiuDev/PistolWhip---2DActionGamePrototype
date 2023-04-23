@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GunBounce : MonoBehaviour
 {
-    [SerializeField] private float bounceAngle = 45f;
+    [SerializeField] private float bounceAngle = 120f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (transform.parent == null && collision.CompareTag("Bullet"))
         {
             // Bounce the bullet off the gun in a random direction
             Vector2 bulletDirection = collision.GetComponent<BulletMove>().GetDirection();
