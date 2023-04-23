@@ -1102,6 +1102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59def5866a36105409e62dfd08c9a620, type: 3}
+--- !u!20 &328439688 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 287265011654263164, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
+  m_PrefabInstance: {fileID: 1088906981}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &384049839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6404597356625959890, guid: 3595fcb096919394ebff48ae54c23988, type: 3}
@@ -6969,7 +6974,7 @@ PrefabInstance:
     - target: {fileID: -298856252549459178, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 1088906982}
+      objectReference: {fileID: 0}
     - target: {fileID: -298856252549459178, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
       propertyPath: playerTransform
       value: 
@@ -7030,13 +7035,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4188648282801484955, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
---- !u!20 &1088906982 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 519420031, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
-  m_PrefabInstance: {fileID: 1088906981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1088906983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1725350164726847832, guid: cc2bc6a6cc5fd10419744b6617c89088, type: 3}
@@ -64901,7 +64905,7 @@ PrefabInstance:
     - target: {fileID: 8091323689308274461, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1088906982}
+      objectReference: {fileID: 328439688}
     - target: {fileID: 8091323689308274461, guid: 059fe330f8a9dc44ca6ff36bf6a7afbc, type: 3}
       propertyPath: m_SortingOrder
       value: 99

@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weaponPos = transform.Find("WeaponPivot").Find("WeaponPos");
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()

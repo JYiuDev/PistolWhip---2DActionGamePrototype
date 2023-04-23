@@ -33,17 +33,17 @@ public class WeaponPivot : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, rotation);
 
             // Flip the sprite if pointing left
-            if (Mathf.Abs(rotation) > 90)
-            {
-                spriteRenderer.flipY = true;
-                spriteRenderer.flipX = false;
-            }
-            // Flip the sprite back if pointing right
-            else
-            {
-                spriteRenderer.flipY = false;
-                spriteRenderer.flipX = false;
-            }
+            // if (Mathf.Abs(rotation) > 90)
+            // {
+            //     spriteRenderer.flipY = true;
+            //     spriteRenderer.flipX = false;
+            // }
+            // // Flip the sprite back if pointing right
+            // else
+            // {
+            //     spriteRenderer.flipY = false;
+            //     spriteRenderer.flipX = false;
+            // }
         }
     }
 
