@@ -83,7 +83,7 @@ public class ThrownObj : MonoBehaviour
 
             else if (gameObject.CompareTag("Bottle"))
             {
-                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.one, bottleSlowdown * Time.deltaTime);
+                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, bottleSlowdown * Time.deltaTime);
             }
             yield return null;
         }
