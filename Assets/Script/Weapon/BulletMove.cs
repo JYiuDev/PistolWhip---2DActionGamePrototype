@@ -43,6 +43,10 @@ public class BulletMove : MonoBehaviour
                 Debug.Log("Player hit");
                 Destroy(gameObject);
             break;
+
+            case "Block":
+                Destroy(gameObject);
+            break;
         }
     }
 

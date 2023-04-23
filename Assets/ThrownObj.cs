@@ -20,17 +20,17 @@ public class ThrownObj : MonoBehaviour
         whip = FindObjectOfType<WhipPullClick>();
     }
 
-    //void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    switch(other.gameObject.tag)
-    //    {
-    //        case "Block":
-    //            Vector2 _otherNormal = other.contacts[0].normal;
-    //            Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
-    //            rb.velocity = newDir * speed;
-    //        break;
-    //    }
-    //}
+    void OnCollisionEnter2D(Collision2D other)
+    {
+       switch(other.gameObject.tag)
+       {
+           case "Block":
+               Vector2 _otherNormal = other.contacts[0].normal;
+               Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
+               rb.velocity = newDir * speed;
+           break;
+       }
+    }
 
     void Update()
     {
