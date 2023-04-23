@@ -79,10 +79,10 @@ public class EnemyRanged : MonoBehaviour
                     PatrolState(); //Patrol randomly if player is not found.
                 }
             break;
-            
-            case State.alert:
 
-            break;
+            case State.alert:
+                
+                break;
 
             case State.aim:
                 //Countdown aim time

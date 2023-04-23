@@ -52,7 +52,7 @@ public class ThrownObj : MonoBehaviour
 
     [SerializeField] private float shieldSlowdown = 20f;
     [SerializeField] private float gunSlowdown = 30f;
-    [SerializeField] private float bottleSlowdown = 1f;
+    [SerializeField] private float bottleSlowdown = 5f;
 
     public void Launch(float s)
     {
@@ -80,11 +80,24 @@ public class ThrownObj : MonoBehaviour
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, gunSlowdown * Time.deltaTime);
             }
+
+            else if (gameObject.CompareTag("Bottle"))
+            {
+                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.one, bottleSlowdown * Time.deltaTime);
+            }
             yield return null;
         }
 
         // Stop the object completely
         rb.velocity = Vector2.zero;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") && gameObject.CompareTag("Bottle"))
+        {
+            rb.velocity = Vector2.one;
+        }
     }
     public void Attach(Transform parent)
     {
