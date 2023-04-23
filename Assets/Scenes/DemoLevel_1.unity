@@ -174,6 +174,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13444257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.y
+      value: 0.17792764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0011616945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00058078393
+      objectReference: {fileID: 0}
     - target: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_Name
       value: Barrel
@@ -291,6 +307,10 @@ PrefabInstance:
     - target: {fileID: 4212828070094545484, guid: 08669c8a894153440a11a7b971496d86, type: 3}
       propertyPath: m_Name
       value: Bottle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
@@ -1057,6 +1077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1001 &293582212
@@ -1113,6 +1137,10 @@ PrefabInstance:
     - target: {fileID: 4212828070094545484, guid: 08669c8a894153440a11a7b971496d86, type: 3}
       propertyPath: m_Name
       value: Bottle (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
@@ -1447,6 +1475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1 &423687898
@@ -1560,6 +1592,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &426523817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+  m_PrefabInstance: {fileID: 1505841309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &426523825
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426523817}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.24}
+    newSize: {x: 0.16, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1001 &508017792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1615,8 +1678,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+--- !u!1 &537150370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+  m_PrefabInstance: {fileID: 624398094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &537150378
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537150370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.24}
+    newSize: {x: 0.16, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1001 &620022580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1630,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191715309576639184, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7191715309576639184, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1724,6 +1822,22 @@ PrefabInstance:
     - target: {fileID: 1132871126392150677, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13196468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16311121
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.003688991
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.002213344
       objectReference: {fileID: 0}
     - target: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_Name
@@ -7125,6 +7239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1001 &868366686
@@ -7353,6 +7471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1001 &1087825447
@@ -7524,6 +7646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1001 &1305559661
@@ -7580,6 +7706,10 @@ PrefabInstance:
     - target: {fileID: 4212828070094545484, guid: 08669c8a894153440a11a7b971496d86, type: 3}
       propertyPath: m_Name
       value: Bottle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
@@ -7638,6 +7768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!1001 &1505841309
@@ -7690,6 +7824,22 @@ PrefabInstance:
     - target: {fileID: 1132871126392150677, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13651428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1701088
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0010675192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301770, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.002134785
       objectReference: {fileID: 0}
     - target: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_Name
@@ -8676,6 +8826,10 @@ PrefabInstance:
     - target: {fileID: 4212828070094545484, guid: 08669c8a894153440a11a7b971496d86, type: 3}
       propertyPath: m_Name
       value: Bottle (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
@@ -16653,8 +16807,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4419032194079700777, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+--- !u!1 &1864061039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+  m_PrefabInstance: {fileID: 88307768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1864061047
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864061039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.19, y: 0.24}
+    newSize: {x: 0.16, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.24}
+  m_EdgeRadius: 0
 --- !u!1 &2017838817
 GameObject:
   m_ObjectHideFlags: 0
@@ -64895,6 +65084,7 @@ GameObject:
   - component: {fileID: 2973205363960194368}
   - component: {fileID: 4072074077679394115}
   - component: {fileID: 2973205363960194375}
+  - component: {fileID: 4072074077679394173}
   m_Layer: 7
   m_Name: Gun (1)
   m_TagString: Gun
@@ -64918,6 +65108,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4072074077679394173
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072074077679394151}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0093381405, y: 0.0013339818}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.10397196, y: 0.07995993}
+  m_EdgeRadius: 0
 --- !u!114 &4072074078073169818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65075,6 +65291,7 @@ GameObject:
   - component: {fileID: 2973205363549708185}
   - component: {fileID: 4072074078073169818}
   - component: {fileID: 2973205363549708190}
+  - component: {fileID: 4072074078073169855}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Gun
@@ -65082,6 +65299,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &4072074078073169855
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072074078073169854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011241674, y: 0.005109787}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.11094618, y: 0.078243375}
+  m_EdgeRadius: 0
 --- !u!114 &4072074079420724946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65239,6 +65482,7 @@ GameObject:
   - component: {fileID: 2973205365433863889}
   - component: {fileID: 4072074079420724946}
   - component: {fileID: 2973205365433863894}
+  - component: {fileID: 4072074079420724983}
   m_Layer: 7
   m_Name: Gun (2)
   m_TagString: Gun
@@ -65246,6 +65490,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &4072074079420724983
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072074079420724982}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.010611296, y: -0.00000023841858}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.09633225, y: 0.07793951}
+  m_EdgeRadius: 0
 --- !u!50 &4212828070409854056
 Rigidbody2D:
   serializedVersion: 4
@@ -65475,7 +65745,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4212828070409854061}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -65595,7 +65865,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4212828070943149075}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
