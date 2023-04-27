@@ -36,21 +36,22 @@ public class EnemyRanged : MonoBehaviour
 
     //Animator
     private Animator animator;
+    //Prefabs
+    [SerializeField] private GameObject gunPrefab;
 
     void Awake()
     {
         weapon = GetComponentInChildren<EnemyWeapon>();
         detection = GetComponentInChildren<Detection>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         circleRenderer = GetComponentInChildren<CircleRenderer>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         state = State.patrol;
         circleRenderer.CreatePoints();
-        detection.SetRadius(visualRange);
         patrolCenter = transform.position;
         stunnedObject.SetActive(false);
         patrolDirection = Random.insideUnitCircle.normalized; // Initialize patrol direction
@@ -135,6 +136,7 @@ public class EnemyRanged : MonoBehaviour
         if (other.CompareTag("Bottle"))
         {
             // Set stun timer and change state to stunned
+            takeDamage(1);
             stunTimer = stunDuration;
             state = State.stunned;
 
@@ -179,7 +181,7 @@ public class EnemyRanged : MonoBehaviour
             if (hp <= 0)
             {
                 // Enemy is dead
-                Destroy(gameObject);
+                Die();
             }
             else
             {
@@ -247,7 +249,8 @@ public class EnemyRanged : MonoBehaviour
     
     private void Die()
     {
-        
         Destroy(gameObject);
+        GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
+        gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
     }
 }

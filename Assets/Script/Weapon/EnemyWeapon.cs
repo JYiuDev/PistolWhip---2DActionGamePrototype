@@ -52,4 +52,9 @@ public class EnemyWeapon : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
         bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
     }
+
+    public void dropWeapon()
+    {
+        
+    }
 }

@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
   firePoint: {fileID: 829165065316884026}
-  bulletSpeed: 15
+  bulletSpeed: 20
   maxBullets: 6
 --- !u!114 &829165065109538377
 MonoBehaviour:
@@ -212,5 +212,5 @@ MonoBehaviour:
   initSpeed: 8
   whip: {fileID: 0}
   shieldSlowdown: 0
-  gunSlowdown: 0.6
+  gunSlowdown: 0.9
   bottleSlowdown: 0

@@ -174,8 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce95bae53f754f8ed9184dac826b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  initSpeed: 8
   whip: {fileID: 0}
-  shieldSlowdown: 0.5
+  shieldSlowdown: 1.2
   gunSlowdown: 0.2
   bottleSlowdown: 0.8

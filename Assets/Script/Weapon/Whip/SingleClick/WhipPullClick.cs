@@ -53,7 +53,11 @@ public class WhipPullClick : MonoBehaviour
     [SerializeField] private Transform pulledObj;
     [SerializeField] float pullSpeed = 3;
     private bool delivered = false;
-
+    private AudioSource audio;
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
     private void Start()
     {
         grappleRope.enabled = false;
@@ -67,7 +71,14 @@ public class WhipPullClick : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse1))
                 {
-                    SetGrapplePoint();
+                    // Check if WeaponPos has no child attached before grappling an object
+                    if (gunHolder.GetComponent<PlayerController>().GetWeaponPos().childCount > 0)
+                    {
+                        return;
+                    } else
+                    {
+                        SetGrapplePoint();
+                    }
                 }
 
             break;
@@ -130,12 +141,6 @@ public class WhipPullClick : MonoBehaviour
 
     void SetGrapplePoint()
     {
-        // Check if WeaponPos has no child attached before grappling an object
-        if (gunHolder.GetComponent<PlayerController>().GetWeaponPos().childCount > 0)
-        {
-            return;
-        }
-
         Vector2 distanceVector = m_camera.ScreenToWorldPoint(Input.mousePosition) - gunPivot.position;
         if (Physics2D.Raycast(firePoint.position, distanceVector.normalized))
         {
@@ -144,6 +149,7 @@ public class WhipPullClick : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
+                    audio.Play();
                     pulledObj =  _hit.transform;
                     grapplePoint = _hit.point;
                     pulledObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

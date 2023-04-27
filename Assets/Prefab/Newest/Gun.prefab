@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 4072074078980009094}
   - component: {fileID: 4072074078980009093}
   - component: {fileID: 2973205364723930276}
-  - component: {fileID: 4072074078980009127}
   - component: {fileID: 2973205364723930275}
   m_Layer: 7
   m_Name: Gun
@@ -62,7 +61,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4072074078980009091}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.63, y: -2.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -145,7 +144,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 4072074078980009091}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -154,7 +153,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &4072074078980009093
 BoxCollider2D:
@@ -166,7 +165,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.007591188, y: 0.0021410584}
@@ -196,21 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
   firePoint: {fileID: 2973205365061258448}
-  bulletSpeed: 10
+  bulletSpeed: 20
   maxBullets: 6
---- !u!114 &4072074078980009127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072074078980009091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b250b3a2737e084d814c82541d8dda3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletCount: 0
 --- !u!114 &2973205364723930275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce95bae53f754f8ed9184dac826b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initSpeed: 8
   whip: {fileID: 0}
   shieldSlowdown: 0.5
-  gunSlowdown: 0.2
+  gunSlowdown: 0.6
   bottleSlowdown: 0.8

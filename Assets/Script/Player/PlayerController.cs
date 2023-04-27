@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Transform weaponPos;
     private enum State{};
     
+    
 
     void Awake()
     {

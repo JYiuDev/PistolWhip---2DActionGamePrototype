@@ -12,14 +12,17 @@ public class CircleRenderer : MonoBehaviour
     private LineRenderer line;
     private EnemyRanged enemyRanged;
 
-    void Start ()
+    void Awake()
     {
         line = gameObject.GetComponent<LineRenderer>();
         enemyRanged = gameObject.GetComponentInParent<EnemyRanged>();
-
         line.positionCount = (segments + 1);
         line.useWorldSpace = false;
         CreatePoints ();
+    }
+    void Start ()
+    {
+        
     }
 
     void Update()
