@@ -6,24 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tilemap_test.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/DemoLevel_1.unity
+    guid: 5d6577ce65dbbbf4caa5316144b0ba37
   - enabled: 1
     path: Assets/Scenes/LevelTest.unity
     guid: 4495054a3df379f41b8d42b945bca590
-  - enabled: 1
-    path: Assets/Scenes/LevelOne.unity
-    guid: 31f94ae9fa4f8c640a5e4d02a9051b5b
-  - enabled: 1
-    path: Assets/Scenes/LevelTwo.unity
-    guid: 9b4125f0d4616f6478f2da958898b7bc
-  - enabled: 1
-    path: Assets/Scenes/LevelThree.unity
-    guid: c9a966a1b9ef3ea49b2274e978d5a861
-  - enabled: 1
-    path: Assets/Scenes/LevelFour.unity
-    guid: 243a75d017a75164bad2f1c43e505835
-  - enabled: 1
-    path: Assets/Scenes/LevelFive.unity
-    guid: e1a6665778d34e5438e6bc3996ae904e
   m_configObjects: {}

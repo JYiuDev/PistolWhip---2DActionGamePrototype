@@ -35,11 +35,17 @@ public class BulletMove : MonoBehaviour
                 //Need to make a parent class for all enemies
                 EnemyRanged enemy = other.GetComponent<EnemyRanged>();
                 enemy.takeDamage(1);
+                Destroy(gameObject);
 
             break;
 
             case "Player":
                 Debug.Log("Player hit");
+                Destroy(gameObject);
+            break;
+
+            case "Block":
+                Destroy(gameObject);
             break;
         }
     }

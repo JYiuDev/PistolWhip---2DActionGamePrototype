@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ReturnToWorld : MonoBehaviour
 {
 
-    private float interactDistance = 20f;
+    private float interactDistance = 2f;
     public GameObject player;
 
     // Start is called before the first frame update

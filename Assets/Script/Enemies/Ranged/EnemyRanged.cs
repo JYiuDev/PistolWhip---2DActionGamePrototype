@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     //Status
-    [SerializeField] private float hp;
+    [SerializeField] private float hp = 2f;
     [SerializeField] private float visualRange;
     private Transform player;
     
@@ -36,23 +36,27 @@ public class EnemyRanged : MonoBehaviour
 
     //Animator
     private Animator animator;
+    //Prefabs
+    [SerializeField] private GameObject gunPrefab;
 
     void Awake()
     {
         weapon = GetComponentInChildren<EnemyWeapon>();
         detection = GetComponentInChildren<Detection>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         circleRenderer = GetComponentInChildren<CircleRenderer>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         state = State.patrol;
         circleRenderer.CreatePoints();
-        detection.SetRadius(visualRange);
         patrolCenter = transform.position;
         stunnedObject.SetActive(false);
+        patrolDirection = Random.insideUnitCircle.normalized; // Initialize patrol direction
+        movingToEdge = false; // Initialize moving to edge
+
     }
 
     void Update()
@@ -76,10 +80,10 @@ public class EnemyRanged : MonoBehaviour
                     PatrolState(); //Patrol randomly if player is not found.
                 }
             break;
-            
-            case State.alert:
 
-            break;
+            case State.alert:
+                
+                break;
 
             case State.aim:
                 //Countdown aim time
@@ -129,9 +133,10 @@ public class EnemyRanged : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Bottle"))
         {
             // Set stun timer and change state to stunned
+            takeDamage(1);
             stunTimer = stunDuration;
             state = State.stunned;
 
@@ -151,6 +156,11 @@ public class EnemyRanged : MonoBehaviour
             //movingToEdge = false;
         }
 
+        if (other.CompareTag("Bullet"))
+        {
+            this.takeDamage(1);
+        }
+
     }
 
     public Vector2 getTargetPos()
@@ -165,6 +175,20 @@ public class EnemyRanged : MonoBehaviour
 
     public void takeDamage(float dmg)
     {
+        if (dmg > 0 && hp > 0)
+        {
+            hp -= dmg;
+            if (hp <= 0)
+            {
+                // Enemy is dead
+                Die();
+            }
+            else
+            {
+                // Enemy is hit but not dead
+                animator.Play("Base Layer.EnemyHurt", 0, 0);
+            }
+        }
         Debug.Log("enemy took " + dmg + " damage");
         animator.Play("Base Layer.EnemyHurt", 0, 0);
     }
@@ -196,7 +220,7 @@ public class EnemyRanged : MonoBehaviour
                 // Flip sprite to face left or right depending on patrol direction
                 spriteRenderer.flipX = (patrolDirection.x < 0);
             }
-        }
+        } 
         else
         {
             // If moving to edge, wait for break time
@@ -221,5 +245,12 @@ public class EnemyRanged : MonoBehaviour
                 }
             }
         }
+    }
+    
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
+        gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
     }
 }

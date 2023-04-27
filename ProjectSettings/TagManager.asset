@@ -6,9 +6,12 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Block
   - Interactable
   - Gun
-  - Wall
+  - Shield
+  - WeaponPos
+  - Bottle
   layers:
   - Default
   - TransparentFX
@@ -17,12 +20,12 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - Interactable
+  - PullObjects
+  - IgnoreCollision
+  - RetractObj
+  - Bullets
+  - Shields
   - Enemy
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
