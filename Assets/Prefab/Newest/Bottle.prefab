@@ -152,11 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce95bae53f754f8ed9184dac826b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initSpeed: 8
+  initSpeed: 10
   whip: {fileID: 0}
-  shieldSlowdown: 20
-  gunSlowdown: 30
-  bottleSlowdown: 0.1
+  shieldSlowdown: 1
+  gunSlowdown: 1
+  bottleSlowdown: 1
 --- !u!50 &4212828070094545481
 Rigidbody2D:
   serializedVersion: 4
