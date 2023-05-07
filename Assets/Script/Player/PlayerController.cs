@@ -10,17 +10,27 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb; 
     private Animator animator;
 
-    [SerializeField]private Vector2 moveDir;
-    private Transform weaponPos;
-    private enum State{};
-    
+    private Vector2 moveDir;
+
+    [SerializeField]private WeaponClass weaponHeld = null;
+    [SerializeField] private Transform weaponPos;
+
     
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        weaponPos = transform.Find("WeaponPivot").Find("WeaponPos");
+    }
+    void Start()
+    {
+        if(weaponPos.childCount > 0)
+        {
+            weaponHeld = weaponPos.GetChild(0).GetComponent<WeaponClass>();
+        } else
+        {
+            weaponHeld = null;
+        }
     }
 
     void Update()
@@ -41,6 +51,16 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+
+        updateWeapon();
+        if (Input.GetKeyDown(KeyCode.Mouse0) && weaponHeld != null)
+        {
+            weaponHeld.LeftClick();
+        }
+        if(Input.GetKeyDown(KeyCode.Mouse1) && weaponHeld != null)
+        {
+            weaponHeld.RightClick();
+        }
     }
 
     void FixedUpdate()
@@ -52,5 +72,26 @@ public class PlayerController : MonoBehaviour
     public Transform GetWeaponPos()
     {
         return(weaponPos);
+    }
+
+    public void SetWeapon(WeaponClass weapon)
+    {
+        weaponHeld = weapon;
+    }
+
+    public void RemoveWeapon()
+    {
+        weaponHeld = null;
+    }
+
+    private void updateWeapon()
+    {
+        if(weaponPos.childCount > 0)
+        {
+            weaponHeld = weaponPos.GetChild(0).GetComponent<WeaponClass>();
+        } else
+        {
+            weaponHeld = null;
+        }
     }
 }

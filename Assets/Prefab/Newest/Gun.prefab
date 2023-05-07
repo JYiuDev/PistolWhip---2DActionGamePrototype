@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 4072074078980009126}
   - component: {fileID: 4072074078980009094}
   - component: {fileID: 4072074078980009093}
-  - component: {fileID: 2973205364723930276}
   - component: {fileID: 2973205364723930275}
+  - component: {fileID: 3692836978067324967}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Gun
@@ -181,22 +181,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15707982, y: 0.12603903}
   m_EdgeRadius: 0
---- !u!114 &2973205364723930276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4072074078980009091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191dfa261fca94749bd9366090765ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
-  firePoint: {fileID: 2973205365061258448}
-  bulletSpeed: 20
-  maxBullets: 6
 --- !u!114 &2973205364723930275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +194,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 10
-  whip: {fileID: 0}
   shieldSlowdown: 1.75
   gunSlowdown: 1.75
   bottleSlowdown: 1.75
+--- !u!114 &3692836978067324967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072074078980009091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc66d57c423dff469b58e9a47983d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
+  firePoint: {fileID: 2973205365061258448}
+  bulletSpeed: 20
+  bulletCount: 6
+  initialThrownSpd: 8

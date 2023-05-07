@@ -47,6 +47,11 @@ public class BulletMove : MonoBehaviour
             case "Block":
                 Destroy(gameObject);
             break;
+
+            case "Shield":
+                other.GetComponent<ShieldItems>().takeDamage(1);
+                Destroy(gameObject);
+            break;
         }
     }
 

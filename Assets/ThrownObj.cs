@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[RequireComponent(typeof(WeaponClass))]
+[RequireComponent(typeof(Rigidbody2D))]
 
 public class ThrownObj : MonoBehaviour
 {
     [SerializeField] private float initSpeed = 8f;      //arbitrary default value
     private float speed;
-    private float lifeTime = 5;   //arbitrary default value
+    //private float lifeTime = 5;   //arbitrary default value
     private Rigidbody2D rb;
     private Vector2 lastVelocity;
-    [SerializeField] private WhipPullClick whip;
     [SerializeField] private float shieldSlowdown = 10f;
     [SerializeField] private float gunSlowdown = 100f;
     [SerializeField] private float bottleSlowdown = 30f;
+    private WeaponClass weapon;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        weapon = GetComponent<WeaponClass>();
     }
 
     void Start()
     {
-        whip = FindObjectOfType<WhipPullClick>();
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -58,6 +61,10 @@ public class ThrownObj : MonoBehaviour
 
     public void Launch(float s)
     {
+        //This is kinda scuffed but it works
+        // PlayerController player = transform.parent.parent.GetComponent<WeaponPivot>().GetPlayerController();
+        // player.RemoveWeapon();
+
         transform.SetParent(null);
         rb.velocity = transform.right * s;
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.PullObjects);
@@ -69,15 +76,12 @@ public class ThrownObj : MonoBehaviour
         }
         // Gradually reduce velocity to zero over time
         StartCoroutine(SlowDown());
-
     }
 
     private IEnumerator SlowDown()
     {
         while (rb.velocity.magnitude > 0.1f)
         {
-            
-
             if(gameObject.CompareTag("Shield"))
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, shieldSlowdown * Time.deltaTime);
@@ -99,13 +103,11 @@ public class ThrownObj : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Enemy") && gameObject.CompareTag("Bottle"))
-        {
-            rb.velocity = Vector2.one;
-        }
+        weapon.ThrowInteractions(other);
     }
+
     public void Attach(Transform parent)
     {
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.IgnoreCollision);

@@ -39,13 +39,13 @@ public class WhipPullPoint : MonoBehaviour
 
     [Header("Launching:")]
     [SerializeField] private bool launchToPoint = true;
-    [SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
-    [SerializeField] private float launchSpeed = 1;
+    //[SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
+    //[SerializeField] private float launchSpeed = 1;
 
-    [Header("No Launch To Point")]
-    [SerializeField] private bool autoConfigureDistance = false;
-    [SerializeField] private float targetDistance = 3;
-    [SerializeField] private float targetFrequncy = 1;
+    //[Header("No Launch To Point")]
+    //[SerializeField] private bool autoConfigureDistance = false;
+    //[SerializeField] private float targetDistance = 3;
+    //[SerializeField] private float targetFrequncy = 1;
 
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
