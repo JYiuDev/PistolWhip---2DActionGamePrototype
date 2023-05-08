@@ -25,6 +25,7 @@ public class Bottle : WeaponClass
         {
             //why
             rb.velocity = (-rb.velocity).normalized * 1;
+
         }
     }
 }

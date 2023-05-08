@@ -27,23 +27,59 @@ public class ThrownObj : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
-       switch(other.gameObject.tag)
-       {
-           case "Block":
-               Vector2 _otherNormal = other.contacts[0].normal;
-               Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
-               rb.velocity = newDir * lastVelocity.magnitude;
-           break;
-       }
+        Debug.Log(other.gameObject.name);
+        switch (other.gameObject.tag)
+        {
+            case "Block":
+
+                /*  Debug.Log(other.contactCount);
+                  if (other.contactCount == 1)
+                  {
+                      Vector2 _otherNormal = other.contacts[0].normal;
+                      Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
+                      rb.velocity = newDir * lastVelocity.magnitude;
+                  }
+                  else
+                  {
+                      Vector2 prevPosition = other.contacts[0].point;
+                      Vector2 prevNorm = other.contacts[0].normal;
+                      Vector2 prevDir = Vector2.Reflect(lastVelocity, prevNorm);
+
+                      for (int i = 1; i < other.contactCount; i++)
+                      {
+                          RaycastHit2D h = Physics2D.Raycast(prevPosition, prevDir);
+                          if (h.collider == null) { break; }
+
+                          Vector2 newDir = Vector2.Reflect(prevDir, prevNorm).normalized;
+
+                          prevDir = newDir;
+                          prevPosition = h.point;
+                          prevNorm = h.normal;
+                      }
+
+                      rb.velocity = prevDir * lastVelocity.magnitude;
+                  }
+  */
+                break;
+        }
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F) && (transform.parent != null))
+        if (Input.GetKeyDown(KeyCode.F) && (transform.parent != null))
         {
             Launch(initSpeed);
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastVelocity, 0.5f);
+        if(hit.collider != null)
+        {
+            Vector2 _otherNormal = hit.normal;
+            Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
+            rb.velocity = newDir * lastVelocity.magnitude;
+            lastVelocity = rb.velocity;
         }
     }
 
@@ -69,7 +105,7 @@ public class ThrownObj : MonoBehaviour
         rb.velocity = transform.right * s;
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.PullObjects);
 
-        if(gameObject.CompareTag("Shield"))
+        if (gameObject.CompareTag("Shield"))
         {
             Collider2D col = GetComponent<BoxCollider2D>();
             col.isTrigger = false;
@@ -82,7 +118,7 @@ public class ThrownObj : MonoBehaviour
     {
         while (rb.velocity.magnitude > 0.1f)
         {
-            if(gameObject.CompareTag("Shield"))
+            if (gameObject.CompareTag("Shield"))
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, shieldSlowdown * Time.deltaTime);
             }
@@ -116,11 +152,36 @@ public class ThrownObj : MonoBehaviour
         transform.rotation = parent.rotation;
 
         //Note to self, take this out eventually plz
-        if(gameObject.CompareTag("Shield"))
+        if (gameObject.CompareTag("Shield"))
         {
             Collider2D col = GetComponent<BoxCollider2D>();
             col.isTrigger = true;
             gameObject.layer = LayerMask.NameToLayer("Shields");
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+        Gizmos.DrawLine(transform.position, transform.position + (transform.right * (hit.collider == null ? 5 : Vector2.Distance(hit.point, transform.position))));
+
+        if (hit.collider != null)
+        {
+            Vector2 prevPosition = transform.position + (transform.right * Vector2.Distance(hit.point, transform.position));
+            Vector2 prevDir = transform.right;
+            Vector2 prevNorm = hit.normal;
+            for (int i = 0; i < 5; i++)
+            {
+                Vector2 newDir = Vector2.Reflect(prevDir, prevNorm).normalized;
+                
+                RaycastHit2D h = Physics2D.Raycast(prevPosition, newDir);
+                if (h.collider == null) { break; }
+                Gizmos.DrawLine(prevPosition, prevPosition + (newDir * Vector2.Distance(prevPosition, h.point)));
+
+                prevDir = newDir;
+                prevPosition = h.point;
+                prevNorm = h.normal;
+            }
         }
     }
 }
