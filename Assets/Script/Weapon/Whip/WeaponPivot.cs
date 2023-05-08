@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class WeaponPivot : MonoBehaviour
 {
-    private Vector2 AimPosition;
     private Camera cam;
     private Vector3 mousePos;
-    private Animator animator;
     private bool rotate = true;
-    private WhipAttack whipAttack;
     [SerializeField] private PlayerController playerCon;
 
     void Awake()

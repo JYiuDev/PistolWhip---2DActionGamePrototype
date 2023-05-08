@@ -70,7 +70,10 @@ public class ThrownObj : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && (transform.parent != null))
         {
-            Launch(initSpeed);
+            if(transform.parent.CompareTag("WeaponPos"))
+            {
+                Launch(initSpeed);
+            }
         }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lastVelocity, 0.5f);
@@ -160,28 +163,28 @@ public class ThrownObj : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.right * (hit.collider == null ? 5 : Vector2.Distance(hit.point, transform.position))));
+    // void OnDrawGizmos()
+    // {
+    //     RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+    //     Gizmos.DrawLine(transform.position, transform.position + (transform.right * (hit.collider == null ? 5 : Vector2.Distance(hit.point, transform.position))));
 
-        if (hit.collider != null)
-        {
-            Vector2 prevPosition = transform.position + (transform.right * Vector2.Distance(hit.point, transform.position));
-            Vector2 prevDir = transform.right;
-            Vector2 prevNorm = hit.normal;
-            for (int i = 0; i < 5; i++)
-            {
-                Vector2 newDir = Vector2.Reflect(prevDir, prevNorm).normalized;
+    //     if (hit.collider != null)
+    //     {
+    //         Vector2 prevPosition = transform.position + (transform.right * Vector2.Distance(hit.point, transform.position));
+    //         Vector2 prevDir = transform.right;
+    //         Vector2 prevNorm = hit.normal;
+    //         for (int i = 0; i < 5; i++)
+    //         {
+    //             Vector2 newDir = Vector2.Reflect(prevDir, prevNorm).normalized;
                 
-                RaycastHit2D h = Physics2D.Raycast(prevPosition, newDir);
-                if (h.collider == null) { break; }
-                Gizmos.DrawLine(prevPosition, prevPosition + (newDir * Vector2.Distance(prevPosition, h.point)));
+    //             RaycastHit2D h = Physics2D.Raycast(prevPosition, newDir);
+    //             if (h.collider == null) { break; }
+    //             Gizmos.DrawLine(prevPosition, prevPosition + (newDir * Vector2.Distance(prevPosition, h.point)));
 
-                prevDir = newDir;
-                prevPosition = h.point;
-                prevNorm = h.normal;
-            }
-        }
-    }
+    //             prevDir = newDir;
+    //             prevPosition = h.point;
+    //             prevNorm = h.normal;
+    //         }
+    //     }
+    // }
 }

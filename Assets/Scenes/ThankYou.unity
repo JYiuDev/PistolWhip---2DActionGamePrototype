@@ -219,27 +219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
---- !u!1 &315040592 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1482626355505026598, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
-  m_PrefabInstance: {fileID: 1762955454}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &315040600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315040592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc66d57c423dff469b58e9a47983d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
-  firePoint: {fileID: 898566283}
-  bulletSpeed: 20
-  bulletCount: 6
 --- !u!1001 &354689716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -359,11 +338,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7724875058327689733, guid: 831fa5d290a0339418a03727e88de728, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 831fa5d290a0339418a03727e88de728, type: 3}
---- !u!4 &898566283 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 383724724828288629, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
-  m_PrefabInstance: {fileID: 1762955454}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &988210567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8218832138876620171, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
