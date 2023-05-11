@@ -38,6 +38,7 @@ public class EnemyRanged : MonoBehaviour
     private Animator animator;
     //Prefabs
     [SerializeField] private GameObject gunPrefab;
+    public Style style;
 
     void Awake()
     {
@@ -46,6 +47,7 @@ public class EnemyRanged : MonoBehaviour
         circleRenderer = GetComponentInChildren<CircleRenderer>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        style.GetComponent<Style>();
     }
     void Start()
     {
@@ -252,5 +254,6 @@ public class EnemyRanged : MonoBehaviour
         Destroy(gameObject);
         GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
         gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+        style.enemyKill();
     }
 }
