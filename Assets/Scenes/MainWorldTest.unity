@@ -1134,13 +1134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239f142def69bd24695abd3904132275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2071495691}
-  LevelEndStart: {fileID: 1678141275}
-  LevelOneEnd: {fileID: 0}
-  LevelKillStart: {fileID: 1073675132}
-  LevelTwoEnd: {fileID: 0}
-  LevelHeistStart: {fileID: 1910804381}
-  LevelThreeEnd: {fileID: 0}
 --- !u!4 &401099198
 Transform:
   m_ObjectHideFlags: 0
@@ -5213,6 +5206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7349457453982004666, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
+      propertyPath: m_TagString
+      value: Whip
+      objectReference: {fileID: 0}
     - target: {fileID: 7674800288577163872, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
       propertyPath: m_SortingOrder
       value: 5
@@ -5263,11 +5260,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
---- !u!1 &2071495691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5968858525496243281, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
-  m_PrefabInstance: {fileID: 2071495690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2078646106
 GameObject:
   m_ObjectHideFlags: 0

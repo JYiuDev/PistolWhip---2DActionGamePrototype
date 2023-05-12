@@ -2630,6 +2630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7349457453982004666, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
+      propertyPath: m_TagString
+      value: Whip
+      objectReference: {fileID: 0}
     - target: {fileID: 7674800288577163872, guid: 3328bf04dd2afe5468e5e476b31376c0, type: 3}
       propertyPath: m_SortingOrder
       value: 5

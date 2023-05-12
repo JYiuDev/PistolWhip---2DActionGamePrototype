@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
     {
     }
 
+    private int levelOneCount;
+    private int levelTwoCount;
+    private int levelThreeCount;
+
     private void CheckInteractionWithLevelEndObjects()
     {
         string levelName = SceneManager.GetActiveScene().name;
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
             if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("LevelOneEntry").transform.position) <= interactDistance)
             {
                 SceneManager.LoadScene("GetToEndTest");
+                levelOneCount++;
             }
         } 
 
@@ -61,6 +66,7 @@ public class GameManager : MonoBehaviour
             if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("LevelTwoEntry").transform.position) <= interactDistance)
             {
                 SceneManager.LoadScene("LevelKillTest");
+                levelTwoCount++;
             }
         } 
 
@@ -69,6 +75,7 @@ public class GameManager : MonoBehaviour
             if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("LevelThreeEntry").transform.position) <= interactDistance)
             {
                 SceneManager.LoadScene("LevelHeistTest");
+                levelThreeCount++;
             }
         } 
 
@@ -93,6 +100,7 @@ public class GameManager : MonoBehaviour
         }
 
         totalEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
     }
 
     private Dictionary<string, float> levelCompletionTimes = new Dictionary<string, float>();
@@ -140,6 +148,7 @@ public class GameManager : MonoBehaviour
             if (entry.Key == SceneManager.GetActiveScene().name)
             {
                 Debug.Log("You completed the level " + entry.Key + " in " + Time.timeSinceLevelLoad + " seconds" + ", Compared to your highscore " + entry.Value + " seconds.");
+                Debug.Log("You have completed" + entry.Key + levelOneCount + " times.");
             }
         }
         foreach (KeyValuePair<string, float> entry in levelTotalEnemiesRemaining)
@@ -149,5 +158,16 @@ public class GameManager : MonoBehaviour
                 Debug.Log("You completed the level " + entry.Key + " with a total enemies remaining = " + entry.Value + " out of " + totalEnemyCount);
             }
         }
+
+        totalGunsUsed = GameObject.FindWithTag("Whip").GetComponent<WhipPullClick>().gunCount;
+        totalShieldsUsed = GameObject.FindWithTag("Whip").GetComponent<WhipPullClick>().shieldCount;
+        totalBottlesUsed = GameObject.FindWithTag("Whip").GetComponent<WhipPullClick>().bottleCount;
+        Debug.Log("You used the bottle " + totalBottlesUsed + " times." +
+                  " The gun a total of " + totalGunsUsed + " times." +
+                  " The shield a total of " +totalShieldsUsed + " times.");
+
+        Debug.Log("You have completed Level One " + levelOneCount + " times." +
+                  " Level Two " + levelTwoCount + " times." +
+                  " Level Three " + levelThreeCount + " times.");
     }
 }

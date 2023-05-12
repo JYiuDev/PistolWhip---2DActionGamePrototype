@@ -16,6 +16,7 @@ TagManager:
   - LevelTwoEntry
   - LevelThreeEntry
   - EndObject
+  - Whip
   layers:
   - Default
   - TransparentFX

@@ -53,6 +53,11 @@ public class WhipPullClick : MonoBehaviour
     [SerializeField] private Transform pulledObj;
     [SerializeField] float pullSpeed = 3;
     private AudioSource whipAudio;
+
+    public float gunCount;
+    public float bottleCount;
+    public float shieldCount;
+
     private void Awake()
     {
         whipAudio = GetComponent<AudioSource>();
@@ -60,6 +65,9 @@ public class WhipPullClick : MonoBehaviour
     private void Start()
     {
         grappleRope.enabled = false;
+        gunCount = 0;
+        bottleCount = 0;
+        shieldCount = 0;
     }
 
     private void Update()
@@ -156,6 +164,22 @@ public class WhipPullClick : MonoBehaviour
                     grappleDistanceVector = grapplePoint - (Vector2)gunPivot.position;
                     grappleRope.enabled = true;
                     state = State.extend;
+
+                    if (pulledObj.CompareTag("Gun"))
+                    {
+                        gunCount++;
+                        Debug.Log("Gun picked up! Count: " + gunCount);
+                    }
+                    else if (pulledObj.CompareTag("Bottle"))
+                    {
+                        bottleCount++;
+                        Debug.Log("Bottle picked up! Count: " + bottleCount);
+                    }
+                    else if (pulledObj.CompareTag("Shield"))
+                    {
+                        shieldCount++;
+                        Debug.Log("Shield picked up! Count: " + shieldCount);
+                    }
                 }
             }
         }
