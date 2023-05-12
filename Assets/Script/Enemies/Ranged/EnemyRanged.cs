@@ -155,12 +155,6 @@ public class EnemyRanged : MonoBehaviour
             //patrolDirection = perpendicular * Mathf.Sign(Vector2.Dot(patrolDirection, perpendicular));
             //movingToEdge = false;
         }
-
-        if (other.CompareTag("Bullet"))
-        {
-            this.takeDamage(1);
-        }
-
     }
 
     public Vector2 getTargetPos()

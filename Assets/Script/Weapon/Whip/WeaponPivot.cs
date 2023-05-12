@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class WeaponPivot : MonoBehaviour
 {
-    private Vector2 AimPosition;
     private Camera cam;
     private Vector3 mousePos;
-    private Animator animator;
     private bool rotate = true;
-    private WhipAttack whipAttack;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PlayerController playerCon;
 
     void Awake()
     {
@@ -31,19 +28,6 @@ public class WeaponPivot : MonoBehaviour
             float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;  //Calculate rotation angle from vector
 
             transform.rotation = Quaternion.Euler(0, 0, rotation);
-
-            // Flip the sprite if pointing left
-            // if (Mathf.Abs(rotation) > 90)
-            // {
-            //     spriteRenderer.flipY = true;
-            //     spriteRenderer.flipX = false;
-            // }
-            // // Flip the sprite back if pointing right
-            // else
-            // {
-            //     spriteRenderer.flipY = false;
-            //     spriteRenderer.flipX = false;
-            // }
         }
     }
 
@@ -56,5 +40,10 @@ public class WeaponPivot : MonoBehaviour
     public void startRotate()
     {
         rotate = true;
+    }
+
+    public PlayerController GetPlayerController()
+    {
+        return playerCon;
     }
 }

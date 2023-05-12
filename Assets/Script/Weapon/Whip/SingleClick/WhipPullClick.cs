@@ -39,24 +39,23 @@ public class WhipPullClick : MonoBehaviour
 
     [Header("Launching:")]
     [SerializeField] private bool launchToPoint = true;
-    [SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
-    [SerializeField] private float launchSpeed = 1;
+    //[SerializeField] private LaunchType launchType = LaunchType.Physics_Launch;
+    //[SerializeField] private float launchSpeed = 1;
 
-    [Header("No Launch To Point")]
-    [SerializeField] private bool autoConfigureDistance = false;
-    [SerializeField] private float targetDistance = 3;
-    [SerializeField] private float targetFrequncy = 1;
+    //[Header("No Launch To Point")]
+    //[SerializeField] private bool autoConfigureDistance = false;
+    //[SerializeField] private float targetDistance = 3;
+    //[SerializeField] private float targetFrequncy = 1;
 
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
 
     [SerializeField] private Transform pulledObj;
     [SerializeField] float pullSpeed = 3;
-    private bool delivered = false;
-    private AudioSource audio;
+    private AudioSource whipAudio;
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        whipAudio = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -107,6 +106,7 @@ public class WhipPullClick : MonoBehaviour
                 if(Vector2.Distance(pulledObj.position, gunHolder.position) < 0.75f)
                 {
                     pulledObj.GetComponent<ThrownObj>().Attach(gunHolder.GetComponent<PlayerController>().GetWeaponPos());
+                    gunHolder.GetComponent<PlayerController>().SetWeapon(pulledObj.GetComponent<WeaponClass>());
                     whipInactive();
                 }
             break;
@@ -149,7 +149,7 @@ public class WhipPullClick : MonoBehaviour
             {
                 if (Vector2.Distance(_hit.point, firePoint.position) <= maxDistnace || !hasMaxDistance)
                 {
-                    audio.Play();
+                    whipAudio.Play();
                     pulledObj =  _hit.transform;
                     grapplePoint = _hit.point;
                     pulledObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

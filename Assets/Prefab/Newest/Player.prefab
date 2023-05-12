@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 8218832138876620171}
   - component: {fileID: 7674800288577163872}
   - component: {fileID: 9132316901681378801}
-  - component: {fileID: 5964944472180842336}
   - component: {fileID: 2604192671069121033}
   - component: {fileID: 5569887896591340208}
   - component: {fileID: 5957471527675676965}
@@ -145,32 +144,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5964944472180842336
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5968858525496243281}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0011479855, y: -0.08707544}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.23}
-    newSize: {x: 0.23, y: 0.23}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.118214846, y: 0.04383129}
-  m_EdgeRadius: 0
 --- !u!114 &2604192671069121033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   spriteRenderer: {fileID: 7674800288577163872}
-  moveDir: {x: 0, y: 0}
+  weaponHeld: {fileID: 0}
+  weaponPos: {fileID: 3480703923898334958}
 --- !u!95 &5569887896591340208
 Animator:
   serializedVersion: 5
@@ -277,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c909d2ac7ca58428800d4a6d2f9b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  playerCon: {fileID: 2604192671069121033}
 --- !u!1 &7349457453982004666
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,11 +314,6 @@ MonoBehaviour:
     m_Bits: 64
   state: 2
   launchToPoint: 1
-  launchType: 0
-  launchSpeed: 28
-  autoConfigureDistance: 0
-  targetDistance: 3
-  targetFrequncy: 1
   grapplePoint: {x: 0, y: 0}
   grappleDistanceVector: {x: 0, y: 0}
   pulledObj: {fileID: 0}
