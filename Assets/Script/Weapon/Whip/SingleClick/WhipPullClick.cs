@@ -180,6 +180,8 @@ public class WhipPullClick : MonoBehaviour
                         shieldCount++;
                         Debug.Log("Shield picked up! Count: " + shieldCount);
                     }
+
+                    Debug.Log("You used the whip at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
                 }
             }
         }
