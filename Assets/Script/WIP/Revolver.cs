@@ -29,8 +29,7 @@ public class Revolver : WeaponClass
     {
         if (collision.CompareTag("Enemy"))
         {
-            //why, change this later if I have time
-            rb.velocity = Vector2.one;
+            rb.velocity = (-rb.velocity).normalized * 1;
         }
     }
 

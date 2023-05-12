@@ -29,7 +29,6 @@ public class ThrownObj : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        Debug.Log(other.gameObject.name);
         switch (other.gameObject.tag)
         {
             case "Block":
@@ -76,8 +75,8 @@ public class ThrownObj : MonoBehaviour
             }
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastVelocity, 0.5f);
-        if(hit.collider != null)
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastVelocity, 0.4f);
+        if(hit.collider != null && hit.transform.CompareTag("Block"))
         {
             Vector2 _otherNormal = hit.normal;
             Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
@@ -144,7 +143,12 @@ public class ThrownObj : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        weapon.ThrowInteractions(other);
+        if(gameObject.layer == LayerMask.NameToLayer("PullObjects"))
+        {
+            Debug.Log("thrown interaction");
+            weapon.ThrowInteractions(other);
+        }
+        
     }
 
     public void Attach(Transform parent)

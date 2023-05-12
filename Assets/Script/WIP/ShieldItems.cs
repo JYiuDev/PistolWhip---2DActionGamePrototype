@@ -25,13 +25,13 @@ public class ShieldItems : WeaponClass
     {
         if (other.CompareTag("Enemy"))
         {
-            //why
             rb.velocity = (-rb.velocity).normalized * 1;
         }
     }
 
     public void takeDamage(float dmg)
     {
+        Debug.Log("take " + dmg + " dmg");
         durability -= dmg;
         
         if(durability <= 0)

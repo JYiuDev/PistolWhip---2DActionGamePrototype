@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4212828070094545480}
   - component: {fileID: 4212828070094545487}
   - component: {fileID: 4212828070094545481}
+  - component: {fileID: 7753247189362699494}
   m_Layer: 7
   m_Name: Bottle
   m_TagString: Bottle
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 10
-  whip: {fileID: 0}
   shieldSlowdown: 1
   gunSlowdown: 1
   bottleSlowdown: 1
@@ -178,3 +178,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &7753247189362699494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212828070094545484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac154ec6b77e30042b8e3a24330d36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

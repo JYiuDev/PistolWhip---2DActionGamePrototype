@@ -21,11 +21,11 @@ public class Bottle : WeaponClass
 
     public override void ThrowInteractions(Collider2D collision)
     {
+        
         if (collision.CompareTag("Enemy"))
         {
-            //why
+            Debug.Log("collide with enemy");
             rb.velocity = (-rb.velocity).normalized * 1;
-
         }
     }
 }

@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1132871126392150677}
   - component: {fileID: 1381187291329301773}
-  - component: {fileID: 7724875058327689733}
   - component: {fileID: 1381187291329301770}
-  - component: {fileID: 7724875058327689732}
   - component: {fileID: 573082840864300080}
   - component: {fileID: 573082840864300078}
+  - component: {fileID: -7734612268738151123}
   m_Layer: 7
   m_Name: Barrel
   m_TagString: Shield
@@ -89,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7724875058327689733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7724875058327689730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdf341ce1430744f94280d32fc5a210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHits: 3
-  hitEffect: {fileID: 0}
 --- !u!61 &1381187291329301770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,18 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.2}
   m_EdgeRadius: 0
---- !u!114 &7724875058327689732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7724875058327689730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64a5f8458f3c624391124a107cb609c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &573082840864300080
 Rigidbody2D:
   serializedVersion: 4
@@ -175,7 +148,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initSpeed: 10
-  whip: {fileID: 0}
   shieldSlowdown: 3
   gunSlowdown: 3
   bottleSlowdown: 3
+--- !u!114 &-7734612268738151123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724875058327689730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea034929377d2642b50e01747405879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durability: 3
