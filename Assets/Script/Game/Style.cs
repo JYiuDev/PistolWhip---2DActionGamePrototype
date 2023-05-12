@@ -8,18 +8,30 @@ public class Style : MonoBehaviour
     public float styleAmount;
     public float styleDecay;
     public string rankTitle;
+    public float multikillTimer;
+    public int multikillCount;
     void Start()
     {
         rankTitle = "";
         styleAmount = 0f;
         styleDecay = 0f;
+        multikillTimer = 0f;
+        multikillCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //decay and multikill checks
         styleAmount -= styleDecay * Time.deltaTime;
+        multikillTimer -= Time.deltaTime;
+        if (multikillTimer <= 0)
+        {
+            multikillCount = 0;
+            multikillTimer = 0;
+        }
 
+        //ranks and style count
         if (styleAmount <= 0)
         {
             styleAmount = 0;
@@ -29,36 +41,52 @@ public class Style : MonoBehaviour
         else if (styleAmount < 100)
         {
             rankTitle = "Deputy";
-            styleDecay = 10f;
+            styleDecay = 5f;
         }
         else if (styleAmount >= 100 && styleAmount < 250)
         {
             rankTitle = "Sherrif";
-            styleDecay = 20f;
+            styleDecay = 7.5f;
         }
         else if (styleAmount >= 250 && styleAmount < 450)
         {
             rankTitle = "Vigilante";
-            styleDecay = 40f;
+            styleDecay = 12.5f;
         }
         else if (styleAmount >= 450 && styleAmount < 700)
         {
             rankTitle = "Hero";
-            styleDecay = 60f;
+            styleDecay = 20f;
         }
         else if (styleAmount >= 700 && styleAmount < 1000)
         {
             rankTitle = "Legend";
-            styleDecay = 80f;
+            styleDecay = 32.5f;
         }
         else if (styleAmount >= 1000)
         {
             rankTitle = "Myth";
-            styleDecay = 100f;
+            styleDecay = 50f;
         }
     }
     public void enemyKill()
     {
         styleAmount += 50f;
+        multikillCount++;
+        multikillTimer = 3f;
+        if (multikillCount == 2)
+            styleAmount += 15f;
+        else if (multikillCount == 3)
+            styleAmount += 30f;
+        else if (multikillCount >= 4)
+            styleAmount += 50f;
+    }
+    public void bulletBlock()
+    {
+        styleAmount += 20f;
+    }
+    public void enemyStun()
+    {
+        styleAmount += 20f;
     }
 }

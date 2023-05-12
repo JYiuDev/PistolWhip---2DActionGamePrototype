@@ -38,7 +38,7 @@ public class EnemyRanged : MonoBehaviour
     private Animator animator;
     //Prefabs
     [SerializeField] private GameObject gunPrefab;
-    public Style style;
+    private Style style;
 
     void Awake()
     {
@@ -47,7 +47,7 @@ public class EnemyRanged : MonoBehaviour
         circleRenderer = GetComponentInChildren<CircleRenderer>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        style.GetComponent<Style>();
+        style = GameObject.FindGameObjectWithTag("GameController").GetComponent<Style>();
     }
     void Start()
     {
@@ -141,6 +141,7 @@ public class EnemyRanged : MonoBehaviour
             takeDamage(1);
             stunTimer = stunDuration;
             state = State.stunned;
+            style.enemyStun();
 
             // Show stun effect
             stunnedObject.SetActive(true);

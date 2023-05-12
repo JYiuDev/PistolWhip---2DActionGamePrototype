@@ -481,6 +481,8 @@ MonoBehaviour:
   styleAmount: 0
   styleDecay: 0
   rankTitle: 
+  multikillTimer: 0
+  multikillCount: 0
 --- !u!1 &819134387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1422,10 @@ PrefabInstance:
     - target: {fileID: 3235623345735140253, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235623345735140253, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
+      propertyPath: m_TagString
+      value: GameController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
