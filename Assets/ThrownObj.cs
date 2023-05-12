@@ -145,7 +145,6 @@ public class ThrownObj : MonoBehaviour
     {
         if(gameObject.layer == LayerMask.NameToLayer("PullObjects"))
         {
-            Debug.Log("thrown interaction");
             weapon.ThrowInteractions(other);
         }
         
