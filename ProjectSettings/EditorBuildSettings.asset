@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelTest.unity
     guid: 4495054a3df379f41b8d42b945bca590
+  - enabled: 1
+    path: Assets/Scenes/MainWorldTest.unity
+    guid: e4f7c374db138b04c9c81c58f896785d
+  - enabled: 1
+    path: Assets/Scenes/GetToEndTest.unity
+    guid: 925db4f6adce2c440b837974b6075f51
+  - enabled: 1
+    path: Assets/Scenes/LevelHeistTest.unity
+    guid: 3bca42244b4579840b42c9451e0a27cb
+  - enabled: 1
+    path: Assets/Scenes/LevelKillTest.unity
+    guid: ce70ade3467686d4eb4896889c4812cd
   m_configObjects: {}
