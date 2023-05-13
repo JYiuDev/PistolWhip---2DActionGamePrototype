@@ -113,6 +113,7 @@ public class WhipPullClick : MonoBehaviour
                 //If pulledObj gets close, attach
                 if(Vector2.Distance(pulledObj.position, gunHolder.position) < 0.75f)
                 {
+                    logPickUp();
                     pulledObj.GetComponent<ThrownObj>().Attach(gunHolder.GetComponent<PlayerController>().GetWeaponPos());
                     gunHolder.GetComponent<PlayerController>().SetWeapon(pulledObj.GetComponent<WeaponClass>());
                     whipInactive();
@@ -165,22 +166,6 @@ public class WhipPullClick : MonoBehaviour
                     grappleRope.enabled = true;
                     state = State.extend;
 
-                    if (pulledObj.CompareTag("Gun"))
-                    {
-                        gunCount++;
-                        Debug.Log("Gun picked up! Count: " + gunCount);
-                    }
-                    else if (pulledObj.CompareTag("Bottle"))
-                    {
-                        bottleCount++;
-                        Debug.Log("Bottle picked up! Count: " + bottleCount);
-                    }
-                    else if (pulledObj.CompareTag("Shield"))
-                    {
-                        shieldCount++;
-                        Debug.Log("Shield picked up! Count: " + shieldCount);
-                    }
-
                     Debug.Log("You used the whip at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
                 }
             }
@@ -202,5 +187,24 @@ public class WhipPullClick : MonoBehaviour
         grappleRope.enabled = false;
         pulledObj = null;
         state = State.inactive;
+    }
+
+    private void logPickUp()
+    {
+        if (pulledObj.CompareTag("Gun"))
+            {
+                gunCount++;
+                Debug.Log("Gun picked up! Count: " + gunCount);
+            }
+            else if (pulledObj.CompareTag("Bottle"))
+            {
+                bottleCount++;
+                Debug.Log("Bottle picked up! Count: " + bottleCount);
+            }
+            else if (pulledObj.CompareTag("Shield"))
+            {
+                shieldCount++;
+                Debug.Log("Shield picked up! Count: " + shieldCount);
+            }
     }
 }
