@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
     private float interactDistance = 1f;
+
+    private bool isPlaying = false;
+    private string filename;
 
     private void Awake()
     {
@@ -42,11 +47,32 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        filename = Application.dataPath + "/Playthrough_" + timestamp + ".csv";
+
+        UnityEditor.EditorApplication.playModeStateChanged += PlayModeStateChanged;
     }
 
-    private int levelOneCount;
-    private int levelTwoCount;
-    private int levelThreeCount;
+    private void OnDestroy()
+    {
+        UnityEditor.EditorApplication.playModeStateChanged -= PlayModeStateChanged;
+    }
+
+    private void PlayModeStateChanged(UnityEditor.PlayModeStateChange stateChange)
+    {
+        if (stateChange == UnityEditor.PlayModeStateChange.EnteredPlayMode)
+        {
+            isPlaying = true;
+        }
+        else if (stateChange == UnityEditor.PlayModeStateChange.ExitingPlayMode)
+        {
+            isPlaying = false;
+        }
+    }
+
+    float levelOneCount;
+    float levelTwoCount;
+    float levelThreeCount;
 
     private void CheckInteractionWithLevelEndObjects()
     {
@@ -79,7 +105,8 @@ public class GameManager : MonoBehaviour
             }
         } 
 
-        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject"))
+        //GET TO END LEVEL OBJECTIVE
+        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && SceneManager.GetActiveScene().name == "GetToEndTest")
         {
             if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
             {
@@ -87,6 +114,44 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("MainWorldTest");
                 Debug.Log("You have returned to the main world and completed " + levelName);
                 PrintLevelCompletionStatistics();
+                if (isPlaying)
+                {
+                    WriteCSV();
+                }
+            }
+        }
+
+        //KILL ALL ENEMIES LEVEL OBJECTIVE
+        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && totalEnemiesRemaining == 0 && SceneManager.GetActiveScene().name == "LevelKillTest")
+        {
+            if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
+            {
+                LevelComplete();
+                SceneManager.LoadScene("MainWorldTest");
+                Debug.Log("You have returned to the main world and completed " + levelName);
+                PrintLevelCompletionStatistics();
+                if (isPlaying)
+                {
+                    WriteCSV();
+                }
+            }
+        }
+
+        GameObject weaponPosObject = GameObject.FindWithTag("WeaponPos");  
+
+        //HEIST LEVEL OBJECTIVE
+        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && weaponPosObject != null && weaponPosObject.transform.childCount > 0 && weaponPosObject.transform.GetChild(0).CompareTag("HeistItem") && SceneManager.GetActiveScene().name == "LevelHeistTest")
+        {
+            if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
+            {
+                LevelComplete();
+                SceneManager.LoadScene("MainWorldTest");
+                Debug.Log("You have returned to the main world and completed " + levelName);
+                PrintLevelCompletionStatistics();
+                if (isPlaying)
+                {
+                    WriteCSV();
+                }
             }
         }
     }
@@ -100,7 +165,6 @@ public class GameManager : MonoBehaviour
         }
 
         totalEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
-
     }
 
     private Dictionary<string, float> levelCompletionTimes = new Dictionary<string, float>();
@@ -169,5 +233,23 @@ public class GameManager : MonoBehaviour
         Debug.Log("You have completed Level One " + levelOneCount + " times." +
                   " Level Two " + levelTwoCount + " times." +
                   " Level Three " + levelThreeCount + " times.");
+
+    }
+
+    private void WriteCSV()
+    {
+        bool fileExists = File.Exists(filename);
+
+        using (StreamWriter tw = new StreamWriter(filename, true))
+        {
+            if (!fileExists)
+            {
+                string header = "Level Name,Level Completion Time,Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions, Level Three Completions";
+                tw.WriteLine(header);
+            }
+
+            string data = SceneManager.GetActiveScene().name + "," + Time.timeSinceLevelLoad + "," + totalEnemiesRemaining + "," + totalBottlesUsed + "," + totalGunsUsed + "," + totalShieldsUsed + "," + levelOneCount + "," + levelTwoCount + "," + levelThreeCount;
+            tw.WriteLine(data);
+        }
     }
 }

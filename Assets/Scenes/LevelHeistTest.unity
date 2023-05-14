@@ -4560,7 +4560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1132871126392150677, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.722971
+      value: 10.92
       objectReference: {fileID: 0}
     - target: {fileID: 1132871126392150677, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4598,9 +4598,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1381187291329301773, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8d69d5eaa6d8564e92ce1ed718af867, type: 3}
     - target: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
       propertyPath: m_Name
-      value: Barrel
+      value: HeistItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7724875058327689730, guid: 831fa5d290a0339418a03727e88de728, type: 3}
+      propertyPath: m_TagString
+      value: HeistItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831fa5d290a0339418a03727e88de728, type: 3}
