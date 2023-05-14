@@ -64,7 +64,8 @@ public class EnemyRanged : MonoBehaviour
         //Get visible targets
         List<Transform> visibleTargets = detection.GetVisibleTargets();
         detection.SetRadius(visualRange);
-
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        
         switch(state)
         {
             case State.patrol:
@@ -75,14 +76,13 @@ public class EnemyRanged : MonoBehaviour
                     timer = aimTime;
                     state = State.aim;
                 }
-                else
-                {
-                    PatrolState(); //Patrol randomly if player is not found.
-                }
+
             break;
 
             case State.alert:
                 
+
+
                 break;
 
             case State.aim:
@@ -246,5 +246,10 @@ public class EnemyRanged : MonoBehaviour
         Destroy(gameObject);
         GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
         gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+    }
+    
+    public void Stun(float duration)
+    {
+
     }
 }
