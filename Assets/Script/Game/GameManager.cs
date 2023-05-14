@@ -244,11 +244,11 @@ public class GameManager : MonoBehaviour
         {
             if (!fileExists)
             {
-                string header = "Level Name,Level Completion Time,Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions, Level Three Completions";
+                string header = "Level Name,Level Completion Time,Total Enemy Count, Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions, Level Three Completions";
                 tw.WriteLine(header);
             }
 
-            string data = SceneManager.GetActiveScene().name + "," + Time.timeSinceLevelLoad + "," + totalEnemiesRemaining + "," + totalBottlesUsed + "," + totalGunsUsed + "," + totalShieldsUsed + "," + levelOneCount + "," + levelTwoCount + "," + levelThreeCount;
+            string data = SceneManager.GetActiveScene().name + "," + Time.timeSinceLevelLoad + "," + totalEnemyCount + "," + totalEnemiesRemaining + "," + totalBottlesUsed + "," + totalGunsUsed + "," + totalShieldsUsed + "," + levelOneCount + "," + levelTwoCount + "," + levelThreeCount;
             tw.WriteLine(data);
         }
     }
