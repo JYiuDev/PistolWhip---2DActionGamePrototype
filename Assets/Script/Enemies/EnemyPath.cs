@@ -4,7 +4,7 @@ using UnityEngine;
 using Pathfinding;
 
 public class EnemyPath : MonoBehaviour {
-    public Transform targetPosition;
+    public Transform target;
 
     private Seeker seeker;
 
@@ -20,6 +20,7 @@ public class EnemyPath : MonoBehaviour {
     private float pathUpdateTime = .5f;
     private Rigidbody2D rb;
     IEnumerator myCoroutine;
+    public Vector2 naviDir;
 
 
     public void Start () {
@@ -29,13 +30,6 @@ public class EnemyPath : MonoBehaviour {
         StartCoroutine(myCoroutine);
     }
 
-    public void UpdatePath()
-    {
-        if(seeker.IsDone())
-        {
-            seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
-        }
-    }
     public void OnPathComplete (Path p) {
         Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
 
@@ -46,6 +40,7 @@ public class EnemyPath : MonoBehaviour {
     }
 
     public void Update () {
+
         if (path == null) {
             return;
         }
@@ -74,24 +69,17 @@ public class EnemyPath : MonoBehaviour {
 
         // Direction to the next waypoint
         // Normalize it so that it has a length of 1 world unit
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+        naviDir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         // Multiply the direction by our desired speed to get a velocity
-        Vector3 velocity = dir * speed;
+        // Vector3 velocity = naviDir * speed;
 
         //transform.position += velocity * Time.deltaTime;
         if(!reachedEndOfPath)
         {
-            rb.velocity = velocity;
+            
         } else 
         {
-            rb.velocity = Vector2.zero;
-        }
-        
-        
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("stop pressed");
-            StopCoroutine(myCoroutine);
+            naviDir = Vector2.zero;
         }
     }
 
@@ -99,9 +87,9 @@ public class EnemyPath : MonoBehaviour {
     {
         while(true)
         {
-            if(seeker.IsDone())
+            if(seeker.IsDone() && target != null)
             {
-                seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
+                seeker.StartPath(transform.position, target.position, OnPathComplete);
             }
 
             yield return new WaitForSeconds(waitTime);
@@ -110,7 +98,7 @@ public class EnemyPath : MonoBehaviour {
 
     private void OnDisable () {
         seeker.pathCallback -= OnPathComplete;
-        rb.velocity = Vector2.zero;
+        naviDir = Vector2.zero;
         StopCoroutine(myCoroutine);
     }
 }

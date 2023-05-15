@@ -23,6 +23,7 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float searchTime;  //Time to chase after losing sight of player
     [SerializeField] float patrolRadius; // Raidus to patrol within
     [SerializeField] float patrolSpeed; // Speed at which the enemy patrols
+    [SerializeField] float chaseSpeed;
     private Vector2 patrolCenter; // Center of the patrol area
     private float stunDuration = 5f;
     private float stunTimer = 0f;
@@ -38,6 +39,9 @@ public class EnemyRanged : MonoBehaviour
     private Animator animator;
     //Prefabs
     [SerializeField] private GameObject gunPrefab;
+    //Pathfinding
+    private EnemyPath path;
+    private Rigidbody2D rb;
 
     void Awake()
     {
@@ -46,6 +50,8 @@ public class EnemyRanged : MonoBehaviour
         circleRenderer = GetComponentInChildren<CircleRenderer>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        path = GetComponent<EnemyPath>();
+        rb = GetComponent<Rigidbody2D>();
     }
     void Start()
     {
@@ -56,7 +62,6 @@ public class EnemyRanged : MonoBehaviour
         stunnedObject.SetActive(false);
         patrolDirection = Random.insideUnitCircle.normalized; // Initialize patrol direction
         movingToEdge = false; // Initialize moving to edge
-
     }
 
     void Update()
@@ -75,13 +80,35 @@ public class EnemyRanged : MonoBehaviour
                     circleRenderer.SetColor(Color.red);
                     timer = aimTime;
                     state = State.aim;
+                    return;
                 }
 
             break;
 
             case State.alert:
                 
+                timer -= Time.deltaTime;
 
+                if (detection.isPlayerFound())
+                {
+                    circleRenderer.SetColor(Color.red);
+                    timer = aimTime;
+                    rb.velocity = Vector2.zero;
+                    path.target = null;
+                    state = State.aim;
+                    return;
+                }
+
+                if(timer <= 0)
+                {
+                    circleRenderer.SetColor(Color.white);
+                    rb.velocity = Vector2.zero;
+                    path.target = null;
+                    state = State.patrol;
+                    return;
+                }
+                
+                rb.velocity = path.naviDir * chaseSpeed;
 
                 break;
 
@@ -91,15 +118,17 @@ public class EnemyRanged : MonoBehaviour
 
                 if(!detection.isPlayerFound())
                 {
-                    circleRenderer.SetColor(Color.white);
-                    state = State.patrol;
+                    //circleRenderer.SetColor(Color.white);
+                    circleRenderer.SetColor(Color.yellow);
+                    path.target = player;
+                    timer = searchTime;
+                    state = State.alert;
                 }
 
                 if(timer <= 0)
                 {
-                    circleRenderer.SetColor(Color.white);
                     weapon.ShootBullet();
-                    state = State.patrol;
+                    timer = aimTime;
                 }
 
             break;
@@ -120,9 +149,9 @@ public class EnemyRanged : MonoBehaviour
                     }
                     else
                     {
-                        state = State.aim;
                         timer = aimTime;
                         circleRenderer.SetColor(Color.red);
+                        state = State.aim;
                     }
                     stunnedObject.SetActive(false); // Hide the stunned object
                 }

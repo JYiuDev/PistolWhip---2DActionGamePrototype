@@ -359,13 +359,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6264503646461761341, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: m_Size.x
+      value: 0.21670723
+      objectReference: {fileID: 0}
+    - target: {fileID: -6264503646461761341, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: m_Size.y
+      value: 0.22253042
+      objectReference: {fileID: 0}
+    - target: {fileID: -6264503646461761341, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.01164639
+      objectReference: {fileID: 0}
+    - target: {fileID: -6264503646461761341, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0087347925
+      objectReference: {fileID: 0}
     - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: chaseSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: searchTime
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2031596348218337145, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_Name
@@ -448,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABYIewYK7f8fAIAADgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty4jAQ/BVK5zVlg8Hx3nYdQvaQhArZyoWLsMZYhSy59AiQFP++kiyww54Q3fPoaY38hShXLZRayKWk5EkQQD9HyJ3Rj1FPPsIR7wRf00+4xLxTomsXhH3MK9ZUWDxxaUo0oCUtf/Edc8GxBQ2nlZDNguygEEorC1eYKbCUFNplcwt9jdDR/kS5SznZ0yRzp097yuPR2R5L4BrkMHQ8m86zdLqI4iwkRdNxkt9ld5P5XUBdgSgZz/Msj9NFlEx9LcNLhpsWiBusLzmZhDrJ3IdxO3KIcOOVgjGqgl6kT633o8CtMnZaG0AotvN7kS6+Brqrtas7TH6pKgU6mCPx6Z5Ka2NXFf0WnbcNVvtO1wdmxvWZp15SV/PpPzpKPF1J0Txe2iaxa6FrWu5f8anESg+8H8L333UbfsBsj7cM3mvgz2IpheHEkloal2oUTO77v9fJihrKfY93Um9A0/Z2X646vt7T6Hz2wx8LRputo8ZpB6yZ8Hb7/QBpL+aPFey3R4USFnUq/ip4w7vhmgXigUqlLRWm5E7eVhjpQtHCe+amMboQkoOHg+gWOGb6tLJl9O0N3nCDtjfMA3YPKjQP3OWd3KR4uI+P4xtqJQ7Xy1K1ODyBql+MZpRDL9oRz9anQnDeLdjQk0va2sgKl4O0naHk+2qhNIszgNl8tk0hr7Y4SlOcV1NCZtMEypyUyO8e5XZOzFad0GCPvTXeF+d2zy7fmdFS4tYvO5H4sKSfjRhYTnkl1qUE4C9dhatwkLaJfZRkQag1aA1aU+7vG31tEBPlHsimT9j4URdHLfE3tKUfQjtkgwr/ZdkgB1+XeSXhg8LBdd8EWWd0/gdQSwMEFAAACAgAAFgh7FsSfyZtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKJuYF5aqqpmWmSSaplWlKirolJomWacUqKqbFharJlSrJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAFgh7Bgrt/x8AgAAOAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAFgh7FsSfyZtAAAAeAAAAAkAJAAAAAAAAAAAAAAAyQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACBAwAAAAA=
+    dataString: UEsDBBQAAAgIAABYIezzRu6/fgIAADcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzjVjg8Fxb61DSA9JmJBOLr4Ia401yJJHHwGS4b9Xkm3s0BPi7e7bt08rfyHKVQOFFnItKXkSBNDPCXJn9GMyBB/hhPeCb+kn9DnvlOjKJWGf84o1FRaPXJkSNWhJi198z1xyaEHDaSlkvSJ7yITSysIlZgpsSArtqrmFviboZH+C1JWc7WmWuNOnPaXh5GKPBXANcpw6XcyXSTxfBWHSFQXzaZTeJXez5V2HOoIgmi7TJA3jVRDNPZfhBcN1A8QNNlDOZh1PtPRp3I7cZbjxCsEYVZ1epM+N9yPDjTJ2WptAKLbze5EuvwK6r7TjHRe/lKUC3Zkj8fmeSmtjy4p+i9bbGqtDq+sDM+P6LGMvqeV8+i8cRD5cSlE/9m2j0LXQFS0Or/hcYKVH3o/h+++6DT9idsA7Bu8V8GexlsJwYoNaGldqFMzuh7/XybIKisOAt1JvQNMMdvdXHV7vaXK5+OFPGaP1zoWmcQtsmfB2+/0AaS/mjxXst0d1FBZ1Kv4qeMP78Zp1gQcqlbahbkru5O2EkS4VrbxnbhqjMyE5eLgT3QDHTJ83lkbf3uBNbNT2JvKA3YPqmnex/p3clHh4yA/Dm9BGHK+XpSpxfAJVvRjNKIdBtAs8W58ywXm7YGNP+rKtkSUuRmV7Q8n31UJxEiYAi+ViF0Na7nAQxzgt54Qs5hEUKSmQ3z3K7ZyYbVqhnT321vhAzu2e9d+ZyVrixi87kfi4pp+1GFlOeSm2hQTgLy3DVThI28Q+SrIi1Bq0Ba0p9/eNvnLERHEAkl+Jcj/p6qQlzgeWHDX0Q2iH5CjzH5YcOfi6yxsJHxSOrnlPdkGXf1BLAwQUAAAICAAAWCHsWxJ/Jm0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kom5gXlqqqmZaZJJqmVaUqKuiUmiZZpxSoqpsWFqsmVKslIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAWCHs80buv34CAAA3BQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAWCHsWxJ/Jm0AAAB4AAAACQAkAAAAAAAAAAAAAADLAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAIMDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1077,12 +1101,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1524739243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89f401964ccfe649a995d906af7aea8, type: 3}
+  m_Script: {fileID: 11500000, guid: 463747af9860dc249b90302ad37b1114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 988210567}
+  target: {fileID: 0}
   speed: 2
-  nextWaypointDistance: 3
+  nextWaypointDistance: 0.5
+  reachedEndOfPath: 0
+  naviDir: {x: 0, y: 0}
 --- !u!1 &1725830193
 GameObject:
   m_ObjectHideFlags: 0
