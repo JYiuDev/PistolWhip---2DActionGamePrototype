@@ -71,7 +71,14 @@ public class ThrownObj : MonoBehaviour
         {
             if(transform.parent.CompareTag("WeaponPos"))
             {
+                GameObject weaponObjName = GameObject.FindWithTag("WeaponPos");
+
+                Transform child = weaponObjName.transform.GetChild(0);
+
+                Debug.Log("You threw the " + child.name + " at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
+
                 Launch(initSpeed);
+
             }
         }
 

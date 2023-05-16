@@ -12,6 +12,12 @@ TagManager:
   - Shield
   - WeaponPos
   - Bottle
+  - LevelOneEntry
+  - LevelTwoEntry
+  - LevelThreeEntry
+  - EndObject
+  - Whip
+  - HeistItem
   layers:
   - Default
   - TransparentFX
