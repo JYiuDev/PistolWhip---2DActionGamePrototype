@@ -13,12 +13,12 @@ public class ShieldItems : WeaponClass
 
     public override void LeftClick()
     {
-        Throw();
+        //Throw();
     }
 
     public override void RightClick()
     {
-        Throw();
+        //Throw();
     }
 
     public override void ThrowInteractions(Collider2D other)

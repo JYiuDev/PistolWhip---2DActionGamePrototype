@@ -23,7 +23,7 @@ public abstract class WeaponClass : MonoBehaviour
         throwItem = GetComponent<ThrownObj>();
     }
 
-    protected virtual void Throw()
+    public virtual void Throw()
     {
         throwItem.Launch(launchSpeed);
     }

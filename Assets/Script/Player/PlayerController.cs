@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
         {
             weaponHeld.RightClick();
         }
+        if(Input.GetKeyDown(KeyCode.F) && weaponHeld != null)
+        {
+            weaponHeld.Throw();
+        }
     }
 
     void FixedUpdate()
