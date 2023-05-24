@@ -40,8 +40,9 @@ public class BulletMove : MonoBehaviour
             break;
 
             case "Player":
+                styleScriptTwo player = other.GetComponent<styleScriptTwo>();
+                player.takeDamage(1);
                 Debug.Log("Player hit");
-                Destroy(gameObject);
             break;
 
             case "Block":
