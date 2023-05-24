@@ -6,9 +6,15 @@ public class Shield : MonoBehaviour
 {
     [SerializeField] private int maxHits = 3;
     [SerializeField] private GameObject hitEffect;
+    private Style style;
 
     private int hitsLeft;
 
+    private void Awake()
+    {
+        style = GameObject.FindGameObjectWithTag("GameController").GetComponent<Style>();
+
+    }
     private void Start()
     {
         hitsLeft = maxHits;
@@ -20,6 +26,7 @@ public class Shield : MonoBehaviour
         {
             hitsLeft--;
             Destroy(collision.gameObject);
+            style.bulletBlock();
 
             if (hitsLeft <= 0)
             {
