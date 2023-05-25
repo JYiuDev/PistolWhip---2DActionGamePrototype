@@ -7,7 +7,7 @@ public class Revolver : WeaponClass
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed;
-    [SerializeField] private int bulletCount = 6;
+    [SerializeField] public int bulletCount = 6;
     //[SerializeField] private float initialThrownSpd = 8;
 
     public Revolver()
