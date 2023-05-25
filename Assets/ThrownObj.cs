@@ -83,13 +83,14 @@ public class ThrownObj : MonoBehaviour
         }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lastVelocity, 0.4f);
+
         if(hit.collider != null && hit.transform.CompareTag("Block"))
         {
             Vector2 _otherNormal = hit.normal;
             Vector2 newDir = Vector2.Reflect(lastVelocity, _otherNormal).normalized;
             rb.velocity = newDir * lastVelocity.magnitude;
             lastVelocity = rb.velocity;
-        }
+        } 
     }
 
     void FixedUpdate()
@@ -150,7 +151,7 @@ public class ThrownObj : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(gameObject.layer == LayerMask.NameToLayer("PullObjects"))
+        if(gameObject.layer == LayerMask.NameToLayer("PullObjects") && rb.velocity != Vector2.zero)
         {
             weapon.ThrowInteractions(other);
         }

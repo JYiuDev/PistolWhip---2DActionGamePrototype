@@ -7,6 +7,7 @@ public class Bottle : WeaponClass
     [SerializeField] private int durability; 
     [SerializeField] private int breakAfter;
     [SerializeField] private Sprite[] brokenSprites;
+    [SerializeField] private float inflictStunDuration = 2;
     private SpriteRenderer spriteRenderer;
 
     public Bottle()
@@ -41,9 +42,12 @@ public class Bottle : WeaponClass
 
             if(durability > 0)
             {
+                //update this code when parent class is implemented
+                EnemyRanged enemy = collision.gameObject.GetComponent<EnemyRanged>();
                 style.enemyStun();
                 Debug.Log("collide with enemy");
                 rb.velocity = (-rb.velocity).normalized * 1;
+                enemy.Stun(inflictStunDuration);
             }
             else{
                 Destroy(gameObject);
