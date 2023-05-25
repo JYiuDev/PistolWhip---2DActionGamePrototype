@@ -574,6 +574,7 @@ MonoBehaviour:
   chaseSpeed: 3
   stunnedObject: {fileID: 2031596347153689906}
   weapon: {fileID: 2031596348447526147}
+  visionRender: 0
   gunPrefab: {fileID: 4072074078980009091, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}
 --- !u!114 &2031596348218337145
 MonoBehaviour:
