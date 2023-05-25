@@ -11,6 +11,7 @@ public class CircleRenderer : MonoBehaviour
     private float radius = 1;
     private LineRenderer line;
     private EnemyRanged enemyRanged;
+    private bool toggled = false;
 
     void Awake()
     {
@@ -18,7 +19,6 @@ public class CircleRenderer : MonoBehaviour
         enemyRanged = gameObject.GetComponentInParent<EnemyRanged>();
         line.positionCount = (segments + 1);
         line.useWorldSpace = false;
-        CreatePoints ();
     }
     void Start ()
     {
@@ -27,7 +27,16 @@ public class CircleRenderer : MonoBehaviour
 
     void Update()
     {
-        CreatePoints();
+        if(toggled)
+        {
+            HandleColor();
+            CreatePoints();
+            line.enabled = true;
+        } else
+        {
+            line.enabled = false;
+        }
+        
     }
     public void CreatePoints ()
     {
@@ -58,5 +67,28 @@ public class CircleRenderer : MonoBehaviour
     {
        radius = r;
        CreatePoints();
+    }
+
+    public void setToggle(bool b)
+    {
+        toggled = b;
+    }
+
+    private void HandleColor()
+    {
+        switch(enemyRanged.GetState())
+        {
+            case EnemyRanged.State.patrol:
+                SetColor(Color.white);
+            break;
+
+            case EnemyRanged.State.aim:
+                SetColor(Color.red);
+            break;
+
+            case EnemyRanged.State.alert:
+                SetColor(Color.yellow);
+            break;
+        }
     }
 }

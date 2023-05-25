@@ -14,7 +14,7 @@ public class EnemyRanged : MonoBehaviour
     private Transform targetPos;
 
     //States
-    private enum State{patrol, alert, aim, stunned};
+    public enum State{patrol, alert, aim, stunned};
     [SerializeField] private State state;
 
     //Timings
@@ -33,6 +33,7 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] private EnemyWeapon weapon;
 
     //UI
+    [SerializeField] bool visionRender = false;
     private CircleRenderer circleRenderer;
 
     //Animator
@@ -60,11 +61,15 @@ public class EnemyRanged : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         state = State.patrol;
-        circleRenderer.CreatePoints();
         patrolCenter = transform.position;
         stunnedObject.SetActive(false);
         patrolDirection = Random.insideUnitCircle.normalized; // Initialize patrol direction
         movingToEdge = false; // Initialize moving to edge
+        
+        if(visionRender)
+        {
+            circleRenderer.setToggle(true);
+        }
     }
 
     void Update()
@@ -79,8 +84,6 @@ public class EnemyRanged : MonoBehaviour
             case State.patrol:
                 if(detection.isPlayerFound())
                 {
-                    //If target found, aim (temporary)
-                    circleRenderer.SetColor(Color.red);
                     timer = aimTime;
                     state = State.aim;
                     return;
@@ -94,7 +97,6 @@ public class EnemyRanged : MonoBehaviour
 
                 if (detection.isPlayerFound())
                 {
-                    circleRenderer.SetColor(Color.red);
                     timer = aimTime;
                     rb.velocity = Vector2.zero;
                     path.target = null;
@@ -104,7 +106,6 @@ public class EnemyRanged : MonoBehaviour
 
                 if(timer <= 0)
                 {
-                    circleRenderer.SetColor(Color.white);
                     rb.velocity = Vector2.zero;
                     path.target = null;
                     state = State.patrol;
@@ -121,8 +122,6 @@ public class EnemyRanged : MonoBehaviour
 
                 if(!detection.isPlayerFound())
                 {
-                    //circleRenderer.SetColor(Color.white);
-                    circleRenderer.SetColor(Color.yellow);
                     path.target = player;
                     timer = searchTime;
                     state = State.alert;
@@ -152,13 +151,20 @@ public class EnemyRanged : MonoBehaviour
                     else
                     {
                         timer = aimTime;
-                        circleRenderer.SetColor(Color.red);
                         state = State.aim;
                     }
                     stunnedObject.SetActive(false); // Hide the stunned object
                 }
 
                 break;
+        }
+
+        if(visionRender)
+        {
+            circleRenderer.setToggle(true);
+        } else
+        {
+            circleRenderer.setToggle(false);
         }
     }
 
@@ -284,4 +290,10 @@ public class EnemyRanged : MonoBehaviour
     {
 
     }
+
+    public State GetState()
+    {
+        return state;
+    }
+
 }
