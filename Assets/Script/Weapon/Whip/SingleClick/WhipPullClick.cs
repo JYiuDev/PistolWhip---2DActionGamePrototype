@@ -76,7 +76,7 @@ public class WhipPullClick : MonoBehaviour
         {
             case State.inactive:
 
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     // Check if WeaponPos has no child attached before grappling an object
                     if (gunHolder.GetComponent<PlayerController>().GetWeaponPos().childCount > 0)
