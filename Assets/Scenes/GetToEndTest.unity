@@ -451,9 +451,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1956073443}
-  - {fileID: 1582526332}
   - {fileID: 332508037}
   - {fileID: 1463000007}
+  - {fileID: 1582526332}
   - {fileID: 1036182919}
   - {fileID: 1375992221}
   - {fileID: 1522785465}
@@ -472,6 +472,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1834343411}
     m_Modifications:
+    - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: visionRender
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_Name
       value: EnemyRanged (19)
