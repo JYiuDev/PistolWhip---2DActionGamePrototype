@@ -1812,6 +1812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7753247189362699494, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!4 &585738467 stripped
