@@ -25,7 +25,7 @@ public class EnemyRanged : MonoBehaviour
     [SerializeField] float patrolSpeed; // Speed at which the enemy patrols
     [SerializeField] float chaseSpeed;
     private Vector2 patrolCenter; // Center of the patrol area
-    private float stunDuration = 5f;
+    //private float stunDuration = 5f;
     private float stunTimer = 0f;
     [SerializeField] private GameObject stunnedObject;
 
@@ -45,6 +45,7 @@ public class EnemyRanged : MonoBehaviour
     private Rigidbody2D rb;
 
     private styleScriptTwo style;
+    private State previousState;
 
     void Awake()
     {
@@ -142,17 +143,18 @@ public class EnemyRanged : MonoBehaviour
                 // If stun timer is up, resume patrol or aim at player
                 if (stunTimer <= 0f)
                 {
-                    if (!detection.isPlayerFound())
-                    {
-                        movingToEdge = true;
-                        patrolDirection = Random.insideUnitCircle.normalized;
-                        state = State.patrol;
-                    }
-                    else
-                    {
-                        timer = aimTime;
-                        state = State.aim;
-                    }
+                    // if (!detection.isPlayerFound())
+                    // {
+                    //     movingToEdge = true;
+                    //     patrolDirection = Random.insideUnitCircle.normalized;
+                    //     state = State.patrol;
+                    // }
+                    // else
+                    // {
+                    //     timer = aimTime;
+                    //     state = State.aim;
+                    // }
+                    state = previousState;
                     stunnedObject.SetActive(false); // Hide the stunned object
                 }
 
@@ -170,20 +172,20 @@ public class EnemyRanged : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Bottle"))
-        {
-            // Set stun timer and change state to stunned
-            takeDamage(1);
-            stunTimer = stunDuration;
-            state = State.stunned;
+        // if (other.CompareTag("Bottle"))
+        // {
+        //     // Set stun timer and change state to stunned
+        //     takeDamage(1);
+        //     stunTimer = stunDuration;
+        //     state = State.stunned;
 
-            // Show stun effect
-            stunnedObject.SetActive(true);
+        //     // Show stun effect
+        //     stunnedObject.SetActive(true);
 
-            // Stop moving
-            patrolDirection = Vector2.zero;
-            movingToEdge = false;
-        }
+        //     // Stop moving
+        //     patrolDirection = Vector2.zero;
+        //     movingToEdge = false;
+        // }
         if (other.CompareTag("Enemy"))
         {
             // Move in opposite directions when colliding with another enemy
@@ -288,7 +290,14 @@ public class EnemyRanged : MonoBehaviour
     
     public void Stun(float duration)
     {
+        previousState = state;
+        state = State.stunned;
+        stunTimer = duration;
 
+        // Show stun effect
+        stunnedObject.SetActive(true);
+
+        rb.velocity = Vector2.zero;
     }
 
     public State GetState()
