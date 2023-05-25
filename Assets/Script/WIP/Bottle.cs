@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Bottle : WeaponClass
 {
+    private styleScriptTwo style;
+    private void Awake()
+    {
+        style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
+    }
     public Bottle()
     {
         type = WeaponType.BOTTLE;
@@ -24,6 +29,7 @@ public class Bottle : WeaponClass
         
         if (collision.CompareTag("Enemy"))
         {
+            style.enemyStun();
             Debug.Log("collide with enemy");
             rb.velocity = (-rb.velocity).normalized * 1;
         }

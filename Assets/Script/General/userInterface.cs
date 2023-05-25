@@ -54,6 +54,8 @@ public class userInterface : MonoBehaviour
     public Sprite levelTwo;
     public Sprite levelThree;
 
+    public Text comboText;
+
     public Sprite extraHitActive;
     public Sprite extraHitInactive;
 
@@ -110,40 +112,45 @@ public class userInterface : MonoBehaviour
         }
 
         //RANK UI
-
+        //none
         if (player.GetComponent<styleScriptTwo>().styleAmount <= 0)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank1;
         }
-
+        //deputy
         if (player.GetComponent<styleScriptTwo>().styleAmount > 0 && player.GetComponent<styleScriptTwo>().styleAmount <= 100)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank2;
         }
-
+        //sheriff
         if (player.GetComponent<styleScriptTwo>().styleAmount > 100 && player.GetComponent<styleScriptTwo>().styleAmount <= 250)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank3;
         }
-
+        //vigilante
         if (player.GetComponent<styleScriptTwo>().styleAmount > 250 && player.GetComponent<styleScriptTwo>().styleAmount <= 450)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank4;
         }
-
+        //hero
         if (player.GetComponent<styleScriptTwo>().styleAmount > 450 && player.GetComponent<styleScriptTwo>().styleAmount <= 700)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank5;
         }
-
+        //legend
         if (player.GetComponent<styleScriptTwo>().styleAmount > 700 && player.GetComponent<styleScriptTwo>().styleAmount <= 1000)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank6;
         }
-
-        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000)
+        //myth
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000 && player.GetComponent<styleScriptTwo>().styleAmount <= 20000)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank7;
+        }
+        //myth+
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 20000)
+        {
+            this.transform.GetChild(1).GetComponent<Image>().sprite = rank8;
         }
 
         //LEVEL UI
@@ -170,6 +177,10 @@ public class userInterface : MonoBehaviour
         {
             this.transform.GetChild(2).GetComponent<Image>().sprite = levelThree;
         }
+
+        //COMBO UI
+
+        comboText.text = "" + player.GetComponent<styleScriptTwo>().styleAmount;
 
         //EXTRA HIT UI
 

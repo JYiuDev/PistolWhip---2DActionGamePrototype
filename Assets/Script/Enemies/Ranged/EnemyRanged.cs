@@ -43,6 +43,8 @@ public class EnemyRanged : MonoBehaviour
     private EnemyPath path;
     private Rigidbody2D rb;
 
+    private styleScriptTwo style;
+
     void Awake()
     {
         weapon = GetComponentInChildren<EnemyWeapon>();
@@ -52,6 +54,7 @@ public class EnemyRanged : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         path = GetComponent<EnemyPath>();
         rb = GetComponent<Rigidbody2D>();
+        style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
     }
     void Start()
     {
@@ -137,7 +140,6 @@ public class EnemyRanged : MonoBehaviour
 
                 // Countdown stun timer
                 stunTimer -= Time.deltaTime;
-
                 // If stun timer is up, resume patrol or aim at player
                 if (stunTimer <= 0f)
                 {
@@ -275,6 +277,7 @@ public class EnemyRanged : MonoBehaviour
         Destroy(gameObject);
         GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
         gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+        style.enemyKill();
     }
     
     public void Stun(float duration)

@@ -4231,6 +4231,7 @@ MonoBehaviour:
   levelOne: {fileID: 21300000, guid: 758f56af844651442ab45a04106e57de, type: 3}
   levelTwo: {fileID: 21300000, guid: dbae28203139d9b40aa6d4301b2e63b2, type: 3}
   levelThree: {fileID: 21300000, guid: a71dbb5c83a35e448a529cde0e18f632, type: 3}
+  comboText: {fileID: 757495013}
   extraHitActive: {fileID: 21300000, guid: c8d69d5eaa6d8564e92ce1ed718af867, type: 3}
   extraHitInactive: {fileID: 21300000, guid: 6cf4ca4536ff0d940879657585dae03b, type: 3}
 --- !u!1 &1337515283
@@ -5884,7 +5885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abce1ec605e7de4297a8b9705a6f3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 2
   styleAmount: 0
   styleDecay: 0
   rankTitle: 

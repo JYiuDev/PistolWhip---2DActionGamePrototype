@@ -49,41 +49,47 @@ public class styleScriptTwo : MonoBehaviour
             styleDecay = 0f;
             adrenalineGain = 1;
         }
-        else if (styleAmount < 100)
+        else if (styleAmount <= 100)
         {
             rankTitle = "Deputy";
             styleDecay = 5f;
             adrenalineGain = 2;
         }
-        else if (styleAmount >= 100 && styleAmount < 250)
+        else if (styleAmount > 100 && styleAmount <= 250)
         {
             rankTitle = "Sherrif";
             styleDecay = 7.5f;
             adrenalineGain = 3;
         }
-        else if (styleAmount >= 250 && styleAmount < 450)
+        else if (styleAmount > 250 && styleAmount <= 450)
         {
             rankTitle = "Vigilante";
             styleDecay = 12.5f;
             adrenalineGain = 5;
         }
-        else if (styleAmount >= 450 && styleAmount < 700)
+        else if (styleAmount > 450 && styleAmount <= 700)
         {
             rankTitle = "Hero";
             styleDecay = 20f;
             adrenalineGain = 8;
         }
-        else if (styleAmount >= 700 && styleAmount < 1000)
+        else if (styleAmount > 700 && styleAmount <= 1000)
         {
             rankTitle = "Legend";
             styleDecay = 32.5f;
             adrenalineGain = 13;
         }
-        else if (styleAmount >= 1000)
+        else if (styleAmount > 1000 && styleAmount <= 20000)
         {
             rankTitle = "Myth";
             styleDecay = 50f;
             adrenalineGain = 21;
+        } 
+        else if (styleAmount > 20000)
+        {
+            rankTitle = "Myth+";
+            styleDecay = 100f;
+            adrenalineGain = 30;
         }
 
         //adrenaline stuff
