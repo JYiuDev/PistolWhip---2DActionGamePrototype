@@ -1876,6 +1876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7753247189362699494, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: brokenSprite
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08669c8a894153440a11a7b971496d86, type: 3}
 --- !u!4 &585738467 stripped
@@ -3977,6 +3981,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1834343411}
     m_Modifications:
+    - target: {fileID: 2031596346670121509, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: hp
       value: 3
@@ -22603,6 +22611,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118266402575250906, guid: 08669c8a894153440a11a7b971496d86, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212828070094545480, guid: 08669c8a894153440a11a7b971496d86, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4212828070094545484, guid: 08669c8a894153440a11a7b971496d86, type: 3}
