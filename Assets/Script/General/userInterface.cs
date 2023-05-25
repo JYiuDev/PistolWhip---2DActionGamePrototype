@@ -54,6 +54,9 @@ public class userInterface : MonoBehaviour
     public Sprite levelTwo;
     public Sprite levelThree;
 
+    public Sprite extraHitActive;
+    public Sprite extraHitInactive;
+
     // Update is called once per frame
     void Update()
     {
@@ -166,6 +169,16 @@ public class userInterface : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "LevelHeistTest")
         {
             this.transform.GetChild(2).GetComponent<Image>().sprite = levelThree;
+        }
+
+        //EXTRA HIT UI
+
+        if (player.GetComponent<styleScriptTwo>().hasAdrenaline == true)
+        {
+            this.transform.GetChild(4).GetComponent<Image>().sprite = extraHitActive;
+        } else
+        {
+            this.transform.GetChild(4).GetComponent<Image>().sprite = extraHitInactive;
         }
     }
 }

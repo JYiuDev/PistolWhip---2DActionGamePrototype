@@ -4228,6 +4228,11 @@ MonoBehaviour:
   gunWith6: {fileID: -695816844, guid: 89a62d1c784295f46a3c09a58754520f, type: 3}
   bottleEquipped: {fileID: 21300000, guid: 032f7a96a0502d54da1acce2a94abef8, type: 3}
   shieldEquipped: {fileID: 21300000, guid: 7dd30f07e31649c4d9e7df50763540a7, type: 3}
+  levelOne: {fileID: 21300000, guid: 758f56af844651442ab45a04106e57de, type: 3}
+  levelTwo: {fileID: 21300000, guid: dbae28203139d9b40aa6d4301b2e63b2, type: 3}
+  levelThree: {fileID: 21300000, guid: a71dbb5c83a35e448a529cde0e18f632, type: 3}
+  extraHitActive: {fileID: 21300000, guid: c8d69d5eaa6d8564e92ce1ed718af867, type: 3}
+  extraHitInactive: {fileID: 21300000, guid: 6cf4ca4536ff0d940879657585dae03b, type: 3}
 --- !u!1 &1337515283
 GameObject:
   m_ObjectHideFlags: 0

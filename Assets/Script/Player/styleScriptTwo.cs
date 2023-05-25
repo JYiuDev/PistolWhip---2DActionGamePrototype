@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class styleScriptTwo : MonoBehaviour
 {
-
-    [SerializeField] private float hp = 2f;
-
     // Public variables
     public float styleAmount;
     public float styleDecay;
@@ -29,14 +26,14 @@ public class styleScriptTwo : MonoBehaviour
         styleDecay = 0f;
         multikillTimer = 0f;
         multikillCount = 0;
-        hasAdrenaline = true;
+        hasAdrenaline = false;
     }
 
     private void Update()
     {
         // Decay and multikill checks
         styleAmount -= styleDecay * Time.deltaTime;
-        adrenalinePoints += adrenalineGain;
+        adrenalinePoints += adrenalineGain * Time.deltaTime;
         multikillTimer -= Time.deltaTime;
         if (multikillTimer <= 0)
         {
@@ -94,6 +91,9 @@ public class styleScriptTwo : MonoBehaviour
         {
             adrenalinePoints = 100;
             hasAdrenaline = true;
+        } else
+        {
+            hasAdrenaline = false;
         }
     }
 
@@ -127,16 +127,6 @@ public class styleScriptTwo : MonoBehaviour
         styleAmount -= 200f;
         Debug.Log("You've been hit!");
     }
-
-    //private void InitializeStyle()
-    //{
-    //    rankTitle = "";
-    //    styleAmount = 0f;
-    //    styleDecay = 0f;
-    //    multikillTimer = 0f;
-    //    multikillCount = 0;
-    //    hasAdrenaline = true;
-    //}
 
     void OnTriggerEnter2D(Collider2D other)
     {

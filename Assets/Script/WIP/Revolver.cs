@@ -10,6 +10,16 @@ public class Revolver : WeaponClass
     [SerializeField] public int bulletCount = 6;
     //[SerializeField] private float initialThrownSpd = 8;
 
+    public Sprite outOfBullets;
+
+    private void Update()
+    {
+        if (bulletCount == 0)
+        {
+            this.transform.GetComponent<SpriteRenderer>().sprite = outOfBullets;
+        }
+    }
+
     public Revolver()
     {
         type = WeaponType.REVOLVER;

@@ -213,4 +213,4 @@ MonoBehaviour:
   firePoint: {fileID: 2973205365061258448}
   bulletSpeed: 20
   bulletCount: 6
-  initialThrownSpd: 8
+  outOfBullets: {fileID: 21300000, guid: 991820d140d37ea41ab11e45aa0c5424, type: 3}
