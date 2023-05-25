@@ -113,7 +113,7 @@ public class userInterface : MonoBehaviour
 
         //RANK UI
         //none
-        if (player.GetComponent<styleScriptTwo>().styleAmount <= 0)
+        if (player.GetComponent<styleScriptTwo>().styleAmount == 0)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank1;
         }
