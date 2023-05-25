@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Bottle : WeaponClass
 {
-    private styleScriptTwo style;
-    private void Awake()
-    {
-        style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
-    }
     public Bottle()
     {
         type = WeaponType.BOTTLE;
@@ -26,7 +21,6 @@ public class Bottle : WeaponClass
 
     public override void ThrowInteractions(Collider2D collision)
     {
-        
         if (collision.CompareTag("Enemy"))
         {
             style.enemyStun();

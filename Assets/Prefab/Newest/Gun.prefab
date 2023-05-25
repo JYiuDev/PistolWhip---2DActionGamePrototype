@@ -212,5 +212,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8071577201409469080, guid: 4f39c847337a88748a70e497174189ce, type: 3}
   firePoint: {fileID: 2973205365061258448}
   bulletSpeed: 20
-  bulletCount: 6
+  bulletCount: 3
   outOfBullets: {fileID: 21300000, guid: 991820d140d37ea41ab11e45aa0c5424, type: 3}

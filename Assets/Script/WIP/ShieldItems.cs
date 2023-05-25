@@ -7,12 +7,6 @@ public class ShieldItems : WeaponClass
     //hits take to destroy this object
     [SerializeField] private float durability = 3;
 
-    private styleScriptTwo style;
-
-    private void Awake()
-    {
-        style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
-    }
     public ShieldItems()
     {
         type = WeaponType.SHIELD;

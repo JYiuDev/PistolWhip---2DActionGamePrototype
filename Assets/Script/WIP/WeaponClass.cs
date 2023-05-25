@@ -11,6 +11,7 @@ public abstract class WeaponClass : MonoBehaviour
     protected float launchSpeed = 8;
     protected ThrownObj throwItem;
     protected Rigidbody2D rb;
+    protected styleScriptTwo style;
 
     public WeaponClass()
     {
@@ -21,6 +22,7 @@ public abstract class WeaponClass : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();    
         throwItem = GetComponent<ThrownObj>();
+        style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
     }
 
     protected virtual void Throw()
