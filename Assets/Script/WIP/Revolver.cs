@@ -50,6 +50,8 @@ public class Revolver : WeaponClass
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
             bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
             bulletCount--;
+        } else{
+            Throw();
         }
     }
 }
