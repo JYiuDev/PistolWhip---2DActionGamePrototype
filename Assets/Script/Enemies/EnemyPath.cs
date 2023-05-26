@@ -41,7 +41,7 @@ public class EnemyPath : MonoBehaviour {
 
     public void Update () {
 
-        if (path == null) {
+        if (path == null || target == null) {
             return;
         }
 
