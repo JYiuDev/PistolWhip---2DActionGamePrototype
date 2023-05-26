@@ -154,30 +154,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-        //DEATH
-
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied == true)
-        {
-            died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
-            xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
-            yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
-
-            LevelComplete();
-            Debug.Log("You have just died");
-            PrintLevelCompletionStatistics();
-            if (isPlaying)
-            {
-                WriteCSV();
-                SceneReload();
-            }
-        }
-
-        void SceneReload()
-        {
-            Scene currentScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currentScene.buildIndex);
-        }
     }
 
     // Update is called once per frame
@@ -193,10 +169,6 @@ public class GameManager : MonoBehaviour
         extrahits = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().extraHitCount;
         currentAdr = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().adrenalinePoints;
         rank = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().rankTitle;
-
-        died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
-        xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
-        yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
     }
 
     private Dictionary<string, float> levelCompletionTimes = new Dictionary<string, float>();
@@ -282,6 +254,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("You have completed Level One " + levelOneCount + " times." +
                   " Level Two " + levelTwoCount + " times." +
                   " Level Three " + levelThreeCount + " times.");
+
+        died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
+        xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
+        yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
+        Debug.Log("You have diiiiieeeeeeeddddddddd");
+        Debug.Log("You died at " + xOnDeath + "," + yOnDeath);
 
     }
 
