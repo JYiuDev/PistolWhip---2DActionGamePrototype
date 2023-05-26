@@ -180,7 +180,7 @@ public class userInterface : MonoBehaviour
 
         //COMBO UI
 
-        comboText.text = "" + player.GetComponent<styleScriptTwo>().styleAmount;
+        comboText.text = "" + Mathf.Round(player.GetComponent<styleScriptTwo>().styleAmount);
 
         //EXTRA HIT UI
 
