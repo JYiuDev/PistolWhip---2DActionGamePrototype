@@ -18,7 +18,8 @@ TagManager:
   - EndObject
   - Whip
   - HeistItem
-  - Knife
+  - GameManager
+  - UserInterface
   layers:
   - Default
   - TransparentFX

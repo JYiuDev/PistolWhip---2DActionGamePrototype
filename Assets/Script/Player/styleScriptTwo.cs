@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class styleScriptTwo : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class styleScriptTwo : MonoBehaviour
         multikillTimer = 0f;
         multikillCount = 0;
         hasAdrenaline = false;
+        hasDied = false;
     }
 
     private void Update()
@@ -97,6 +99,7 @@ public class styleScriptTwo : MonoBehaviour
         {
             adrenalinePoints = 100;
             hasAdrenaline = true;
+            Debug.Log("Adrenaline has kicked in, you can take an extra hit!");
         } else
         {
             hasAdrenaline = false;
@@ -126,20 +129,43 @@ public class styleScriptTwo : MonoBehaviour
         styleAmount += 20f;
     }
 
+    public int extraHitCount;
+
+    public float xCoord;
+    public float yCoord;
+    public bool hasDied;
+
     public void takeDamage()
     {
-        hasAdrenaline = false;
-        adrenalinePoints = 0;
-        styleAmount -= 200f;
-        Debug.Log("You've been hit!");
+        if (hasAdrenaline == true)
+        {
+            hasAdrenaline = false;
+            adrenalinePoints = 0;
+            styleAmount -= 200f;
+            extraHitCount++;
+            Debug.Log("You've been hit, don't get hit again!");
+        } else if (hasAdrenaline == false)
+        {
+            xCoord = GameObject.FindGameObjectWithTag("Player").transform.position.x;
+            yCoord = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+            hasDied = true;
+            Debug.Log("You have died, please try complete the level again!");
+            extraHitCount = 0;
+
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LevelComplete();
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
+            if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
+            {
+                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
+            }
+
+            SceneReload();
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void SceneReload()
     {
-        // Check if the collision is with the Bullet object
-        if (other.CompareTag("Bullet"))
-        {
-            //takeDamage();
-        }
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 }

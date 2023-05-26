@@ -1,0 +1,4 @@
+Level Name,Level Completion Time,Total Enemy Count, Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions,Level Three Completions,Adrenaline,Rank,Combo,Extra Hits,Death,xOnDeath,yOnDeath
+GetToEndTest,21.17325,20,16,1,6,0,1,0,0,52.24254,Sherrif,124.6509,0,True,-15.78215,19.85184
+GetToEndTest,3.016952,20,20,0,1,0,1,0,0,3.054069,,0,0,True,-18.06067,-1.479342
+GetToEndTest,9.427841,20,17,0,4,0,1,0,0,19.47533,Sherrif,120.506,0,True,-21.38361,29.12041
