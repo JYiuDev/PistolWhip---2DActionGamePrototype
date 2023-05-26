@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+*.csv
+Assets/Playthrough_20230526_195402.csv.meta
+Assets/Playthrough_20230526_195518.csv.meta
+Assets/Playthrough_20230526_201031.csv.meta
+Assets/Playthrough_20230526_201617.csv.meta
+Assets/Playthrough_20230526_202032.csv.meta
+Assets/Playthrough_20230526_202829.csv.meta
