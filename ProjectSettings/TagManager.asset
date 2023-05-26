@@ -19,6 +19,7 @@ TagManager:
   - Whip
   - HeistItem
   - GameManager
+  - UserInterface
   layers:
   - Default
   - TransparentFX

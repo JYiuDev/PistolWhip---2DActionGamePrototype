@@ -154,6 +154,30 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+        //DEATH
+
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied == true)
+        {
+            died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
+            xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
+            yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
+
+            LevelComplete();
+            Debug.Log("You have just died");
+            PrintLevelCompletionStatistics();
+            if (isPlaying)
+            {
+                WriteCSV();
+                SceneReload();
+            }
+        }
+
+        void SceneReload()
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.buildIndex);
+        }
     }
 
     // Update is called once per frame
@@ -165,14 +189,30 @@ public class GameManager : MonoBehaviour
         }
 
         totalEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        combo = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().styleAmount;
+        extrahits = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().extraHitCount;
+        currentAdr = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().adrenalinePoints;
+        rank = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().rankTitle;
+
+        died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
+        xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
+        yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
     }
 
     private Dictionary<string, float> levelCompletionTimes = new Dictionary<string, float>();
     private Dictionary<string, float> levelTotalEnemiesRemaining = new Dictionary<string, float>();
+    private Dictionary<string, float> levelCombo = new Dictionary<string, float>();
+    float combo;
+    bool died;
+    string rank;
+    float currentAdr;
+    float extrahits;
     float totalEnemiesRemaining;
     float totalShieldsUsed;
     float totalBottlesUsed;
     float totalGunsUsed;
+    float xOnDeath;
+    float yOnDeath;
     
 
     public void LevelComplete()
@@ -183,6 +223,7 @@ public class GameManager : MonoBehaviour
         {
             levelCompletionTimes.Add(levelName, Time.timeSinceLevelLoad);
             levelTotalEnemiesRemaining.Add(levelName, totalEnemiesRemaining);
+            levelCombo.Add(levelName, combo);
         }
         else
         {
@@ -200,6 +241,14 @@ public class GameManager : MonoBehaviour
             if (newTotalEnemiesRemaining < previousTotalEnemiesRemaining)
             {
                 levelTotalEnemiesRemaining[levelName] = newTotalEnemiesRemaining;
+            }
+
+            float previousLevelCombo = levelCombo[levelName];
+            float newLevelCombo = combo;
+
+            if (previousLevelCombo < newLevelCombo)
+            {
+                levelCombo[levelName] = newLevelCombo;
             }
         }
 
@@ -244,11 +293,11 @@ public class GameManager : MonoBehaviour
         {
             if (!fileExists)
             {
-                string header = "Level Name,Level Completion Time,Total Enemy Count, Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions, Level Three Completions";
+                string header = "Level Name,Level Completion Time,Total Enemy Count, Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions,Level Three Completions,Adrenaline,Rank,Combo,Extra Hits,Death,xOnDeath,yOnDeath";
                 tw.WriteLine(header);
             }
 
-            string data = SceneManager.GetActiveScene().name + "," + Time.timeSinceLevelLoad + "," + totalEnemyCount + "," + totalEnemiesRemaining + "," + totalBottlesUsed + "," + totalGunsUsed + "," + totalShieldsUsed + "," + levelOneCount + "," + levelTwoCount + "," + levelThreeCount;
+            string data = SceneManager.GetActiveScene().name + "," + Time.timeSinceLevelLoad + "," + totalEnemyCount + "," + totalEnemiesRemaining + "," + totalBottlesUsed + "," + totalGunsUsed + "," + totalShieldsUsed + "," + levelOneCount + "," + levelTwoCount + "," + levelThreeCount + "," + currentAdr + "," + rank + "," + combo + "," + extrahits + "," + died + "," + xOnDeath + "," + yOnDeath;
             tw.WriteLine(data);
         }
     }

@@ -1210,6 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239f142def69bd24695abd3904132275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlaying: 0
 --- !u!4 &401099198
 Transform:
   m_ObjectHideFlags: 0
@@ -4099,7 +4100,7 @@ GameObject:
   - component: {fileID: 1331622628}
   m_Layer: 5
   m_Name: UI
-  m_TagString: Untagged
+  m_TagString: UserInterface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5898,6 +5899,8 @@ MonoBehaviour:
   adrenalinePoints: 0
   adrenalineGain: 0
   hasAdrenaline: 0
+  extraHitCount: 0
+  hasDied: 0
 --- !u!1 &2078646106
 GameObject:
   m_ObjectHideFlags: 0

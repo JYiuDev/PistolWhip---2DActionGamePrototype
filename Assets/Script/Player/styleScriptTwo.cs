@@ -28,6 +28,7 @@ public class styleScriptTwo : MonoBehaviour
         multikillTimer = 0f;
         multikillCount = 0;
         hasAdrenaline = false;
+        hasDied = false;
     }
 
     private void Update()
@@ -130,6 +131,10 @@ public class styleScriptTwo : MonoBehaviour
 
     public int extraHitCount;
 
+    public float xCoord;
+    public float yCoord;
+    public bool hasDied;
+
     public void takeDamage()
     {
         if (hasAdrenaline == true)
@@ -141,28 +146,24 @@ public class styleScriptTwo : MonoBehaviour
             Debug.Log("You've been hit, don't get hit again!");
         } else if (hasAdrenaline == false)
         {
+            xCoord = GameObject.FindGameObjectWithTag("Player").transform.position.x;
+            yCoord = GameObject.FindGameObjectWithTag("Player").transform.position.y;
+            hasDied = true;
             Debug.Log("You have died, please try complete the level again!");
             extraHitCount = 0;
 
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LevelComplete();
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
-            if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
-            {
-                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
-            }
-
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            SceneManager.LoadScene(currentScene.buildIndex);
+            //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LevelComplete();
+            //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
+            //if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
+            //{
+            //    GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
+            //}
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    // Check if the collision is with the Bullet object
-    //    if (other.CompareTag("Bullet"))
-    //    {
-    //        //takeDamage();
-    //    }
-    //}
+    void SceneReload()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
+    }
 }
