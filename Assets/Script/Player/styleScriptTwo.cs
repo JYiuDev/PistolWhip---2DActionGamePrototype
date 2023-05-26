@@ -98,6 +98,7 @@ public class styleScriptTwo : MonoBehaviour
         {
             adrenalinePoints = 100;
             hasAdrenaline = true;
+            Debug.Log("Adrenaline has kicked in, you can take an extra hit!");
         } else
         {
             hasAdrenaline = false;
@@ -127,6 +128,8 @@ public class styleScriptTwo : MonoBehaviour
         styleAmount += 20f;
     }
 
+    public int extraHitCount;
+
     public void takeDamage()
     {
         if (hasAdrenaline == true)
@@ -134,22 +137,32 @@ public class styleScriptTwo : MonoBehaviour
             hasAdrenaline = false;
             adrenalinePoints = 0;
             styleAmount -= 200f;
+            extraHitCount++;
             Debug.Log("You've been hit, don't get hit again!");
         } else if (hasAdrenaline == false)
         {
             Debug.Log("You have died, please try complete the level again!");
+            extraHitCount = 0;
+
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LevelComplete();
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
+            if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
+            {
+                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
+            }
+
             Scene currentScene = SceneManager.GetActiveScene();
 
             SceneManager.LoadScene(currentScene.buildIndex);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // Check if the collision is with the Bullet object
-        if (other.CompareTag("Bullet"))
-        {
-            //takeDamage();
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    // Check if the collision is with the Bullet object
+    //    if (other.CompareTag("Bullet"))
+    //    {
+    //        //takeDamage();
+    //    }
+    //}
 }

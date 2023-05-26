@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     private float interactDistance = 1f;
 
-    private bool isPlaying = false;
+    public bool isPlaying = false;
     private string filename;
 
     private void Awake()
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void WriteCSV()
+    public void WriteCSV()
     {
         bool fileExists = File.Exists(filename);
 
