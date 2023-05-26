@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class WeaponClass : MonoBehaviour
 {
     //Parent Class for pickup weapons
-    public enum WeaponType {NONE = 0, REVOLVER = 1, BOTTLE = 2, SHIELD = 3,};
+    public enum WeaponType {NONE = 0, REVOLVER = 1, BOTTLE = 2, SHIELD = 3, KNIFE = 4};
     protected WeaponType type;
     protected Vector2 weaponPos;
     protected float launchSpeed = 8;
@@ -25,7 +25,7 @@ public abstract class WeaponClass : MonoBehaviour
         style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
     }
 
-    protected virtual void Throw()
+    public virtual void Throw()
     {
         throwItem.Launch(launchSpeed);
     }

@@ -14,6 +14,7 @@ public class ThrownObj : MonoBehaviour
     [SerializeField] private float shieldSlowdown = 10f;
     [SerializeField] private float gunSlowdown = 100f;
     [SerializeField] private float bottleSlowdown = 30f;
+    [SerializeField] private float knifeSlowdown = 1f;
     private WeaponClass weapon;
 
     void Awake()
@@ -76,6 +77,11 @@ public class ThrownObj : MonoBehaviour
                 Transform child = weaponObjName.transform.GetChild(0);
 
                 Debug.Log("You threw the " + child.name + " at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
+                
+                if(gameObject.tag == "Knife")
+                {
+                    gameObject.GetComponent<Knife>().animator.Play("Base Layer.KnifeIdle", 0, 0);
+                }
 
                 Launch(initSpeed);
 
@@ -142,6 +148,12 @@ public class ThrownObj : MonoBehaviour
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, bottleSlowdown * Time.deltaTime);
             }
+
+            else if (gameObject.CompareTag("Knife"))
+            {
+                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, knifeSlowdown * Time.deltaTime);
+            }
+
             yield return null;
         }
 
