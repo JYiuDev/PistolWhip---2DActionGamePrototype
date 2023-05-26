@@ -10377,10 +10377,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3692836978067324967, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}
-      propertyPath: bulletCount
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4072074078980009091, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}
       propertyPath: m_Name
       value: Gun

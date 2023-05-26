@@ -6,6 +6,7 @@ public class BulletMove : MonoBehaviour
 {
     private float speed = 8f;      //arbitrary default value
     private float lifeTime = 5;   //arbitrary default value
+    [SerializeField] private float enemyDmg = 2;
     void Start()
     {
         
@@ -34,7 +35,7 @@ public class BulletMove : MonoBehaviour
                 //Gona need further fixing to acoomodate other types of enemies
                 //Need to make a parent class for all enemies
                 EnemyRanged enemy = other.GetComponent<EnemyRanged>();
-                enemy.takeDamage(1);
+                enemy.takeDamage(enemyDmg);
                 Destroy(gameObject);
 
             break;
