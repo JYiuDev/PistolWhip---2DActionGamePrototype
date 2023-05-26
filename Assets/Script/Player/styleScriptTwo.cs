@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class styleScriptTwo : MonoBehaviour
 {
@@ -128,10 +129,19 @@ public class styleScriptTwo : MonoBehaviour
 
     public void takeDamage()
     {
-        hasAdrenaline = false;
-        adrenalinePoints = 0;
-        styleAmount -= 200f;
-        Debug.Log("You've been hit!");
+        if (hasAdrenaline == true)
+        {
+            hasAdrenaline = false;
+            adrenalinePoints = 0;
+            styleAmount -= 200f;
+            Debug.Log("You've been hit, don't get hit again!");
+        } else if (hasAdrenaline == false)
+        {
+            Debug.Log("You have died, please try complete the level again!");
+            Scene currentScene = SceneManager.GetActiveScene();
+
+            SceneManager.LoadScene(currentScene.buildIndex);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
