@@ -9,9 +9,6 @@ public class EnemyPath : MonoBehaviour {
     private Seeker seeker;
 
     public Path path;
-
-    public float speed = 2;
-
     public float nextWaypointDistance = 1;
 
     private int currentWaypoint = 0;

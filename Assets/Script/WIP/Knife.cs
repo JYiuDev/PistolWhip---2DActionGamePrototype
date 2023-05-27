@@ -5,7 +5,11 @@ using UnityEngine;
 public class Knife : WeaponClass
 {
     [SerializeField] private float thrownDamage = 1;
-    [SerializeField] private float meleeDamage = 1;
+
+    //damage value player inflicts when weilding the knife
+    [SerializeField] public float meleeDamagePlayer = 1;
+    //damage value enemy inflicts when weilding the knife
+    //[SerializeField] public float meleeDamageEnemy = 1;
     [SerializeField] public Animator animator;
     
 
@@ -47,4 +51,8 @@ public class Knife : WeaponClass
 
     }
 
+    public override void EnemyAttack()
+    {
+        Attack();
+    }
 }

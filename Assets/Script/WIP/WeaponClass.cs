@@ -33,4 +33,5 @@ public abstract class WeaponClass : MonoBehaviour
     public virtual void LeftClick(){}
     public virtual void RightClick(){}
     public virtual void ThrowInteractions(Collider2D collision){}
+    public virtual void EnemyAttack(){}
 }

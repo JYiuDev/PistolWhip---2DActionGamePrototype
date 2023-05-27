@@ -30,7 +30,7 @@ public class EnemyWeapon : MonoBehaviour
         // Check if player is detected before rotating weapon
         if (detection != null && detection.playerFound)
         {
-            targetPos = main.getTargetPos();
+            targetPos = detection.getTargetPos().position;
             Vector3 direction = (targetPos - (Vector2)transform.position).normalized;
             float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, rotation);
@@ -53,8 +53,4 @@ public class EnemyWeapon : MonoBehaviour
         bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
     }
 
-    public void dropWeapon()
-    {
-        
-    }
 }

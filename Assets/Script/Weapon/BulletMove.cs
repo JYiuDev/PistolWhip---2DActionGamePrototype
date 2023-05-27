@@ -34,7 +34,7 @@ public class BulletMove : MonoBehaviour
             case "Enemy":
                 //Gona need further fixing to acoomodate other types of enemies
                 //Need to make a parent class for all enemies
-                EnemyRanged enemy = other.GetComponent<EnemyRanged>();
+                EnemyHP enemy = other.GetComponent<EnemyHP>();
                 enemy.takeDamage(enemyDmg);
                 Destroy(gameObject);
 

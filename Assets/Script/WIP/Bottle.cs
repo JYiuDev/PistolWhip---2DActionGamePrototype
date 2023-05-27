@@ -45,7 +45,6 @@ public class Bottle : WeaponClass
                 //update this code when parent class is implemented
                 EnemyRanged enemy = collision.gameObject.GetComponent<EnemyRanged>();
                 style.enemyStun();
-                Debug.Log("collide with enemy");
                 rb.velocity = (-rb.velocity).normalized * 1;
                 enemy.Stun(inflictStunDuration);
             }

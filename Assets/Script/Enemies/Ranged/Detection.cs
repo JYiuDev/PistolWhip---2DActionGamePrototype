@@ -7,11 +7,12 @@ public class Detection : MonoBehaviour
     private float viewRadius;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private LayerMask obstacleLayer;
-    [SerializeField] private float searchInterval = 0.2f;
+    [SerializeField] private float searchInterval = 0.1f;
     //private CircleCollider2D detectionCircle;
     [SerializeField] public bool playerFound = false;
     [SerializeField] private List<Transform> visibleTargets = new List<Transform>();
     Collider2D[] targetsInRange;
+    [SerializeField] private Transform playerPos;
 
     void Start()
     {
@@ -44,7 +45,10 @@ public class Detection : MonoBehaviour
             if(!Physics2D.Raycast(transform.position, targetDir, targetDist, obstacleLayer))
             {
                 visibleTargets.Add(target);
-                if(target.CompareTag("Player")){playerFound = true;}
+                if(target.CompareTag("Player")){
+                    playerFound = true;
+                    playerPos = target;
+                }
             }
         }
 
@@ -78,5 +82,17 @@ public class Detection : MonoBehaviour
     public void SetRadius(float r)
     {
         viewRadius = r;
+    }
+
+    public Transform getTargetPos()
+    {
+        if(playerFound)
+        {
+            return playerPos;
+        } else
+        {
+            return null;
+        }
+        
     }
 }

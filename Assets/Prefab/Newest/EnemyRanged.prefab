@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: -6264503646461761341}
   - component: {fileID: 1524739253}
   - component: {fileID: 1524739254}
+  - component: {fileID: 8722811560949748241}
   m_Layer: 12
   m_Name: EnemyRanged
   m_TagString: Enemy
@@ -668,3 +669,17 @@ MonoBehaviour:
   nextWaypointDistance: 0.5
   reachedEndOfPath: 0
   naviDir: {x: 0, y: 0}
+--- !u!114 &8722811560949748241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115935035414672337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f6b55e017268840bd02f7c746ea3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 4
+  dropPrefab: {fileID: 4072074078980009091, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}

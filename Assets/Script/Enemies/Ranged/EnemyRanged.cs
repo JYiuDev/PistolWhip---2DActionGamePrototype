@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyRanged : MonoBehaviour
 {
     //Status
-    [SerializeField] private float hp = 2f;
     [SerializeField] private float visualRange;
     private Transform player;
     
@@ -206,25 +205,25 @@ public class EnemyRanged : MonoBehaviour
         return visualRange;
     }
 
-    public void takeDamage(float dmg)
-    {
-        if (dmg > 0 && hp > 0)
-        {
-            hp -= dmg;
-            if (hp <= 0)
-            {
-                // Enemy is dead
-                Die();
-            }
-            else
-            {
-                // Enemy is hit but not dead
-                animator.Play("Base Layer.EnemyHurt", 0, 0);
-            }
-        }
-        Debug.Log("enemy took " + dmg + " damage");
-        animator.Play("Base Layer.EnemyHurt", 0, 0);
-    }
+    // public void takeDamage(float dmg)
+    // {
+    //     if (dmg > 0 && hp > 0)
+    //     {
+    //         hp -= dmg;
+    //         if (hp <= 0)
+    //         {
+    //             // Enemy is dead
+    //             Die();
+    //         }
+    //         else
+    //         {
+    //             // Enemy is hit but not dead
+    //             animator.Play("Base Layer.EnemyHurt", 0, 0);
+    //         }
+    //     }
+    //     Debug.Log("enemy took " + dmg + " damage");
+    //     animator.Play("Base Layer.EnemyHurt", 0, 0);
+    // }
 
     private SpriteRenderer spriteRenderer;
     private Vector2 patrolDirection;
@@ -280,13 +279,13 @@ public class EnemyRanged : MonoBehaviour
         }
     }
     
-    private void Die()
-    {
-        Destroy(gameObject);
-        GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
-        gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-        style.enemyKill();
-    }
+    // private void Die()
+    // {
+    //     Destroy(gameObject);
+    //     GameObject gun =  Instantiate(gunPrefab, transform.position, transform.rotation);
+    //     gun.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+    //     style.enemyKill();
+    // }
     
     public void Stun(float duration)
     {
