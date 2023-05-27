@@ -226,6 +226,10 @@ MonoBehaviour:
   adrenalinePoints: 0
   adrenalineGain: 0
   hasAdrenaline: 0
+  extraHitCount: 0
+  xCoord: 0
+  yCoord: 0
+  hasDied: 0
 --- !u!1 &7273336800069898801
 GameObject:
   m_ObjectHideFlags: 0

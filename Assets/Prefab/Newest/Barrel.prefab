@@ -151,6 +151,7 @@ MonoBehaviour:
   shieldSlowdown: 3
   gunSlowdown: 3
   bottleSlowdown: 3
+  knifeSlowdown: 3
 --- !u!114 &-7734612268738151123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durability: 3
+  inflictStunDuration: 2

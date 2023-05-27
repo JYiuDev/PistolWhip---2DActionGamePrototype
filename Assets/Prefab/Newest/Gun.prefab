@@ -197,6 +197,7 @@ MonoBehaviour:
   shieldSlowdown: 1.75
   gunSlowdown: 1.75
   bottleSlowdown: 1.75
+  knifeSlowdown: 1.75
 --- !u!114 &3692836978067324967
 MonoBehaviour:
   m_ObjectHideFlags: 0
