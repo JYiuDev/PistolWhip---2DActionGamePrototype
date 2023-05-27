@@ -127,7 +127,7 @@ public class ThrownObj : MonoBehaviour
 
     private IEnumerator SlowDown()
     {
-        while (rb.velocity.magnitude > 0.1f)
+        while (rb.velocity.magnitude > 0.2f)
         {
             if (gameObject.CompareTag("Shield"))
             {

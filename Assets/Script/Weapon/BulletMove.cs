@@ -51,18 +51,13 @@ public class BulletMove : MonoBehaviour
             break;
 
             case "Shield":
-                other.GetComponent<ShieldItems>().takeDamage(1);
-                Destroy(gameObject);
-            break;
-
-            case "PulledObjects":
-                Debug.Log("touched pulledobj");
-                if(other.tag == "Shield" && other.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+                if(other.GetComponent<Rigidbody2D>().velocity != Vector2.zero || (other.transform.parent && other.transform.parent.gameObject.layer == LayerMask.NameToLayer("PlayerObjects")))
                 {
                     other.GetComponent<ShieldItems>().takeDamage(1);
                     Destroy(gameObject);
                 }
             break;
+
         }
     }
 
