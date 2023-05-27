@@ -43,6 +43,7 @@ public class EnemyHP : MonoBehaviour
         Destroy(gameObject);
         GameObject drop =  Instantiate(dropPrefab, transform.position, transform.rotation);
         drop.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
+        drop.GetComponent<ThrownObj>().StartCoroutine("SlowDown");
         style.enemyKill();
     }
 
