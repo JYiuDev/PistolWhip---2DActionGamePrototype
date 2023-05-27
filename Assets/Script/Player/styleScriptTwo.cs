@@ -27,7 +27,7 @@ public class styleScriptTwo : MonoBehaviour
         styleDecay = 0f;
         multikillTimer = 0f;
         multikillCount = 0;
-        hasAdrenaline = false;
+        hasAdrenaline = true;
         hasDied = false;
     }
 
@@ -81,17 +81,17 @@ public class styleScriptTwo : MonoBehaviour
             styleDecay = 32.5f;
             adrenalineGain = 13;
         }
-        else if (styleAmount > 1000 && styleAmount <= 20000)
+        else if (styleAmount > 1000 && styleAmount <= 1250)
         {
             rankTitle = "Myth";
             styleDecay = 50f;
             adrenalineGain = 21;
         } 
-        else if (styleAmount > 20000)
+        else if (styleAmount > 1250)
         {
             rankTitle = "Myth+";
             styleDecay = 100f;
-            adrenalineGain = 30;
+            adrenalineGain = 34;
         }
 
         //adrenaline stuff
@@ -108,25 +108,25 @@ public class styleScriptTwo : MonoBehaviour
 
     public void enemyKill()
     {
-        styleAmount += 50f;
+        styleAmount += 150f;
         multikillCount++;
         multikillTimer = 3f;
         if (multikillCount == 2)
-            styleAmount += 15f;
-        else if (multikillCount == 3)
-            styleAmount += 30f;
-        else if (multikillCount >= 4)
             styleAmount += 50f;
+        else if (multikillCount == 3)
+            styleAmount += 100f;
+        else if (multikillCount >= 4)
+            styleAmount += 150f;
     }
 
     public void bulletBlock()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
     }
 
     public void enemyStun()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
     }
 
     public int extraHitCount;
@@ -141,7 +141,7 @@ public class styleScriptTwo : MonoBehaviour
         {
             hasAdrenaline = false;
             adrenalinePoints = 0;
-            styleAmount -= 200f;
+            styleAmount -= 300f;
             extraHitCount++;
             Debug.Log("You've been hit, don't get hit again!");
         } else if (hasAdrenaline == false)

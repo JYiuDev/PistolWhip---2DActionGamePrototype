@@ -96,29 +96,29 @@ public class Style : MonoBehaviour
     }
     public void enemyKill()
     {
-        styleAmount += 75f;
+        styleAmount += 150f;
         multikillCount++;
         multikillTimer = 3f;
         if (multikillCount == 2)
-            styleAmount += 25f;
-        else if (multikillCount == 3)
             styleAmount += 50f;
+        else if (multikillCount == 3)
+            styleAmount += 100f;
         else if (multikillCount >= 4)
-            styleAmount += 75f;
+            styleAmount += 150f;
     }
     public void bulletBlock()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
     }
     public void enemyStun()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
     }
     public void takeDamage()
     {
         hasAdrenaline = false;
         adrenalinePoints = 0;
-        styleAmount -= 200f;
+        styleAmount -= 300f;
        
     }
 }

@@ -1,0 +1,3 @@
+Level Name,Level Completion Time,Total Enemy Count, Total Enemies Remaining,Total Bottles Used,Total Guns Used,Total Shields Used,Level One Completions,Level Two Completions,Level Three Completions,Adrenaline,Rank,Combo,Extra Hits,Death,xOnDeath,yOnDeath
+GetToEndTest,20.59098,20,16,1,2,1,1,0,0,11.59345,Vigilante,328.0989,1,True,-20.45215,37.20076
+GetToEndTest,30.34785,20,11,0,5,0,1,0,0,11.06436,Hero,608.0182,1,True,-27.52498,34.58263
