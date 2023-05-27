@@ -48,7 +48,11 @@ public class Knife : WeaponClass
     }
     public override void ThrowInteractions(Collider2D collision)
     {
-
+        if (collision.CompareTag("Enemy"))
+        {
+            EnemyHP enemy = collision.GetComponent<EnemyHP>();
+            enemy.takeDamage(thrownDamage);
+        }
     }
 
     public override void EnemyAttack()
