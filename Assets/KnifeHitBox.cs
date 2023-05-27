@@ -20,7 +20,7 @@ public class KnifeHitBox : MonoBehaviour
             break;
 
             case "Enemy":
-                if (collision.gameObject.tag == "PlayerObjects")
+                if (collision.gameObject.tag == "Player")
                 {
                     styleScriptTwo player = collision.GetComponent<styleScriptTwo>();
                     player.takeDamage();

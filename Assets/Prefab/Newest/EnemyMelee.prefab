@@ -690,13 +690,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5232347153517432379}
     m_Modifications:
+    - target: {fileID: 170152877569469937, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 170152877637830064, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
       propertyPath: m_Name
       value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 170152877637830064, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 170152877637830067, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
       propertyPath: m_RootOrder
@@ -741,6 +745,10 @@ PrefabInstance:
     - target: {fileID: 170152877637830067, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170152878037142133, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
