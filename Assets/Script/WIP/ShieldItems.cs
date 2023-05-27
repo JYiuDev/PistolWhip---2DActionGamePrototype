@@ -12,6 +12,13 @@ public class ShieldItems : WeaponClass
         type = WeaponType.SHIELD;
     }
 
+    void Update()
+    {
+        if(rb.velocity == Vector2.zero && transform.parent == null)
+        {
+            
+        }
+    }
     public override void LeftClick()
     {
         Throw();

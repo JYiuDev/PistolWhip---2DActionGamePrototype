@@ -54,6 +54,15 @@ public class BulletMove : MonoBehaviour
                 other.GetComponent<ShieldItems>().takeDamage(1);
                 Destroy(gameObject);
             break;
+
+            case "PulledObjects":
+                Debug.Log("touched pulledobj");
+                if(other.tag == "Shield" && other.GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+                {
+                    other.GetComponent<ShieldItems>().takeDamage(1);
+                    Destroy(gameObject);
+                }
+            break;
         }
     }
 

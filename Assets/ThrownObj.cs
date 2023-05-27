@@ -121,11 +121,6 @@ public class ThrownObj : MonoBehaviour
         rb.velocity = transform.right * s;
         gameObject.layer = LayerMask.NameToLayer(CollisionLayer.PullObjects);
 
-        if (gameObject.CompareTag("Shield"))
-        {
-            Collider2D col = GetComponent<BoxCollider2D>();
-            col.isTrigger = false;
-        }
         // Gradually reduce velocity to zero over time
         StartCoroutine(SlowDown());
     }

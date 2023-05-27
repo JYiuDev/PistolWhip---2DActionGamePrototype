@@ -46,9 +46,4 @@ public class EnemyHP : MonoBehaviour
         style.enemyKill();
     }
 
-    public void takeStun(float duration)
-    {
-        
-    }
-
 }
