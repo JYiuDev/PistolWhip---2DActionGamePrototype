@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: -6264503646461761341}
   - component: {fileID: 1524739253}
   - component: {fileID: 1524739254}
+  - component: {fileID: 8722811560949748241}
   m_Layer: 12
   m_Name: EnemyRanged
   m_TagString: Enemy
@@ -563,7 +564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81c8a0d3c076db458838e00643ae24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 4
   visualRange: 5
   state: 0
   timer: 0
@@ -571,7 +571,7 @@ MonoBehaviour:
   searchTime: 5
   patrolRadius: 1
   patrolSpeed: 1
-  chaseSpeed: 3
+  chaseSpeed: 2
   stunnedObject: {fileID: 2031596347153689906}
   weapon: {fileID: 2031596348447526147}
   visionRender: 0
@@ -597,6 +597,7 @@ MonoBehaviour:
   searchInterval: 0.2
   playerFound: 0
   visibleTargets: []
+  playerPos: {fileID: 0}
 --- !u!61 &-6264503646461761341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -664,7 +665,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 2
   nextWaypointDistance: 0.5
   reachedEndOfPath: 0
   naviDir: {x: 0, y: 0}
+--- !u!114 &8722811560949748241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115935035414672337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f6b55e017268840bd02f7c746ea3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 4
+  dropPrefab: {fileID: 4072074078980009091, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}

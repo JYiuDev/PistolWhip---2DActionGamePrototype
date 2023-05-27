@@ -101,7 +101,10 @@ public class WhipPullClick : MonoBehaviour
             break;
 
             case State.retract:
-
+                if(!pulledObj)
+                {
+                    whipInactive();
+                }
                 //Updating the grapple point position, pulled obj position, and rope origin position
                 Vector3 pullDirection = (pulledObj.position - transform.position).normalized;
                 pulledObj.transform.position -= pullDirection * pullSpeed * Time.deltaTime;

@@ -34,7 +34,7 @@ public class BulletMove : MonoBehaviour
             case "Enemy":
                 //Gona need further fixing to acoomodate other types of enemies
                 //Need to make a parent class for all enemies
-                EnemyRanged enemy = other.GetComponent<EnemyRanged>();
+                EnemyHP enemy = other.GetComponent<EnemyHP>();
                 enemy.takeDamage(enemyDmg);
                 Destroy(gameObject);
 
@@ -51,9 +51,13 @@ public class BulletMove : MonoBehaviour
             break;
 
             case "Shield":
-                other.GetComponent<ShieldItems>().takeDamage(1);
-                Destroy(gameObject);
+                if(other.GetComponent<Rigidbody2D>().velocity != Vector2.zero || (other.transform.parent && other.transform.parent.gameObject.layer == LayerMask.NameToLayer("PlayerObjects")))
+                {
+                    other.GetComponent<ShieldItems>().takeDamage(1);
+                    Destroy(gameObject);
+                }
             break;
+
         }
     }
 

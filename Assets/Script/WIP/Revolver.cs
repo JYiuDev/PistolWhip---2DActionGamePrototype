@@ -32,7 +32,7 @@ public class Revolver : WeaponClass
 
     public override void RightClick()
     {
-        Shoot();
+        Throw();
     }
 
     public override void ThrowInteractions(Collider2D collision)

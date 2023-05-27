@@ -14,6 +14,8 @@ public class GunBounce : MonoBehaviour
             Vector2 bulletDirection = collision.GetComponent<BulletMove>().GetDirection();
             Vector2 bounceDirection = Quaternion.Euler(0f, 0f, Random.Range(-bounceAngle, bounceAngle)) * bulletDirection;
             collision.GetComponent<Rigidbody2D>().velocity = bounceDirection * collision.GetComponent<BulletMove>().GetSpeed();
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.velocity = (-collision.GetComponent<Rigidbody2D>().velocity) * 0.3f;
         }
     }
 }

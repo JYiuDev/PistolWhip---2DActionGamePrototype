@@ -20,6 +20,7 @@ TagManager:
   - HeistItem
   - GameManager
   - UserInterface
+  - Knife
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Shields
   - Enemy
   - MapCollision
-  - 
+  - HitBox
   - 
   - 
   - 
