@@ -24,7 +24,10 @@ public class Detection : MonoBehaviour
     {
         return playerFound;
     }
-
+    void OnEnable()
+    {
+        StartCoroutine("FindTargetsWithDelay", searchInterval);
+    }
     private void FindVisibleTargets() //referenced from old code 
     {
         visibleTargets.Clear();
