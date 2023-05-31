@@ -442,13 +442,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694365f5f2e24ae4f862c75f72425a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualRange: 5
+  visualRange: 4
   player: {fileID: 0}
   state: 0
   timer: 0
-  aimTime: 0.5
+  aimTime: 0.4
   searchTime: 5
-  chaseSpeed: 3
+  chaseSpeed: 3.5
   attackDistance: 1
   stunnedObject: {fileID: 5232347153395588064}
   weaponHeld: {fileID: 0}
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f6b55e017268840bd02f7c746ea3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 4
+  hp: 6
   dropPrefab: {fileID: 170152877637830064, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
 --- !u!61 &5232347155277403335
 BoxCollider2D:

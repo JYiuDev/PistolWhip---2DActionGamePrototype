@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3cc8c8e060f4847b2b49a02c054c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   spriteRenderer: {fileID: 7674800288577163872}
   weaponHeld: {fileID: 0}
   weaponPos: {fileID: 3480703923898334958}
