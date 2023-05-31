@@ -24112,10 +24112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20e92df55187dd4da58dd0bfef61fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleePositions: []
+  meleePositions:
+  - {fileID: 1318817147}
   rangePositions: []
-  meleePrefab: {fileID: 1318817147}
-  rangePrefab: {fileID: 0}
+  meleePrefab: {fileID: 5232347155277403357, guid: e7287f26b7289354caa510043678664d, type: 3}
+  rangePrefab: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
 --- !u!1001 &1571699313
 PrefabInstance:
   m_ObjectHideFlags: 0
