@@ -15,6 +15,7 @@ public class ThrownObj : MonoBehaviour
     [SerializeField] private float gunSlowdown = 100f;
     [SerializeField] private float bottleSlowdown = 30f;
     [SerializeField] private float knifeSlowdown = 1f;
+    [SerializeField] private float itemSlowdown = 1f;
     private WeaponClass weapon;
 
     void Awake()
@@ -147,6 +148,11 @@ public class ThrownObj : MonoBehaviour
             else if (gameObject.CompareTag("Knife"))
             {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, knifeSlowdown * Time.deltaTime);
+            }
+
+             else if (gameObject.CompareTag("HeistItem"))
+            {
+                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, itemSlowdown * Time.deltaTime);
             }
 
             yield return null;
