@@ -25001,6 +25001,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5506143444541570107, guid: 18cc605c71500a2459f3fe8ce3866b65, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506143444541570107, guid: 18cc605c71500a2459f3fe8ce3866b65, type: 3}
       propertyPath: meleePositions.Array.data[0]
       value: 
       objectReference: {fileID: 1318817147}

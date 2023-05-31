@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5447736538520719935}
   - component: {fileID: 5447736538520719905}
   - component: {fileID: 6395361425121669922}
-  - component: {fileID: 5506143444541570107}
+  - component: {fileID: 3321667738498481039}
   m_Layer: 7
   m_Name: HeistItem
   m_TagString: HeistItem
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durability: 3
   inflictStunDuration: 2
---- !u!114 &5506143444541570107
+--- !u!114 &3321667738498481039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,8 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20e92df55187dd4da58dd0bfef61fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleePositions:
-  - {fileID: 0}
+  meleePositions: []
   rangePositions: []
   meleePrefab: {fileID: 5232347155277403357, guid: e7287f26b7289354caa510043678664d, type: 3}
   rangePrefab: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
