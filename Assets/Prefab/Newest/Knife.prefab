@@ -185,6 +185,7 @@ MonoBehaviour:
   thrownDamage: 1
   meleeDamagePlayer: 1
   animator: {fileID: 170152877637830070}
+  durability: 3
 --- !u!114 &170152877637830066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
   gunSlowdown: 100
   bottleSlowdown: 30
   knifeSlowdown: 1
+  itemSlowdown: 1
 --- !u!95 &170152877637830070
 Animator:
   serializedVersion: 5

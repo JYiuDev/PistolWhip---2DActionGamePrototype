@@ -11,7 +11,7 @@ public class Knife : WeaponClass
     //damage value enemy inflicts when weilding the knife
     //[SerializeField] public float meleeDamageEnemy = 1;
     [SerializeField] public Animator animator;
-    
+    [SerializeField] private int durability;
 
     public Knife()
     {
@@ -58,5 +58,10 @@ public class Knife : WeaponClass
     public override void EnemyAttack()
     {
         Attack();
+    }
+
+    public void useDurability(float n)
+    {
+        durability --;
     }
 }
