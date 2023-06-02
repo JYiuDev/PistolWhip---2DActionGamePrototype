@@ -34,6 +34,9 @@ public class EnemyHP : MonoBehaviour
                 animator.Play("Base Layer.EnemyHurt", 0, 0);
             }
         }
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().doDamage(dmg);
+
         Debug.Log("enemy took " + dmg + " damage");
         animator.Play("Base Layer.EnemyHurt", 0, 0);
     }

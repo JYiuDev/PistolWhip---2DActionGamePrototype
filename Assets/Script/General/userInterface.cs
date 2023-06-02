@@ -49,6 +49,7 @@ public class userInterface : MonoBehaviour
     public Sprite gunWith6;
     public Sprite bottleEquipped;
     public Sprite shieldEquipped;
+    public Sprite knifeEquipped;
 
     public Sprite levelOne;
     public Sprite levelTwo;
@@ -109,6 +110,11 @@ public class userInterface : MonoBehaviour
         if (weaponPosObject != null && weaponPosObject.transform.childCount > 0 && weaponPosObject.transform.GetChild(0).CompareTag("Shield"))
         {
             this.transform.GetChild(0).GetComponent<Image>().sprite = shieldEquipped;
+        }
+
+        if (weaponPosObject != null && weaponPosObject.transform.childCount > 0 && weaponPosObject.transform.GetChild(0).CompareTag("Knife"))
+        {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = knifeEquipped;
         }
 
         //RANK UI
