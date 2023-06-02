@@ -27,7 +27,7 @@ public class styleScriptTwo : MonoBehaviour
         styleDecay = 0f;
         multikillTimer = 0f;
         multikillCount = 0;
-        hasAdrenaline = false;
+        hasAdrenaline = true;
         hasDied = false;
     }
 
@@ -108,25 +108,30 @@ public class styleScriptTwo : MonoBehaviour
 
     public void enemyKill()
     {
-        styleAmount += 50f;
+        styleAmount += 150f;
         multikillCount++;
         multikillTimer = 3f;
         if (multikillCount == 2)
-            styleAmount += 15f;
-        else if (multikillCount == 3)
-            styleAmount += 30f;
-        else if (multikillCount >= 4)
             styleAmount += 50f;
+        else if (multikillCount == 3)
+            styleAmount += 100;
+        else if (multikillCount >= 4)
+            styleAmount += 150f;
     }
 
     public void bulletBlock()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
     }
 
     public void enemyStun()
     {
-        styleAmount += 20f;
+        styleAmount += 50f;
+    }
+
+    public void doDamage(float dmg)
+    {
+        styleAmount += 10f * dmg;
     }
 
     public int extraHitCount;
