@@ -296,6 +296,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 601191465407665733, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
+      propertyPath: maxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 601191465407665733, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
+      propertyPath: enemyLayerMask.m_Bits
+      value: 4224
+      objectReference: {fileID: 0}
     - target: {fileID: 3235623345735140253, guid: 1626d41b56e413b4d9391a928621c984, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -19,6 +19,7 @@ public class Crosshair : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         isOverEnemy = false;
+        maxDistance = 100f;
     }
 
     void Update()
