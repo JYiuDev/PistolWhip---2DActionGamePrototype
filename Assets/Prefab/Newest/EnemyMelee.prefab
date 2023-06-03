@@ -555,6 +555,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 6
   dropPrefab: {fileID: 170152877637830064, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
+  sprite: {fileID: 5232347154999698974}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.4716981, g: 0.31316918, b: 0.14462443, a: 1}
 --- !u!61 &5232347155277403335
 BoxCollider2D:
   m_ObjectHideFlags: 0

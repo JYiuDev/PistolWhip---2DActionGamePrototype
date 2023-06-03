@@ -189,6 +189,7 @@ MonoBehaviour:
   startColor: {r: 1, g: 1, b: 1, a: 1}
   endColor: {r: 1, g: 0.49411768, b: 0, a: 1}
   knifeSprite: {fileID: 170152878037142134}
+  hitbox: {fileID: 170152878639987532}
 --- !u!114 &170152877637830066
 MonoBehaviour:
   m_ObjectHideFlags: 0

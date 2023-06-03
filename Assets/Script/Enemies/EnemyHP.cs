@@ -9,6 +9,12 @@ public class EnemyHP : MonoBehaviour
 
     [SerializeField] private float hp;
     [SerializeField] private GameObject dropPrefab;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Color startColor;
+    [SerializeField] Color endColor;
+    private float maxhp;
+    
+
     
 
     // Start is called before the first frame update
@@ -16,6 +22,7 @@ public class EnemyHP : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
+        maxhp = hp;
     }
 
     public void takeDamage(float dmg)
@@ -37,6 +44,8 @@ public class EnemyHP : MonoBehaviour
         style.doDamage(dmg);
         Debug.Log("enemy took " + dmg + " damage");
         animator.Play("Base Layer.EnemyHurt", 0, 0);
+        Color c = Color.Lerp(endColor, startColor, (hp)/maxhp);
+        sprite.color = c;
     }
 
     private void Die()

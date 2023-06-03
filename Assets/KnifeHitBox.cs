@@ -6,6 +6,7 @@ public class KnifeHitBox : MonoBehaviour
 {
     private float damage;
     [SerializeField] Knife knife;
+    private bool hitEnemy = false;
     void OnTriggerEnter2D(Collider2D collision)
     {
         int parentLayer = transform.parent.parent.gameObject.layer;
@@ -17,7 +18,7 @@ public class KnifeHitBox : MonoBehaviour
                 if (collision.gameObject.tag == "Enemy")
                 {
                     collision.GetComponent<EnemyHP>().takeDamage(transform.parent.GetComponent<Knife>().meleeDamagePlayer);
-                    knife.useDurability(1);
+                    hitEnemy = true;
                 }
             break;
 
@@ -28,7 +29,15 @@ public class KnifeHitBox : MonoBehaviour
                     player.takeDamage();
                 }
             break;
+        }   
+    }
+
+    public void calcDurability()
+    {
+        if(hitEnemy)
+        {
+            hitEnemy = false;
+            knife.useDurability(1);
         }
-        
     }
 }

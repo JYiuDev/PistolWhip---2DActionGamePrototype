@@ -682,3 +682,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   dropPrefab: {fileID: 4072074078980009091, guid: ea1207799716dd8459f1ad59fd93367e, type: 3}
+  sprite: {fileID: 2031596348218337140}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.3019608, g: 0.15294118, b: 0.09411765, a: 1}

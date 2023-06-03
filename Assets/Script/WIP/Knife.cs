@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Knife : WeaponClass
 {
+    [SerializeField] SpriteRenderer knifeSprite;
+    [SerializeField] KnifeHitBox hitbox;
     [SerializeField] private float thrownDamage = 1;
+    [SerializeField] private float throwDurabilityDmg;
 
     //damage value player inflicts when weilding the knife
     [SerializeField] public float meleeDamagePlayer = 1;
@@ -15,7 +18,6 @@ public class Knife : WeaponClass
     private float maxDurability;
     [SerializeField] Color startColor;
     [SerializeField] Color endColor;
-    [SerializeField] SpriteRenderer knifeSprite;
 
     public Knife()
     {
@@ -56,6 +58,7 @@ public class Knife : WeaponClass
         {
             EnemyHP enemy = collision.GetComponent<EnemyHP>();
             enemy.takeDamage(thrownDamage);
+            useDurability(throwDurabilityDmg);
         }
     }
 
@@ -76,5 +79,10 @@ public class Knife : WeaponClass
 
         Color c = Color.Lerp(endColor, startColor, (durability-1)/maxDurability);
         knifeSprite.color = c;
+    }
+
+    public void calcDurability()
+    {
+        hitbox.calcDurability();
     }
 }

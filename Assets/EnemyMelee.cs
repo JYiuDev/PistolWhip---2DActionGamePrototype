@@ -79,6 +79,7 @@ public class EnemyMelee : MonoBehaviour
         switch(state)
         {
             case State.patrol:
+
                 if(detection.isPlayerFound())
                 {
                     path.target = player;
@@ -197,6 +198,11 @@ public class EnemyMelee : MonoBehaviour
         {
             weaponHeld = null;
         }
+    }
+
+    public void EnhancedDetectionCheck()
+    {
+        
     }
 
 }
