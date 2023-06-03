@@ -7,80 +7,87 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab1;
     public GameObject enemyPrefab2;
     public Transform[] spawnLocations;
-    public float spawnRadius = 2f;
+    public float spawnRadius = 0.3f;
     public float minSpawnRate = 1f;
     public float maxSpawnRate = 5f;
     public int maxEnemies = 7;
     public int maxSpawns = 0;
 
     private int currentEnemyCount;
+    private bool isSpawning;
+    private float spawnTimer;
 
     private void Start()
     {
-        // StartCoroutine(SpawnEnemies());
+        isSpawning = false;
+        spawnTimer = 0f;
         GameObject.FindGameObjectWithTag("EndObject").SetActive(false);
     }
+
+    public GameObject exit;
 
     private void Update()
     {
         currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if (currentEnemyCount == 1 && maxSpawns < 20)
+        if (currentEnemyCount <= 1 && maxSpawns < 20 && !isSpawning)
         {
-            StartCoroutine(SpawnEnemies());
+            StartSpawning();
         }
 
         if (maxSpawns >= 20)
         {
-            StopCoroutine(SpawnEnemies());
+            StopSpawning();
         }
 
         if (maxSpawns >= 20 && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            GameObject.FindGameObjectWithTag("EndObject").SetActive(true);
+            exit.SetActive(true);
+        }
+
+        if (isSpawning)
+        {
+            spawnTimer -= Time.deltaTime;
+
+            if (spawnTimer <= 0f)
+            {
+                SpawnEnemy();
+                spawnTimer = Random.Range(minSpawnRate, maxSpawnRate);
+            }
         }
     }
 
-    private IEnumerator SpawnEnemies()
+    private void StartSpawning()
     {
-        while (true)
+        isSpawning = true;
+        spawnTimer = 0f;
+    }
+
+    private void StopSpawning()
+    {
+        isSpawning = false;
+        spawnTimer = 0f;
+    }
+
+    private void SpawnEnemy()
+    {
+        if (currentEnemyCount < maxEnemies && maxSpawns < 20)
         {
-            // Wait until there is only 1 enemy remaining
-            while (currentEnemyCount > 1)
-            {
-                yield return null;
-            }
+            // Randomly select the enemy prefab
+            GameObject enemyPrefab = Random.Range(0, 2) == 0 ? enemyPrefab1 : enemyPrefab2;
 
-            // Spawn enemies until there are 10
-            while (currentEnemyCount < maxEnemies && maxSpawns < 20)
-            {
-                // Randomly select the enemy prefab
-                GameObject enemyPrefab = Random.Range(0, 2) == 0 ? enemyPrefab1 : enemyPrefab2;
+            // Randomly select a spawn location
+            Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
 
-                // Randomly select a spawn location
-                Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
+            // Offset the spawn position within the specified radius
+            Vector2 spawnOffset = Random.insideUnitCircle * spawnRadius;
+            Vector2 spawnPosition = (Vector2)spawnLocation.position + spawnOffset;
 
-                // Offset the spawn position within the specified radius
-                //Vector2 spawnPosition = spawnLocation.position + Random.insideUnitCircle * spawnRadius;
-                // Offset the spawn position within the specified radius
-                Vector2 spawnOffset = Random.insideUnitCircle * spawnRadius;
-                Vector2 spawnPosition = (Vector2)spawnLocation.position + spawnOffset;
+            // Instantiate the enemy prefab at the spawn position
+            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
-                // Instantiate the enemy prefab at the spawn position
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-                // Increase the enemy count
-                //currentEnemyCount++;
-                maxSpawns++;
-
-                yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
-            }
-
-            // Wait until there is only 1 enemy remaining
-            while (currentEnemyCount > 1)
-            {
-                yield return null;
-            }
+            // Increase the enemy count
+            maxSpawns++;
         }
     }
 }

@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         }
 
         //KILL ALL ENEMIES LEVEL OBJECTIVE
-        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && totalEnemiesRemaining == 0 && SceneManager.GetActiveScene().name == "LevelKillTest")
+        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && totalEnemiesRemaining <= 0 && SceneManager.GetActiveScene().name == "LevelKillTest")
         {
             if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
             {

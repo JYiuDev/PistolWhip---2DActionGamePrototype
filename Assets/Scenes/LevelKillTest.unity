@@ -3736,10 +3736,12 @@ MonoBehaviour:
   - {fileID: 1235709032}
   - {fileID: 1703121962}
   - {fileID: 467668804}
-  spawnRadius: 5
+  spawnRadius: 2
   minSpawnRate: 1
   maxSpawnRate: 5
   maxEnemies: 10
+  maxSpawns: 0
+  exit: {fileID: 1742242455}
 --- !u!4 &874781434
 Transform:
   m_ObjectHideFlags: 0
