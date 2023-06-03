@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f6b55e017268840bd02f7c746ea3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 6
+  hp: 5
   dropPrefab: {fileID: 170152877637830064, guid: 75ed7d87f3e9a6744b1cadc42bd1aa51, type: 3}
   sprite: {fileID: 5232347154999698974}
   startColor: {r: 1, g: 1, b: 1, a: 1}
