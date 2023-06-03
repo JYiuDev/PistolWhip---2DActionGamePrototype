@@ -74,7 +74,7 @@ public class Knife : WeaponClass
             return;
         }
 
-        Color c = Color.Lerp(endColor, startColor, durability/maxDurability);
+        Color c = Color.Lerp(endColor, startColor, (durability-1)/maxDurability);
         knifeSprite.color = c;
     }
 }
