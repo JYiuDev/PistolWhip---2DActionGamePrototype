@@ -4496,7 +4496,7 @@ MonoBehaviour:
   spawnRadius: 2
   minSpawnRate: 1
   maxSpawnRate: 5
-  maxEnemies: 8
+  maxEnemies: 5
   maxSpawns: 0
   exit: {fileID: 1742242455}
 --- !u!4 &874781434
