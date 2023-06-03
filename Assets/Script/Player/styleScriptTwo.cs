@@ -157,7 +157,7 @@ public class styleScriptTwo : MonoBehaviour
             Debug.Log("You have died, please try complete the level again!");
             extraHitCount = 0;
 
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
+            //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
             {
                 GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
