@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         filename = Application.dataPath + "/Playthrough_" + timestamp + ".csv";
 
         UnityEditor.EditorApplication.playModeStateChanged += PlayModeStateChanged;
+
     }
 
     private void OnDestroy()
@@ -122,17 +123,21 @@ public class GameManager : MonoBehaviour
         }
 
         //KILL ALL ENEMIES LEVEL OBJECTIVE
-        if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && totalEnemiesRemaining <= 0 && SceneManager.GetActiveScene().name == "LevelKillTest")
+
+        if (SceneManager.GetActiveScene().name == "LevelKillTest")
         {
-            if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
+            if (GameObject.FindWithTag("Player") != null && GameObject.FindWithTag("EndObject") && GameObject.FindGameObjectWithTag("Spawner").GetComponent<EnemySpawner>().maxSpawns >= 20 && GameObject.FindGameObjectsWithTag("Enemy").Length <= 0)
             {
-                LevelComplete();
-                SceneManager.LoadScene("MainWorldTest");
-                Debug.Log("You have returned to the main world and completed " + levelName);
-                PrintLevelCompletionStatistics();
-                if (isPlaying)
+                if (Vector2.Distance(GameObject.FindWithTag("Player").transform.position, GameObject.FindWithTag("EndObject").transform.position) <= interactDistance)
                 {
-                    WriteCSV();
+                    LevelComplete();
+                    SceneManager.LoadScene("MainWorldTest");
+                    Debug.Log("You have returned to the main world and completed " + levelName);
+                    PrintLevelCompletionStatistics();
+                    if (isPlaying)
+                    {
+                        WriteCSV();
+                    }
                 }
             }
         }
@@ -172,114 +177,157 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainWorldTest")
         {
-            //LEVEL ONE HIGH SCORES
-            GameObject.FindGameObjectWithTag("LevelOneTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["GetToEndTest"];
 
-            if (levelCombo["GetToEndTest"] <= 0)
+            //LEVEL ONE HIGH SCORES
+            if (levelCompletionTimes.ContainsKey("GetToEndTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "";
-            } else if (levelCombo["GetToEndTest"] <= 100)
+                GameObject.FindGameObjectWithTag("LevelOneTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["GetToEndTest"];
+            }
+            //GameObject.FindGameObjectWithTag("LevelOneTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["GetToEndTest"];
+
+            if (levelCombo.ContainsKey("GetToEndTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Deputy";
-            } else if (levelCombo["GetToEndTest"] > 100 && levelCombo["GetToEndTest"] <= 250)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
-            } else if (levelCombo["GetToEndTest"] > 250 && levelCombo["GetToEndTest"] <= 450)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
-            } else if (levelCombo["GetToEndTest"] > 450 && levelCombo["GetToEndTest"] <= 700)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Hero";
-            } else if (levelCombo["GetToEndTest"] > 700 && levelCombo["GetToEndTest"] <= 1000)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Legend";
-            } else if (levelCombo["GetToEndTest"] > 1000 && levelCombo["GetToEndTest"] <= 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Myth";
-            } else if (levelCombo["GetToEndTest"] > 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                if (levelCombo["GetToEndTest"] <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "";
+                }
+                else if (levelCombo["GetToEndTest"] <= 100)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Deputy";
+                }
+                else if (levelCombo["GetToEndTest"] > 100 && levelCombo["GetToEndTest"] <= 250)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
+                }
+                else if (levelCombo["GetToEndTest"] > 250 && levelCombo["GetToEndTest"] <= 450)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
+                }
+                else if (levelCombo["GetToEndTest"] > 450 && levelCombo["GetToEndTest"] <= 700)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Hero";
+                }
+                else if (levelCombo["GetToEndTest"] > 700 && levelCombo["GetToEndTest"] <= 1000)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Legend";
+                }
+                else if (levelCombo["GetToEndTest"] > 1000 && levelCombo["GetToEndTest"] <= 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Myth";
+                }
+                else if (levelCombo["GetToEndTest"] > 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelOneRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                }
             }
 
-            GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["GetToEndTest"];
+            if (levelTotalEnemiesRemaining.ContainsKey("GetToEndTest"))
+            {
+                GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["GetToEndTest"];
+            }
+            //GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["GetToEndTest"];
 
             //LEVEL TWO HIGH SCORES
 
-            GameObject.FindGameObjectWithTag("LevelTwoTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelKillTest"];
-
-            if (levelCombo["LevelKillTest"] <= 0)
+            if (levelCompletionTimes.ContainsKey("LevelKillTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "";
-            }
-            else if (levelCombo["LevelKillTest"] <= 100)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Deputy";
-            }
-            else if (levelCombo["LevelKillTest"] > 100 && levelCombo["LevelKillTest"] <= 250)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
-            }
-            else if (levelCombo["LevelKillTest"] > 250 && levelCombo["LevelKillTest"] <= 450)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
-            }
-            else if (levelCombo["LevelKillTest"] > 450 && levelCombo["LevelKillTest"] <= 700)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Hero";
-            }
-            else if (levelCombo["LevelKillTest"] > 700 && levelCombo["LevelKillTest"] <= 1000)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Legend";
-            }
-            else if (levelCombo["LevelKillTest"] > 1000 && levelCombo["LevelKillTest"] <= 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Myth";
-            }
-            else if (levelCombo["LevelKillTest"] > 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                GameObject.FindGameObjectWithTag("LevelTwoTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelKillTest"];
             }
 
-            GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelKillTest"];
+            //GameObject.FindGameObjectWithTag("LevelTwoTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelKillTest"];
+
+            if (levelCombo.ContainsKey("LevelKillTest"))
+            {
+                if (levelCombo["LevelKillTest"] <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "";
+                }
+                else if (levelCombo["LevelKillTest"] <= 100)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Deputy";
+                }
+                else if (levelCombo["LevelKillTest"] > 100 && levelCombo["LevelKillTest"] <= 250)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
+                }
+                else if (levelCombo["LevelKillTest"] > 250 && levelCombo["LevelKillTest"] <= 450)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
+                }
+                else if (levelCombo["LevelKillTest"] > 450 && levelCombo["LevelKillTest"] <= 700)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Hero";
+                }
+                else if (levelCombo["LevelKillTest"] > 700 && levelCombo["LevelKillTest"] <= 1000)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Legend";
+                }
+                else if (levelCombo["LevelKillTest"] > 1000 && levelCombo["LevelKillTest"] <= 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Myth";
+                }
+                else if (levelCombo["LevelKillTest"] > 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelTwoRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                }
+            }
+
+            if (levelTotalEnemiesRemaining.ContainsKey("LevelKillTest"))
+            {
+                GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelKillTest"];
+            }
+            //GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelKillTest"];
 
             //LEVEL THREE HIGH SCORES
 
-            GameObject.FindGameObjectWithTag("LevelThreeTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelHeistTest"];
-
-            if (levelCombo["LevelHeistTest"] <= 0)
+            if (levelCompletionTimes.ContainsKey("LevelHeistTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "";
-            }
-            else if (levelCombo["LevelHeistTest"] <= 100)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Deputy";
-            }
-            else if (levelCombo["LevelHeistTest"] > 100 && levelCombo["LevelHeistTest"] <= 250)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
-            }
-            else if (levelCombo["LevelHeistTest"] > 250 && levelCombo["LevelHeistTest"] <= 450)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
-            }
-            else if (levelCombo["LevelHeistTest"] > 450 && levelCombo["LevelHeistTest"] <= 700)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Hero";
-            }
-            else if (levelCombo["LevelHeistTest"] > 700 && levelCombo["LevelHeistTest"] <= 1000)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Legend";
-            }
-            else if (levelCombo["LevelHeistTest"] > 1000 && levelCombo["LevelHeistTest"] <= 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Myth";
-            }
-            else if (levelCombo["LevelHeistTest"] > 1500)
-            {
-                GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                GameObject.FindGameObjectWithTag("LevelThreeTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelHeistTest"];
             }
 
-            GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelHeistTest"];
+            //GameObject.FindGameObjectWithTag("LevelThreeTime").GetComponent<Text>().text = "Time: " + levelCompletionTimes["LevelHeistTest"];
+
+            if (levelCombo.ContainsKey("LevelHeistTest"))
+            {
+                if (levelCombo["LevelHeistTest"] <= 0)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "";
+                }
+                else if (levelCombo["LevelHeistTest"] <= 100)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Deputy";
+                }
+                else if (levelCombo["LevelHeistTest"] > 100 && levelCombo["LevelHeistTest"] <= 250)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Sheriff";
+                }
+                else if (levelCombo["LevelHeistTest"] > 250 && levelCombo["LevelHeistTest"] <= 450)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Vigilante";
+                }
+                else if (levelCombo["LevelHeistTest"] > 450 && levelCombo["LevelHeistTest"] <= 700)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Hero";
+                }
+                else if (levelCombo["LevelHeistTest"] > 700 && levelCombo["LevelHeistTest"] <= 1000)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Legend";
+                }
+                else if (levelCombo["LevelHeistTest"] > 1000 && levelCombo["LevelHeistTest"] <= 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Myth";
+                }
+                else if (levelCombo["LevelHeistTest"] > 1500)
+                {
+                    GameObject.FindGameObjectWithTag("LevelThreeRank").GetComponent<Text>().text = "Rank: " + "Myth+";
+                }
+            }
+
+            if (levelTotalEnemiesRemaining.ContainsKey("LevelHeistTest"))
+            {
+                GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelHeistTest"];
+            }
+            //GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelHeistTest"];
         }
 
     }
@@ -307,31 +355,60 @@ public class GameManager : MonoBehaviour
         if (!levelCompletionTimes.ContainsKey(levelName))
         {
             levelCompletionTimes.Add(levelName, Time.timeSinceLevelLoad);
-            levelTotalEnemiesRemaining.Add(levelName, totalEnemiesRemaining);
-            levelCombo.Add(levelName, combo);
+            //levelTotalEnemiesRemaining.Add(levelName, totalEnemiesRemaining);
+            //levelCombo.Add(levelName, combo);
         }
         else
         {
             float previousCompletionTime = levelCompletionTimes[levelName];
             float newCompletionTime = Time.timeSinceLevelLoad;
 
-            if (newCompletionTime < previousCompletionTime)
+            if (newCompletionTime < previousCompletionTime || previousCompletionTime == float.NaN)
             {
                 levelCompletionTimes[levelName] = newCompletionTime;
             }
 
+            //float previousTotalEnemiesRemaining = levelTotalEnemiesRemaining[levelName];
+            //float newTotalEnemiesRemaining = totalEnemiesRemaining;
+
+            //if (newTotalEnemiesRemaining < previousTotalEnemiesRemaining || previousTotalEnemiesRemaining == float.NaN)
+            //{
+            //    levelTotalEnemiesRemaining[levelName] = newTotalEnemiesRemaining;
+            //}
+
+            //float previousLevelCombo = levelCombo[levelName];
+            //float newLevelCombo = combo;
+
+            //if (previousLevelCombo < newLevelCombo || previousLevelCombo == float.NaN)
+            //{
+            //    levelCombo[levelName] = newLevelCombo;
+            //}
+        }
+
+        if (!levelTotalEnemiesRemaining.ContainsKey(levelName))
+        {
+            levelTotalEnemiesRemaining.Add(levelName, totalEnemiesRemaining);
+        } else
+        {
             float previousTotalEnemiesRemaining = levelTotalEnemiesRemaining[levelName];
             float newTotalEnemiesRemaining = totalEnemiesRemaining;
 
-            if (newTotalEnemiesRemaining < previousTotalEnemiesRemaining)
+            if (newTotalEnemiesRemaining < previousTotalEnemiesRemaining || previousTotalEnemiesRemaining == float.NaN)
             {
                 levelTotalEnemiesRemaining[levelName] = newTotalEnemiesRemaining;
             }
+        }
 
+        if (!levelCombo.ContainsKey(levelName))
+        {
+            levelCombo.Add(levelName, combo);
+        }
+        else
+        {
             float previousLevelCombo = levelCombo[levelName];
             float newLevelCombo = combo;
 
-            if (previousLevelCombo < newLevelCombo)
+            if (previousLevelCombo < newLevelCombo || previousLevelCombo == float.NaN)
             {
                 levelCombo[levelName] = newLevelCombo;
             }

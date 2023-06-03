@@ -149,12 +149,12 @@ public class userInterface : MonoBehaviour
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank6;
         }
         //myth
-        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000 && player.GetComponent<styleScriptTwo>().styleAmount <= 20000)
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000 && player.GetComponent<styleScriptTwo>().styleAmount <= 1500)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank7;
         }
         //myth+
-        if (player.GetComponent<styleScriptTwo>().styleAmount > 20000)
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 1500)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank8;
         }

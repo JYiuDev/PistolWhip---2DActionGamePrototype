@@ -30,6 +30,7 @@ TagManager:
   - LevelThreeTime
   - LevelThreeRank
   - LevelThreeKills
+  - Spawner
   layers:
   - Default
   - TransparentFX
