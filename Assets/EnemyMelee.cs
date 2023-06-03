@@ -7,6 +7,7 @@ public class EnemyMelee : MonoBehaviour
     //Status
     [SerializeField] private float visualRange;
     [SerializeField]private Transform player;
+    [SerializeField] private LayerMask obstacleLayer;
     
     //Detection
     private Detection detection;
@@ -41,8 +42,8 @@ public class EnemyMelee : MonoBehaviour
     private Rigidbody2D rb;
     private styleScriptTwo style;
     private State previousState;
-
     [SerializeField] private Transform weaponPos;
+    [SerializeField] private bool chase= false;
 
     void Awake()
     {
@@ -202,7 +203,17 @@ public class EnemyMelee : MonoBehaviour
 
     public void EnhancedDetectionCheck()
     {
-        
+        Vector2 targetDir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, visualRange * 2.5f, obstacleLayer);
+        if(hit)
+        {
+            if(hit.transform.CompareTag("Player"))
+            {
+                path.target = player;
+                timer = searchTime;
+                state = State.alert;
+                return;
+            }
+        }
     }
-
 }

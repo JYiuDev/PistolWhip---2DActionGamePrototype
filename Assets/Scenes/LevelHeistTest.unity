@@ -21305,6 +21305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 284292560}
     m_Modifications:
+    - target: {fileID: 2031596348218337144, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+      propertyPath: visionRender
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
       propertyPath: m_Name
       value: EnemyRanged (11)
@@ -25332,8 +25336,8 @@ Transform:
   - {fileID: 1571699314}
   - {fileID: 1994377893}
   - {fileID: 650938074}
-  - {fileID: 1962665019}
   - {fileID: 1265647423}
+  - {fileID: 1962665019}
   - {fileID: 160590614}
   - {fileID: 65675766}
   - {fileID: 1065359005}

@@ -48,6 +48,14 @@ public class EnemyHP : MonoBehaviour
         animator.Play("Base Layer.EnemyHurt", 0, 0);
         Color c = Color.Lerp(endColor, startColor, (hp)/maxhp);
         sprite.color = c;
+
+        if(GetComponent<EnemyMelee>())
+        {
+            GetComponent<EnemyMelee>().EnhancedDetectionCheck();
+        } else if (GetComponent<EnemyRanged>())
+        {
+            GetComponent<EnemyRanged>().EnhancedDetectionCheck();
+        }
     }
 
     private void Die()

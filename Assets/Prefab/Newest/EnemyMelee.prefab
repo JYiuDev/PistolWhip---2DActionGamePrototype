@@ -444,6 +444,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualRange: 4
   player: {fileID: 0}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 72
   state: 0
   timer: 0
   aimTime: 0.4
@@ -454,6 +457,7 @@ MonoBehaviour:
   weaponHeld: {fileID: 0}
   visionRender: 0
   weaponPos: {fileID: 5232347153517432379}
+  chase: 0
 --- !u!114 &5232347155277403355
 MonoBehaviour:
   m_ObjectHideFlags: 0

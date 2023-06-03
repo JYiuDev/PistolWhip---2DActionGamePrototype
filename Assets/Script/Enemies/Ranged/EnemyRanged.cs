@@ -6,6 +6,7 @@ public class EnemyRanged : MonoBehaviour
 {
     //Status
     [SerializeField] private float visualRange;
+    [SerializeField] private LayerMask obstacleLayer;
     private Transform player;
     
     //Detection
@@ -302,6 +303,21 @@ public class EnemyRanged : MonoBehaviour
     public State GetState()
     {
         return state;
+    }
+    public void EnhancedDetectionCheck()
+    {
+        Vector2 targetDir = (player.position - transform.position).normalized;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, visualRange * 2.5f, obstacleLayer);
+        if(hit)
+        {
+            if(hit.transform.CompareTag("Player"))
+            {
+                path.target = player;
+                timer = searchTime;
+                state = State.alert;
+                return;
+            }
+        }
     }
 
 }

@@ -565,6 +565,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualRange: 5.5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 72
   state: 0
   timer: 0
   aimTime: 1.5
