@@ -21,6 +21,16 @@ TagManager:
   - GameManager
   - UserInterface
   - Knife
+  - LevelOneTime
+  - LevelOneRank
+  - LevelOneKills
+  - LevelTwoTime
+  - LevelTwoRank
+  - LevelTwoKills
+  - LevelThreeTime
+  - LevelThreeRank
+  - LevelThreeKills
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class styleScriptTwo : MonoBehaviour
         styleDecay = 0f;
         multikillTimer = 0f;
         multikillCount = 0;
-        hasAdrenaline = true;
+        hasAdrenaline = false;
         hasDied = false;
     }
 
@@ -81,13 +81,13 @@ public class styleScriptTwo : MonoBehaviour
             styleDecay = 32.5f;
             adrenalineGain = 13;
         }
-        else if (styleAmount > 1000 && styleAmount <= 20000)
+        else if (styleAmount > 1000 && styleAmount <= 1500)
         {
             rankTitle = "Myth";
             styleDecay = 50f;
             adrenalineGain = 21;
         } 
-        else if (styleAmount > 20000)
+        else if (styleAmount > 1500)
         {
             rankTitle = "Myth+";
             styleDecay = 100f;
@@ -114,7 +114,7 @@ public class styleScriptTwo : MonoBehaviour
         if (multikillCount == 2)
             styleAmount += 50f;
         else if (multikillCount == 3)
-            styleAmount += 100;
+            styleAmount += 100f;
         else if (multikillCount >= 4)
             styleAmount += 150f;
     }
@@ -157,8 +157,7 @@ public class styleScriptTwo : MonoBehaviour
             Debug.Log("You have died, please try complete the level again!");
             extraHitCount = 0;
 
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().LevelComplete();
-            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
+            //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
             {
                 GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();

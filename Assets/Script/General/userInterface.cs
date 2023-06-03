@@ -49,6 +49,7 @@ public class userInterface : MonoBehaviour
     public Sprite gunWith6;
     public Sprite bottleEquipped;
     public Sprite shieldEquipped;
+    public Sprite knifeEquipped;
 
     public Sprite levelOne;
     public Sprite levelTwo;
@@ -111,6 +112,11 @@ public class userInterface : MonoBehaviour
             this.transform.GetChild(0).GetComponent<Image>().sprite = shieldEquipped;
         }
 
+        if (weaponPosObject != null && weaponPosObject.transform.childCount > 0 && weaponPosObject.transform.GetChild(0).CompareTag("Knife"))
+        {
+            this.transform.GetChild(0).GetComponent<Image>().sprite = knifeEquipped;
+        }
+
         //RANK UI
         //none
         if (player.GetComponent<styleScriptTwo>().styleAmount == 0)
@@ -143,12 +149,12 @@ public class userInterface : MonoBehaviour
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank6;
         }
         //myth
-        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000 && player.GetComponent<styleScriptTwo>().styleAmount <= 20000)
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 1000 && player.GetComponent<styleScriptTwo>().styleAmount <= 1500)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank7;
         }
         //myth+
-        if (player.GetComponent<styleScriptTwo>().styleAmount > 20000)
+        if (player.GetComponent<styleScriptTwo>().styleAmount > 1500)
         {
             this.transform.GetChild(1).GetComponent<Image>().sprite = rank8;
         }
