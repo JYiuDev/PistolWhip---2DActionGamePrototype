@@ -11,7 +11,11 @@ public class Knife : WeaponClass
     //damage value enemy inflicts when weilding the knife
     //[SerializeField] public float meleeDamageEnemy = 1;
     [SerializeField] public Animator animator;
-    [SerializeField] private int durability;
+    [SerializeField] private float durability;
+    private float maxDurability;
+    [SerializeField] Color startColor;
+    [SerializeField] Color endColor;
+    [SerializeField] SpriteRenderer knifeSprite;
 
     public Knife()
     {
@@ -19,7 +23,7 @@ public class Knife : WeaponClass
     }
     
     private void Start(){
-
+        maxDurability = durability;
     }
 
     private void Udpate()
@@ -57,11 +61,20 @@ public class Knife : WeaponClass
 
     public override void EnemyAttack()
     {
-        Attack();
+        animator.SetTrigger("Attack");
     }
 
     public void useDurability(float n)
     {
-        durability --;
+        durability -= n;
+
+        if(durability <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Color c = Color.Lerp(endColor, startColor, durability/maxDurability);
+        knifeSprite.color = c;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class KnifeHitBox : MonoBehaviour
 {
     private float damage;
+    [SerializeField] Knife knife;
     void OnTriggerEnter2D(Collider2D collision)
     {
         int parentLayer = transform.parent.parent.gameObject.layer;
@@ -16,6 +17,7 @@ public class KnifeHitBox : MonoBehaviour
                 if (collision.gameObject.tag == "Enemy")
                 {
                     collision.GetComponent<EnemyHP>().takeDamage(transform.parent.GetComponent<Knife>().meleeDamagePlayer);
+                    knife.useDurability(1);
                 }
             break;
 

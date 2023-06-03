@@ -185,7 +185,10 @@ MonoBehaviour:
   thrownDamage: 1
   meleeDamagePlayer: 1
   animator: {fileID: 170152877637830070}
-  durability: 3
+  durability: 5
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 1, g: 0.49411768, b: 0, a: 1}
+  knifeSprite: {fileID: 170152878037142134}
 --- !u!114 &170152877637830066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,3 +382,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f6edd142842fd4690fc738f812a384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knife: {fileID: 0}
