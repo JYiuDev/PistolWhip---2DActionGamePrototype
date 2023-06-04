@@ -19,6 +19,7 @@ public class Knife : WeaponClass
     [SerializeField] Color startColor;
     [SerializeField] Color endColor;
     [SerializeField] float throwSpeed;
+    private AudioSource knifeSFX;
 
     public Knife()
     {
@@ -27,11 +28,8 @@ public class Knife : WeaponClass
     
     private void Start(){
         maxDurability = durability;
-        if(throwSpeed >= 0)
-        {
-            launchSpeed = throwSpeed;
-        }
-        
+        setThrowSpeed();
+        knifeSFX = GetComponent<AudioSource>();
     }
 
     private void Udpate()
@@ -52,11 +50,13 @@ public class Knife : WeaponClass
     public override void Throw()
     {
         throwItem.Launch(launchSpeed);
+        knifeSFX.Play();
     }
 
     public void Attack()
     {
         animator.SetTrigger("Attack");
+        knifeSFX.Play();
     }
     public override void ThrowInteractions(Collider2D collision)
     {
@@ -71,6 +71,7 @@ public class Knife : WeaponClass
     public override void EnemyAttack()
     {
         animator.SetTrigger("Attack");
+        knifeSFX.Play();
     }
 
     public void useDurability(float n)
@@ -90,5 +91,13 @@ public class Knife : WeaponClass
     public void calcDurability()
     {
         hitbox.calcDurability();
+    }
+
+    private void setThrowSpeed()
+    {
+        if(throwSpeed >= 0)
+        {
+            launchSpeed = throwSpeed;
+        }
     }
 }

@@ -9,15 +9,18 @@ public class Bottle : WeaponClass
     [SerializeField] private Sprite[] brokenSprites;
     [SerializeField] private float inflictStunDuration = 2;
     [SerializeField] private float brokenThrowDmg = 1;
+    [SerializeField] float throwSpeed;
     private SpriteRenderer spriteRenderer;
 
     public Bottle()
     {
         type = WeaponType.BOTTLE;
+        
     }
     
     private void Start(){
         spriteRenderer = GetComponent<SpriteRenderer>();
+        setThrowSpeed();
     }
 
     public override void LeftClick()
@@ -72,6 +75,14 @@ public class Bottle : WeaponClass
                 Destroy(gameObject);
             }
             
+        }
+    }
+
+    private void setThrowSpeed()
+    {
+        if(throwSpeed >= 0)
+        {
+            launchSpeed = throwSpeed;
         }
     }
 }

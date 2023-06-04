@@ -82,6 +82,7 @@ public class ThrownObj : MonoBehaviour
                 if(gameObject.tag == "Knife")
                 {
                     gameObject.GetComponent<Knife>().animator.Play("Base Layer.KnifeIdle", 0, 0);
+                    gameObject.GetComponent<AudioSource>().Play();
                 }
 
                 Launch(initSpeed);
