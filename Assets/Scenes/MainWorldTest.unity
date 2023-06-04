@@ -6320,8 +6320,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -408.28, y: -243.81}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -407.94272, y: -243.641}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899069461
 MonoBehaviour:
@@ -6356,7 +6356,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Linear Highscore
+  m_Text: 'Linear Highscore
+
+    Objective: Get To the End'
 --- !u!222 &899069462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7829,8 +7831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -408.19998, y: -249.28}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -407.87, y: -249.13}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431898326
 MonoBehaviour:
@@ -7865,7 +7867,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Heist Highscore
+  m_Text: 'Heist Highscore
+
+    Objective: Escape with Loot'
 --- !u!222 &1431898327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10932,8 +10936,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -395.05, y: -246.22}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -394.723, y: -246.05988}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803176202
 MonoBehaviour:
@@ -10968,7 +10972,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Standoff Highscore
+  m_Text: 'Standoff Highscore
+
+    Objective: Kill All Enemies'
 --- !u!222 &1803176203
 CanvasRenderer:
   m_ObjectHideFlags: 0
