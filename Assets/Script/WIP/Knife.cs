@@ -56,7 +56,6 @@ public class Knife : WeaponClass
     public void Attack()
     {
         animator.SetTrigger("Attack");
-        knifeSFX.Play();
     }
     public override void ThrowInteractions(Collider2D collision)
     {
@@ -71,7 +70,6 @@ public class Knife : WeaponClass
     public override void EnemyAttack()
     {
         animator.SetTrigger("Attack");
-        knifeSFX.Play();
     }
 
     public void useDurability(float n)

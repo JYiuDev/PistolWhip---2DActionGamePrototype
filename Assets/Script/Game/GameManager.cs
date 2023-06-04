@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
                 PrintLevelCompletionStatistics();
                 if (isPlaying)
                 {
-                    WriteCSV();
+                    //WriteCSV();
                 }
             }
         }
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
                     PrintLevelCompletionStatistics();
                     if (isPlaying)
                     {
-                        WriteCSV();
+                        //WriteCSV();
                     }
                 }
             }
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
                 PrintLevelCompletionStatistics();
                 if (isPlaying)
                 {
-                    WriteCSV();
+                    //WriteCSV();
                 }
             }
         }

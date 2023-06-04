@@ -158,7 +158,7 @@ public class styleScriptTwo : MonoBehaviour
             //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
             if (GameObject.FindWithTag("GameManager").GetComponent<GameManager>().isPlaying == true)
             {
-                GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
+                //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().WriteCSV();
             }
 
             SceneReload();
