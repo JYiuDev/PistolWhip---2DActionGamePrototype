@@ -169,7 +169,7 @@ public class WhipPullClick : MonoBehaviour
                     grappleRope.enabled = true;
                     state = State.extend;
 
-                    Debug.Log("You used the whip at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
+                    //Debug.Log("You used the whip at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
                 }
             }
         }
@@ -197,17 +197,17 @@ public class WhipPullClick : MonoBehaviour
         if (pulledObj.CompareTag("Gun"))
             {
                 gunCount++;
-                Debug.Log("Gun picked up! Count: " + gunCount);
+                //Debug.Log("Gun picked up! Count: " + gunCount);
             }
             else if (pulledObj.CompareTag("Bottle"))
             {
                 bottleCount++;
-                Debug.Log("Bottle picked up! Count: " + bottleCount);
+                //Debug.Log("Bottle picked up! Count: " + bottleCount);
             }
             else if (pulledObj.CompareTag("Shield"))
             {
                 shieldCount++;
-                Debug.Log("Shield picked up! Count: " + shieldCount);
+                //Debug.Log("Shield picked up! Count: " + shieldCount);
             }
     }
 }

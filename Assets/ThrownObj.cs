@@ -77,7 +77,7 @@ public class ThrownObj : MonoBehaviour
 
                 Transform child = weaponObjName.transform.GetChild(0);
 
-                Debug.Log("You threw the " + child.name + " at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
+                //Debug.Log("You threw the " + child.name + " at " + GameObject.FindWithTag("Player").transform.position.x + ", " + GameObject.FindWithTag("Player").transform.position.y + ".");
                 
                 if(gameObject.tag == "Knife")
                 {
