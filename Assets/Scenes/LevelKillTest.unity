@@ -4483,8 +4483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713138da01bd6aa4f899866dbec501ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab1: {fileID: 5232347155277403357, guid: e7287f26b7289354caa510043678664d, type: 3}
-  enemyPrefab2: {fileID: 5115935035414672337, guid: 35619db89bf6aa34bb884eaa1052b1ae, type: 3}
+  enemyPrefab1: {fileID: 6794703334689998494, guid: 89959fbe295d248499d3a42ad76f80dd, type: 3}
+  enemyPrefab2: {fileID: 6198637655588093651, guid: 55ffe88db73ea2747b32676e2afa47f0, type: 3}
   spawnLocations:
   - {fileID: 1294773089}
   - {fileID: 1058684081}
