@@ -18,6 +18,7 @@ public class Knife : WeaponClass
     private float maxDurability;
     [SerializeField] Color startColor;
     [SerializeField] Color endColor;
+    [SerializeField] float throwSpeed;
 
     public Knife()
     {
@@ -26,6 +27,11 @@ public class Knife : WeaponClass
     
     private void Start(){
         maxDurability = durability;
+        if(throwSpeed >= 0)
+        {
+            launchSpeed = throwSpeed;
+        }
+        
     }
 
     private void Udpate()

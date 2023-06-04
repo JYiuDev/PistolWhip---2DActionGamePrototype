@@ -216,6 +216,7 @@ MonoBehaviour:
   firePoint: {fileID: 2973205365061258448}
   bulletSpeed: 15
   bulletCount: 3
+  destroyTime: 3
   outOfBullets: {fileID: 21300000, guid: 991820d140d37ea41ab11e45aa0c5424, type: 3}
 --- !u!82 &1858979593064969795
 AudioSource:

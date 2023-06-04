@@ -192,6 +192,7 @@ MonoBehaviour:
   durability: 5
   startColor: {r: 1, g: 1, b: 1, a: 1}
   endColor: {r: 1, g: 0.49411768, b: 0, a: 1}
+  throwSpeed: 20
 --- !u!114 &170152877637830066
 MonoBehaviour:
   m_ObjectHideFlags: 0

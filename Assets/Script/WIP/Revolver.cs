@@ -8,7 +8,8 @@ public class Revolver : WeaponClass
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed;
     [SerializeField] public int bulletCount = 6;
-    [SerializeField] private float destroyTimer;
+    [SerializeField] private float destroyTime;
+    [SerializeField] private float timer;
     private AudioSource gunSound;
     //[SerializeField] private float initialThrownSpd = 8;
 
@@ -16,6 +17,7 @@ public class Revolver : WeaponClass
 
     private void Start(){
         gunSound = GetComponent<AudioSource>();
+        timer = destroyTime;
     }
     private void Update()
     {
@@ -23,6 +25,11 @@ public class Revolver : WeaponClass
         {
             this.transform.GetComponent<SpriteRenderer>().sprite = outOfBullets;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        DestroyOnCount();
     }
 
     public Revolver()
@@ -63,9 +70,16 @@ public class Revolver : WeaponClass
 
     private void DestroyOnCount()
     {
-        if(bulletCount<=0 && (transform.parent == null))
+        if(bulletCount <=0 && (transform.parent == null) && (rb.velocity == Vector2.zero))
         {
+            timer -= Time.fixedDeltaTime;
+            if(timer <= 0){
+                Destroy(gameObject);
+            }
 
+        } else
+        {
+            timer = destroyTime;
         }
     }
 }
