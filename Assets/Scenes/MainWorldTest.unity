@@ -6295,7 +6295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1 Highscore
+  m_Text: Linear Highscore
 --- !u!222 &899069462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7804,7 +7804,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 3 Highscore
+  m_Text: Heist Highscore
 --- !u!222 &1431898327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10907,7 +10907,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 2 Highscore
+  m_Text: Standoff Highscore
 --- !u!222 &1803176203
 CanvasRenderer:
   m_ObjectHideFlags: 0
