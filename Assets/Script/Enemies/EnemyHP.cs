@@ -27,6 +27,7 @@ public class EnemyHP : MonoBehaviour
             {
                 // Enemy is dead
                 Die();
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CountDeaths();
             }
             else
             {

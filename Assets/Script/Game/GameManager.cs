@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         totalEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        enemyDeaths = 0;
     }
 
     private void OnDisable()
@@ -169,6 +170,11 @@ public class GameManager : MonoBehaviour
             CheckInteractionWithLevelEndObjects();
         }
 
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            SceneManager.LoadScene("MainWorldTest");
+        }
+
         totalEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
         combo = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().styleAmount;
         extrahits = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().extraHitCount;
@@ -223,7 +229,7 @@ public class GameManager : MonoBehaviour
 
             if (levelTotalEnemiesRemaining.ContainsKey("GetToEndTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["GetToEndTest"];
+                GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Total Kills: " + levelTotalKills["GetToEndTest"];
             }
             //GameObject.FindGameObjectWithTag("LevelOneKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["GetToEndTest"];
 
@@ -274,7 +280,7 @@ public class GameManager : MonoBehaviour
 
             if (levelTotalEnemiesRemaining.ContainsKey("LevelKillTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelKillTest"];
+                GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Total Kills: " + levelTotalKills["LevelKillTest"];
             }
             //GameObject.FindGameObjectWithTag("LevelTwoKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelKillTest"];
 
@@ -325,7 +331,7 @@ public class GameManager : MonoBehaviour
 
             if (levelTotalEnemiesRemaining.ContainsKey("LevelHeistTest"))
             {
-                GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelHeistTest"];
+                GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Total Kills: " + levelTotalKills["LevelHeistTest"];
             }
             //GameObject.FindGameObjectWithTag("LevelThreeKills").GetComponent<Text>().text = "Remaining Enemies: " + levelTotalEnemiesRemaining["LevelHeistTest"];
         }
@@ -335,6 +341,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, float> levelCompletionTimes = new Dictionary<string, float>();
     private Dictionary<string, float> levelTotalEnemiesRemaining = new Dictionary<string, float>();
     private Dictionary<string, float> levelCombo = new Dictionary<string, float>();
+    private Dictionary<string, float> levelTotalKills = new Dictionary<string, float>();
     float combo;
     bool died;
     string rank;
@@ -346,7 +353,14 @@ public class GameManager : MonoBehaviour
     float totalGunsUsed;
     float xOnDeath;
     float yOnDeath;
-    
+    public float enemyDeaths;
+
+    public void CountDeaths()
+    {
+        enemyDeaths++;
+        Debug.Log("Enemy Deaths: " + enemyDeaths);
+    }
+
 
     public void LevelComplete()
     {
@@ -357,13 +371,14 @@ public class GameManager : MonoBehaviour
             levelCompletionTimes.Add(levelName, Time.timeSinceLevelLoad);
             //levelTotalEnemiesRemaining.Add(levelName, totalEnemiesRemaining);
             //levelCombo.Add(levelName, combo);
+            //levelTotalKills.Add(levelName, enemyDeaths);
         }
         else
         {
             float previousCompletionTime = levelCompletionTimes[levelName];
             float newCompletionTime = Time.timeSinceLevelLoad;
 
-            if (newCompletionTime < previousCompletionTime || previousCompletionTime == float.NaN)
+            if (newCompletionTime < previousCompletionTime)
             {
                 levelCompletionTimes[levelName] = newCompletionTime;
             }
@@ -392,8 +407,8 @@ public class GameManager : MonoBehaviour
         {
             float previousTotalEnemiesRemaining = levelTotalEnemiesRemaining[levelName];
             float newTotalEnemiesRemaining = totalEnemiesRemaining;
-
-            if (newTotalEnemiesRemaining < previousTotalEnemiesRemaining || previousTotalEnemiesRemaining == float.NaN)
+       
+            if (newTotalEnemiesRemaining <= previousTotalEnemiesRemaining) //Nan
             {
                 levelTotalEnemiesRemaining[levelName] = newTotalEnemiesRemaining;
             }
@@ -407,10 +422,24 @@ public class GameManager : MonoBehaviour
         {
             float previousLevelCombo = levelCombo[levelName];
             float newLevelCombo = combo;
-
-            if (previousLevelCombo < newLevelCombo || previousLevelCombo == float.NaN)
+        
+            if (previousLevelCombo <= newLevelCombo)
             {
                 levelCombo[levelName] = newLevelCombo;
+            }
+        }
+
+        if (!levelTotalKills.ContainsKey(levelName))
+        {
+            levelTotalKills.Add(levelName, enemyDeaths);
+        } else
+        {
+            float previousTotalKills = levelTotalKills[levelName];
+            float newTotalKills = enemyDeaths;
+        
+            if (previousTotalKills <= newTotalKills)
+            {
+                levelTotalKills[levelName] = newTotalKills;
             }
         }
 
