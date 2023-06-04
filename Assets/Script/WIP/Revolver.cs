@@ -8,10 +8,15 @@ public class Revolver : WeaponClass
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed;
     [SerializeField] public int bulletCount = 6;
+    [SerializeField] private float destroyTimer;
+    private AudioSource gunSound;
     //[SerializeField] private float initialThrownSpd = 8;
 
     public Sprite outOfBullets;
 
+    private void Start(){
+        gunSound = GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (bulletCount == 0)
@@ -49,9 +54,18 @@ public class Revolver : WeaponClass
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
             bullet.GetComponent<BulletMove>().SetBulletSpeed(bulletSpeed);
+            gunSound.Play();
             bulletCount--;
         } else{
             Throw();
+        }
+    }
+
+    private void DestroyOnCount()
+    {
+        if(bulletCount<=0 && (transform.parent == null))
+        {
+
         }
     }
 }

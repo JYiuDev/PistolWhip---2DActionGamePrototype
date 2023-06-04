@@ -43,7 +43,7 @@ public class EnemyMelee : MonoBehaviour
     private styleScriptTwo style;
     private State previousState;
     [SerializeField] private Transform weaponPos;
-    [SerializeField] private bool chase= false;
+    [SerializeField] private bool chaseOnSpawn= false;
 
     void Awake()
     {
@@ -67,6 +67,14 @@ public class EnemyMelee : MonoBehaviour
         if(visionRender)
         {
             circleRenderer.setToggle(true);
+        }
+
+        if(chaseOnSpawn)
+        {
+            path.target = player;
+            timer = searchTime;
+            state = State.alert;
+            return;
         }
     }
 

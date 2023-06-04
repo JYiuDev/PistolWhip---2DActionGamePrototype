@@ -46,6 +46,8 @@ public class EnemyRanged : MonoBehaviour
 
     private styleScriptTwo style;
     private State previousState;
+    [SerializeField] private bool chaseOnSpawn= false;
+    private AudioSource gunSound;
 
     void Awake()
     {
@@ -57,6 +59,7 @@ public class EnemyRanged : MonoBehaviour
         path = GetComponent<EnemyPath>();
         rb = GetComponent<Rigidbody2D>();
         style = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>();
+        gunSound = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -70,6 +73,13 @@ public class EnemyRanged : MonoBehaviour
         if(visionRender)
         {
             circleRenderer.setToggle(true);
+        }
+        if(chaseOnSpawn)
+        {
+            path.target = player;
+            timer = searchTime;
+            state = State.alert;
+            return;
         }
     }
 
@@ -131,6 +141,7 @@ public class EnemyRanged : MonoBehaviour
                 if(timer <= 0)
                 {
                     weapon.ShootBullet();
+                    gunSound.Play();
                     timer = aimTime;
                 }
 
