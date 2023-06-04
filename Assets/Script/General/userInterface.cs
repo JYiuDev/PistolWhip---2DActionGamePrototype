@@ -176,12 +176,12 @@ public class userInterface : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "LevelKillTest")
         {
-            this.transform.GetChild(2).GetComponent<Image>().sprite = levelThree;
+            this.transform.GetChild(2).GetComponent<Image>().sprite = levelTwo;
         }
 
         if (SceneManager.GetActiveScene().name == "LevelHeistTest")
         {
-            this.transform.GetChild(2).GetComponent<Image>().sprite = levelTwo;
+            this.transform.GetChild(2).GetComponent<Image>().sprite = levelThree;
         }
 
         //COMBO UI
