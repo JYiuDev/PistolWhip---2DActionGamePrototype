@@ -170,11 +170,6 @@ public class GameManager : MonoBehaviour
             CheckInteractionWithLevelEndObjects();
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SceneManager.LoadScene("MainWorldTest");
-        }
-
         totalEnemiesRemaining = GameObject.FindGameObjectsWithTag("Enemy").Length;
         combo = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().styleAmount;
         extrahits = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().extraHitCount;
@@ -360,6 +355,11 @@ public class GameManager : MonoBehaviour
         enemyDeaths++;
         Debug.Log("Enemy Deaths: " + enemyDeaths);
     }
+
+    //public void ReturnToMain()
+    //{
+    //    SceneManager.LoadScene("MainWorldTest");
+    //}
 
 
     public void LevelComplete()
