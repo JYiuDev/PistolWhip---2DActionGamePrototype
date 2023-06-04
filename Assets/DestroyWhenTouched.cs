@@ -12,7 +12,6 @@ public class DestroyWhenTouched : MonoBehaviour
         {
             whip.whipInactive();
             Destroy(gameObject);
-            Debug.Log("Picked up");
         }
         
     }

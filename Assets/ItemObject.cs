@@ -19,6 +19,5 @@ public class ItemObject : MonoBehaviour
     void OnMouseOver()
     {
         render.color = Color.black ;
-        Debug.Log("over");
     }
 }

@@ -29,7 +29,7 @@ public class ReturnToWorld : MonoBehaviour
         if (Vector2.Distance(player.transform.position, transform.position) <= interactDistance)
         {
             SceneManager.LoadScene("LevelTest");
-            Debug.Log("You have returned to the main world");
+            //Debug.Log("You have returned to the main world");
         }
     }
 }

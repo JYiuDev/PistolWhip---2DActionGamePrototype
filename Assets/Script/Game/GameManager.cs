@@ -448,8 +448,7 @@ public class GameManager : MonoBehaviour
         died = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().hasDied;
         xOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().xCoord;
         yOnDeath = GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().yCoord;
-        Debug.Log("You have diiiiieeeeeeeddddddddd");
-        Debug.Log("You died at " + xOnDeath + "," + yOnDeath);
+        //Debug.Log("You died at " + xOnDeath + "," + yOnDeath);
 
     }
 

@@ -211,16 +211,19 @@ public class EnemyMelee : MonoBehaviour
 
     public void EnhancedDetectionCheck()
     {
-        Vector2 targetDir = (player.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, visualRange * 2.5f, obstacleLayer);
-        if(hit)
+        if(state != State.stunned)
         {
-            if(hit.transform.CompareTag("Player"))
+            Vector2 targetDir = (player.position - transform.position).normalized;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, visualRange * 2.5f, obstacleLayer);
+            if(hit)
             {
-                path.target = player;
-                timer = searchTime;
-                state = State.alert;
-                return;
+                if(hit.transform.CompareTag("Player"))
+                {
+                    path.target = player;
+                    timer = searchTime;
+                    state = State.alert;
+                    return;
+                }
             }
         }
     }

@@ -44,7 +44,7 @@ public class EnemyHP : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<styleScriptTwo>().doDamage(dmg);
 
-        Debug.Log("enemy took " + dmg + " damage");
+        //Debug.Log("enemy took " + dmg + " damage");
         animator.Play("Base Layer.EnemyHurt", 0, 0);
         Color c = Color.Lerp(endColor, startColor, (hp)/maxhp);
         sprite.color = c;

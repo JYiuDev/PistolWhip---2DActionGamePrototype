@@ -99,7 +99,6 @@ public class styleScriptTwo : MonoBehaviour
         {
             adrenalinePoints = 100;
             hasAdrenaline = true;
-            Debug.Log("Adrenaline has kicked in, you can take an extra hit!");
         } else
         {
             hasAdrenaline = false;
@@ -148,13 +147,12 @@ public class styleScriptTwo : MonoBehaviour
             adrenalinePoints = 0;
             styleAmount -= 200f;
             extraHitCount++;
-            Debug.Log("You've been hit, don't get hit again!");
         } else if (hasAdrenaline == false)
         {
             xCoord = GameObject.FindGameObjectWithTag("Player").transform.position.x;
             yCoord = GameObject.FindGameObjectWithTag("Player").transform.position.y;
             hasDied = true;
-            Debug.Log("You have died, please try complete the level again!");
+            //Debug.Log("You have died, please try complete the level again!");
             extraHitCount = 0;
 
             //GameObject.FindWithTag("GameManager").GetComponent<GameManager>().PrintLevelCompletionStatistics();
